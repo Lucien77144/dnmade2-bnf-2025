@@ -1,21 +1,18 @@
-*{
-
-    border: 1px solid red;
-}
 
 #zoom-book-end{
     width: 100%;
     height: 100vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow:hidden;
 }
 
 
 #zoom-book-end-container{
-
    width: 80%;
    height: 80%;
-    margin: auto;
-   overflow: hidden;
+   margin: auto;
    overflow-x: scroll;
    overflow-y: scroll;
 }
@@ -24,6 +21,25 @@
     width: 200%;
     overflow: hidden;
     touch-action: pan-x pan-y pinch-zoom;
-
+  
 }
 
+#zoom-book-end-preview{
+    position:absolute;
+    top:5%;
+    right:2%;
+    background-color: rgba(0, 0, 0, 0.497);
+    width:200px;
+    height:320px;
+    border-radius:20px;
+}
+
+#zoom-book-end-preview span{
+border:5px white solid;
+padding:20px 40px;
+}
+
+/* #zoom-book-end-container img:active{
+ transform:scale(2);
+ transition:transform 1s ease-in-out;
+} */
