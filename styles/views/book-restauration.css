@@ -1,0 +1,10 @@
+@import url('../reset.css');
+
+#view-book-restauration {
+    width: 100svw;
+    height: 100svh;
+
+    background-image: url('../../public/images/background-table-book.png');
+    background-position: center center;
+    background-size: cover;
+}
