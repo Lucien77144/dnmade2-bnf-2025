@@ -1,6 +1,7 @@
 *{
 
-    border: 1px solid red;
+   
+    background-color: black;
 }
 
 #zoom-book-end{
@@ -23,7 +24,8 @@
 #zoom-book-end-container img{
     width: 200%;
     overflow: hidden;
-    touch-action: pan-x pan-y pinch-zoom;
+    touch-action: manipulation ;
+
 
 }
 
