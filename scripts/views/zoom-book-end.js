@@ -1,6 +1,17 @@
 
 window.addEventListener("DOMContentLoaded",()=>{
 
+
+
+
+ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+ ScrollSmoother.create({
+    smooth: 1,
+    effects: true,
+
+  });
+
 const element=document.querySelector("#zoom-book-end-image")
 
     

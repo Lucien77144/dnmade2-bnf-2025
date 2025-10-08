@@ -1,7 +1,8 @@
-*{
 
-   
-    background-color: black;
+
+#zoom-book-end{
+    background-image: url(../../public/images/fond.png);
+
 }
 
 #zoom-book-end{
@@ -19,6 +20,7 @@
    overflow: hidden;
    overflow-x: scroll;
    overflow-y: scroll;
+   scrollbar-width: none;
 }
 
 #zoom-book-end-container img{
@@ -27,9 +29,11 @@
     touch-action: manipulation ;
 
 
+
 }
 
 h1{
     color: white;
+    font-size: 0.001px;
 }
 
