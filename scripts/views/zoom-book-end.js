@@ -1,7 +1,7 @@
 //import ScrollSmoother from "./gsap/umd/ScrollSmoother.js";
 //import ScrollTrigger from "./gsap/umd/ScrollTrigger.js";
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', (e) => {
   /*---------------------------------------------------
   -----------------------------------------------------
   
@@ -10,9 +10,12 @@ window.addEventListener('DOMContentLoaded', () => {
   -----------------------------------------------------
   -----------------------------------------------------*/
 
-  zoomInButton = document.getElementById('zoom-book-end-zoom-in-button')
-  zoomOutButton = document.getElementById('zoom-book-end-zoom-out-button')
-  zoomBookEndPhotoReliure = document.getElementById('zoom-book-end-image')
+  e.preventDefault();
+
+
+  let zoomInButton = document.getElementById('zoom-book-end-zoom-in-button')
+  let zoomOutButton = document.getElementById('zoom-book-end-zoom-out-button')
+  let zoomBookEndPhotoReliure = document.getElementById('zoom-book-end-image')
   let zoomIndex = 0
 
   const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
@@ -31,9 +34,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
 
-window.addEventListener("DOMContentLoaded",(e)=>{
-
-e.preventDefault();
 
 
 
@@ -113,6 +113,10 @@ bookZoomEndContainer.addEventListener("touchend", () => {
     
     bookZoomPreview(touchX, touchY);
 } , { passive: true });  
+
+/* ------------------------------------
+BOUTONS ZOOM 
+------------------------------------ */
 
 function zoomOut() {
     console.log('zoomOut pressed')

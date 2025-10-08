@@ -1,25 +1,29 @@
-* {
-  border: 1px solid red;
-}
 
-<<<<<<< HEAD
+
 #zoom-book-end{
     width: 100%;
     height: 100vh;
-    display: flex;
+    background:url("../../public/images/fond.png");
+width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 
 
 #zoom-book-end-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   width: 100%;
-   height: 100%;
-    margin: auto;
-   overflow: auto;
-    scrollbar-width: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  overflow: auto;
+  scrollbar-width: none;
 }
 
 #zoom-book-end-container img{
@@ -63,39 +67,6 @@ z-index:105;
 border:5px white solid;
 width:100%;
 height:100%;
-=======
-#zoom-book-end {
-  background-image: url(../../public/images/fond.png);
-}
-
-#zoom-book-end {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-#zoom-book-end-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  overflow: auto;
-  scrollbar-width: none;
-}
-
-#zoom-book-end-container img {
-  width: 40%;
-  display: flex;
-
-  overflow: hidden;
-  touch-action: manipulation;
-  align-items: center;
 }
 
 #zoom-book-end-buttons {
@@ -123,26 +94,6 @@ height:100%;
 #zoom-book-end-plus-button:hover,
 #zoom-book-end-less-button:hover {
   background-color: red;
-}
-
-h1 {
-  color: white;
-  display: none;
-}
-
-#zoom-book-end-preview {
-  position: absolute;
-  top: 5%;
-  right: 2%;
-  border: 5% solid black;
-  background-color: rgba(0, 0, 0, 0.497);
-  border-radius: 20px;
-}
-
-#zoom-book-end-preview span {
-  border: 5px white solid;
-  padding: 20px 40px;
->>>>>>> 32804812fbe26b06c6f8561644da6b9e1fdc2050
 }
 
 /* #zoom-book-end-container img:active{
