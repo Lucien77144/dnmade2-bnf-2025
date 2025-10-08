@@ -11,30 +11,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
   -----------------------------------------------------*/
 
   e.preventDefault();
-
-
-  let zoomInButton = document.getElementById('zoom-book-end-zoom-in-button')
-  let zoomOutButton = document.getElementById('zoom-book-end-zoom-out-button')
-  let zoomBookEndPhotoReliure = document.getElementById('zoom-book-end-image')
-  let zoomIndex = 0
-
-  const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
-  function zoomIn() {
-    console.log('zoomIn pressed')
-
-    zoomBookEndPhotoReliure.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
-
-    if (zoomIndex === SCALE_SIZES.length - 1) {
-      // zoomIndex = 0
-    } else {
-      zoomIndex++
-    }
-
-    console.log(zoomIndex)
   }
-
-
-
+)
 
 
 /* ---------------------------------------------------------
@@ -118,6 +96,27 @@ bookZoomEndContainer.addEventListener("touchend", () => {
 BOUTONS ZOOM 
 ------------------------------------ */
 
+
+  let zoomInButton = document.getElementById('zoom-book-end-zoom-in-button')
+  let zoomOutButton = document.getElementById('zoom-book-end-zoom-out-button')
+  let zoomBookEndPhotoReliure = document.getElementById('zoom-book-end-image')
+  let zoomIndex = 0
+
+  const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
+  function zoomIn() {
+    console.log('zoomIn pressed')
+
+    zoomBookEndPhotoReliure.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
+
+    if (zoomIndex === SCALE_SIZES.length - 1) {
+      // zoomIndex = 0
+    } else {
+      zoomIndex++
+    }
+
+    console.log(zoomIndex)
+}
+
 function zoomOut() {
     console.log('zoomOut pressed')
     zoomIndex = zoomIndex - 1
@@ -128,4 +127,3 @@ function zoomOut() {
 
   zoomInButton.addEventListener('click', zoomIn)
   zoomOutButton.addEventListener('click', zoomOut)
-})
