@@ -3,13 +3,17 @@ const gemsList = document.querySelectorAll('.gems-list');
 
 function pageGameInit() {
 
+  const targetPosition = [
+    [100, 200]
+  ]
+
   let count = 0;
   gemsList.forEach((value, i) => {
     for (let j = 0; j < 3; j++) {
       //const element = array[i];
       const gemContent = document.createElement('div');
       gemContent.classList.add('gemContent')
-      gemContent.setAttribute('data-gemid', count);
+      gemContent.setAttribute('data-gemcontentid', count);
 
       const xButton = document.createElement('img');
       xButton.classList.add('xButton');
@@ -25,6 +29,7 @@ function pageGameInit() {
       gemImageDragable.src = imageUrl;
       gemImageGhost.src = imageUrl;
 
+      gemImageDragable.setAttribute('data-gemid', count);
       gemImageDragable.classList.add('gem-dragable', 'gem');
       gemImageGhost.classList.add('gem-ghost', 'gem');
 
@@ -33,11 +38,22 @@ function pageGameInit() {
 
       gemContent.appendChild(gemImages);
 
-      value.appendChild(gemContent)
+      value.appendChild(gemContent);
+
+
+      /* Init dragable zone position */
+
+      const pos = targetPosition[i];
+
+      const droppableZone = document.createElement('div');
+      droppableZone.setAttribute('data-droppable-for-gemid', i);
+      
+
 
       count++
     }
-  })
+  });
+
 }
 
 pageGameInit();
