@@ -38,6 +38,12 @@ window.addEventListener('DOMContentLoaded', (e) => {
     zoom(scale)
   }
 
+
+
+
+
+
+
   function zoomOut() {
     zoomIndex--
 
