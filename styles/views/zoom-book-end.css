@@ -16,21 +16,18 @@
 }
 
 #zoom-book-end-container {
-  width: 100vw;
-  height: 100vh;
   overflow: auto;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: safe center;
 }
 
 #zoom-book-end-image {
-  display: flex;
   width: 40vw;
   touch-action: manipulation;
   user-select: none;
-  transform-origin: center center;
-  transition: transform 0.3s ease;
 }
 
 #zoom-book-end-buttons {
