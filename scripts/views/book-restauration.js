@@ -1,10 +1,16 @@
 const viewBookRestauration = document.querySelector('section#view-book-restauration');
 const gemsList = document.querySelectorAll('.gems-list');
+const gameBook = document.querySelector('.game-book');
 
 function pageGameInit() {
 
   const targetPosition = [
-    [100, 200]
+    [100, 200],
+    [150, 250],
+    [200, 300],
+    [250, 350],
+    [300, 400],
+    [350, 450],
   ]
 
   let count = 0;
@@ -43,12 +49,14 @@ function pageGameInit() {
 
       /* Init dragable zone position */
 
-      const pos = targetPosition[i];
+      const pos = targetPosition[count];
 
       const droppableZone = document.createElement('div');
-      droppableZone.setAttribute('data-droppable-for-gemid', i);
-      
-
+      droppableZone.setAttribute('data-droppable-for-gemid', count);
+      droppableZone.classList.add('droppable-zone');
+      droppableZone.style.top = pos[1] + 'px';
+      droppableZone.style.left = pos[0] + 'px';
+      gameBook.appendChild(droppableZone);
 
       count++
     }

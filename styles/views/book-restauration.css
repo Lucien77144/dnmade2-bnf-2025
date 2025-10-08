@@ -30,12 +30,23 @@
     height: 1000px; */
     width: 70vmin;
     height: 90vmin;
+    position: relative;
 
     /* background-color: gold; */
     background-image: url('../../public/images/game/book-front-shadow.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
+
+    & .droppable-zone {
+        position: absolute;
+        width: 8vmin;
+        height: 8vmin;
+        border: 2px dashed rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        /* background-color: rgba(255, 255, 255, 0.2); */
+        /* pointer-events: none; */
+    }
 }
 
 .gemContent {
