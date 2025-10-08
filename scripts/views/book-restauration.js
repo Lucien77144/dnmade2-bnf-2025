@@ -13,6 +13,29 @@ function pageInit() {
       const gemContent = document.createElement('div');
       gemContent.classList.add('gemContent')
       gemContent.setAttribute('data-gemid', count);
+
+      const xButton = document.createElement('img');
+      xButton.classList.add('xButton');
+      xButton.src = '../../public/images/ui/info-button.svg';
+      gemContent.appendChild(xButton);
+
+      const gemImages = document.createElement('div');
+      const gemImageDragable = document.createElement('img');
+      const gemImageGhost = document.createElement('img');
+
+      //const imageUrl = `../../public/images/game/gems/gem-${count}.png`;
+      const imageUrl = `../../public/images/game/gems/gem-0.png`;
+      gemImageDragable.src = imageUrl;
+      gemImageGhost.src = imageUrl;
+
+      gemImageDragable.classList.add('gem-dragable', 'gem');
+      gemImageGhost.classList.add('gem-ghost', 'gem');
+
+      gemImages.appendChild(gemImageGhost);
+      gemImages.appendChild(gemImageDragable);
+
+      gemContent.appendChild(gemImages);
+
       value.appendChild(gemContent)
 
       count++

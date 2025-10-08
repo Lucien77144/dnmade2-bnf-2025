@@ -26,19 +26,51 @@
 }
 
 .game-book {
-    width: 600px;
-    height: 780px;
+    /* width: 800px;
+    height: 1000px; */
+    width: 70vmin;
+    height: 90vmin;
 
     /* background-color: gold; */
     background-image: url('../../public/images/game/book-front-shadow.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .gemContent {
+    position: relative;
     width: 100%;
     height: auto;
     aspect-ratio: 4 / 3;
-    background-color: brown;
+
+    & .xButton {
+        width: 40px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    & .gem {
+        width: auto;
+        height: 100%;
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+
+    & .gem-ghost  {
+        filter: grayscale(1);
+    }
+
+
+    
 }
+
+
 
 
 
