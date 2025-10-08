@@ -1,15 +1,5 @@
-//import ScrollSmoother from "./gsap/umd/ScrollSmoother.js";
-//import ScrollTrigger from "./gsap/umd/ScrollTrigger.js";
 
 window.addEventListener('DOMContentLoaded', (e) => {
-  /*---------------------------------------------------
-  -----------------------------------------------------
-  
-  AGGRANDIR ET RETRECIR L'IMAGE
-  
-  -----------------------------------------------------
-  -----------------------------------------------------*/
-
   e.preventDefault();
   }
 )
@@ -60,9 +50,6 @@ function bookZoomPreview(x,y){
 
 
 bookZoomEndContainer.addEventListener("touchstart", () => {
-  
-    previewMovingFrame.style.width = "20%"
-    previewMovingFrame.style.height = "10%"
 
     let touchX = saveLastTouchX;
     let touchY = saveLastTouchY;
@@ -85,29 +72,6 @@ bookZoomEndContainer.addEventListener("touchmove", (event) => {
 } , { passive: true });
 
 
-
-
-
-
-
-
-const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
-function zoomIn() {
-  console.log('zoomIn pressed')
-
-  zoomBookEndPhotoReliure.style.width = `calc(40vw*${SCALE_SIZES[zoomIndex]})`
-
-  if (zoomIndex === SCALE_SIZES.length - 1) {
-    // zoomIndex = 0
-  } else {
-    zoomIndex++
-  }
-
-  console.log(zoomIndex)
-}
-
-
-
 bookZoomEndContainer.addEventListener("touchend", () => {
 
     let touchX = saveLastTouchX;
@@ -116,7 +80,14 @@ bookZoomEndContainer.addEventListener("touchend", () => {
     bookZoomPreview(touchX, touchY);
 } , { passive: true });  
 
+// Viewport Preview size //
 
+
+function resizeSpanPreview(index){
+  
+    previewMovingFrame.style.width = 10 * index + "%"
+    previewMovingFrame.style.height = 10 * index + "%"
+}
 /* ------------------------------------
 BOUTONS ZOOM 
 ------------------------------------ */
@@ -144,6 +115,8 @@ BOUTONS ZOOM
       zoomIndex++
     }
 
+    resizeSpanPreview(zoomIndex);
+
     console.log(zoomIndex)
 }
 
@@ -159,6 +132,8 @@ function zoomOut() {
     zoomBookEndPhotoReliure.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
     console.log(zoomIndex)
     }
+
+resizeSpanPreview(zoomIndex);
 
   }
 
