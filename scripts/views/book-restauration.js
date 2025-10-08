@@ -16,7 +16,7 @@ function pageGameInit() {
       gemContent.setAttribute('data-gemcontentid', count);
 
       const xButton = document.createElement('img');
-      xButton.classList.add('xButton');
+      xButton.classList.add('infoButton');
       xButton.src = '../../public/images/ui/info-button.svg';
       gemContent.appendChild(xButton);
 
@@ -30,7 +30,7 @@ function pageGameInit() {
       gemImageGhost.src = imageUrl;
 
       gemImageDragable.setAttribute('data-gemid', count);
-      gemImageDragable.classList.add('gem-dragable', 'gem');
+      gemImageDragable.classList.add('gem-draggable', 'gem');
       gemImageGhost.classList.add('gem-ghost', 'gem');
 
       gemImages.appendChild(gemImageGhost);
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(Draggable)
 
   const overlapThreshold = "60%";
-  const item = ".draggable"
+  const item = ".gem-draggable"
   const dropArea = ".drop__box";
 
   // selection de la pierre

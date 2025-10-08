@@ -45,7 +45,7 @@
     aspect-ratio: 4 / 3;
     display: flex;
 
-    & .xButton {
+    & .infoButton {
         width: 40px;
         position: absolute;
         top: 0;
@@ -141,11 +141,8 @@ h2{
     height: 80%;
 }
 
-.draggable{
+.gem-draggable{
     cursor: pointer;
-    width: 5rem;
-    height: 5rem;
-    background-color: rgb(50, 160, 255);
 }
 
 .drop__box{
