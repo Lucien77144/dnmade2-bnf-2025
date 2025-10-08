@@ -20,9 +20,29 @@ function start() {
   sideImage.classList.add('side-image')
   imgContainer.appendChild(sideImage)
 
-  mainImage.addEventListener('click', () => {
-    sideImage.style.display = 'block'
-    sideImage.style.opacity = 1
-    sideImage.style.transform = 'scale(1) rotate(0deg)'
-  })
+  let visible = false;
+
+mainImage.addEventListener('click', (event) => {
+  event.stopPropagation(); // empêche de compter comme un clic "ailleurs"
+  
+  if (!visible) {
+    sideImage.style.display = "block";
+    requestAnimationFrame(() => {
+      sideImage.style.opacity = 1;
+      sideImage.style.transform = "scale(1) rotate(0deg)";
+    });
+    visible = true;
+  }
+});
+
+document.addEventListener('click', () => {
+  if (visible) {
+    sideImage.style.opacity = 0;
+    sideImage.style.transform = "scale(0.98) rotate(0deg)";
+    setTimeout(() => {
+      sideImage.style.display = "none";
+    }, 400);
+    visible = false;
+  }
+});
 }

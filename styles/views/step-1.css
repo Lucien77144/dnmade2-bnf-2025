@@ -51,9 +51,6 @@ body {
   cursor: pointer;
 }
 
-.image img:hover {
-  transform: scale(1.03);
-}
 .side-image {
   width: 500px;
   position: absolute;
@@ -78,6 +75,7 @@ body {
 }
 
 .image img#recimage {
+  pointer-events: none;
   position: absolute;
   width: 138px;
   top: 30px;
