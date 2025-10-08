@@ -5,7 +5,7 @@
     height: 100svh;
 
     display: flex;
-    justify-content: centerÒ;
+    justify-content: center;
     align-items: center;
 
     background-image: url('../../public/images/game/background-table-book.png');
@@ -72,28 +72,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 *{
     margin:0;
     padding: 0;
@@ -142,6 +120,34 @@
     opacity: 0;
     transition: all 300ms ease-in-out;
 }
+
+.restauration__draggable{
+    display: flex;
+    justify-content: center;
+
+}
+
+.restauration__drop{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    height: 80%;
+}
+
+.draggable{
+    cursor: pointer;
+    width: 5rem;
+    height: 5rem;
+    background-color: rgb(50, 160, 255);
+}
+
+.drop__box{
+    width: 10rem;
+    height: 10rem;
+    background-color: black;
+}
+
 
 .popup .popup-content h2 {
     margin:10px 0px;
@@ -198,6 +204,35 @@
     transition: all 300ms ease-in-out;
 }
 
+.restauration__draggable{
+    display: flex;
+    justify-content: center;
+
+}
+
+.restauration__drop{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    height: 80%;
+}
+
+.draggable{
+    cursor: pointer;
+    width: 5rem;
+    height: 5rem;
+    background-color: rgb(50, 160, 255);
+}
+
+.drop__box{
+    width: 10rem;
+    height: 10rem;
+    background-color: black;
+}
+
+
+
 .popup.active .popup-content {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
@@ -205,80 +240,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.restauration__draggable{
-    display: flex;
-    justify-content: center;
-
-}
-
-.restauration__drop{
-    position: absolute;
-    display: flex;
-    justify-content: flex-end;
-    align-items: end;
-    height: 80%;
-}
-
-.draggable{
-    cursor: pointer;
-    width: 5rem;
-    height: 5rem;
-    background-color: rgb(50, 160, 255);
-}
-
-.drop__box{
-    width: 10rem;
-    height: 10rem;
-    background-color: black;
-}
-
-.restauration__draggable{
-    display: flex;
-    justify-content: center;
-
-}
-
-.restauration__drop{
-    position: absolute;
-    display: flex;
-    justify-content: flex-end;
-    align-items: end;
-    height: 80%;
-}
-
-.draggable{
-    cursor: pointer;
-    width: 5rem;
-    height: 5rem;
-    background-color: rgb(50, 160, 255);
-}
-
-.drop__box{
-    width: 10rem;
-    height: 10rem;
-    background-color: black;
-}

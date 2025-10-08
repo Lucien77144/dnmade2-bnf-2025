@@ -1,10 +1,7 @@
 const viewBookRestauration = document.querySelector('section#view-book-restauration');
-
 const gemsList = document.querySelectorAll('.gems-list');
 
-
-
-function pageInit() {
+function pageGameInit() {
 
   let count = 0;
   gemsList.forEach((value, i) => {
@@ -43,7 +40,7 @@ function pageInit() {
   })
 }
 
-pageInit();
+pageGameInit();
 
 document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(Draggable)
