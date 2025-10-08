@@ -1,7 +1,7 @@
 //import ScrollSmoother from "./gsap/umd/ScrollSmoother.js";
 //import ScrollTrigger from "./gsap/umd/ScrollTrigger.js";
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', (e) => {
   /*---------------------------------------------------
   -----------------------------------------------------
   
@@ -10,9 +10,12 @@ window.addEventListener('DOMContentLoaded', () => {
   -----------------------------------------------------
   -----------------------------------------------------*/
 
-  zoomInButton = document.getElementById('zoom-book-end-zoom-in-button')
-  zoomOutButton = document.getElementById('zoom-book-end-zoom-out-button')
-  zoomBookEndPhotoReliure = document.getElementById('zoom-book-end-image')
+  e.preventDefault();
+
+
+  let zoomInButton = document.getElementById('zoom-book-end-zoom-in-button')
+  let zoomOutButton = document.getElementById('zoom-book-end-zoom-out-button')
+  let zoomBookEndPhotoReliure = document.getElementById('zoom-book-end-image')
   let zoomIndex = 0
 
   const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
@@ -29,80 +32,93 @@ window.addEventListener('DOMContentLoaded', () => {
 
     console.log(zoomIndex)
   }
+
+
+
+
+
+/* ---------------------------------------------------------
+VIEWPORT NAVIGATE Image
+---------------------------------------------------------
+ */
+
 let bookZoomEndContainer = document.getElementById("zoom-book-end-container");
+let bookZoomPreviewContainer = document.getElementById("zoom-book-end-preview");
 
-let bookWidth = bookZoomEndContainer.offsetWidth;
-let bookHeight = bookZoomEndContainer.offsetHeight;
+let previewMovingFrame = document.querySelector("#zoom-book-end-preview span");
 
-let zoomFramePreview = document.getElementById("zoom-book-end-preview");
-zoomFramePreview.style.width = bookWidth / 4 + "px";
-zoomFramePreview.style.height = bookHeight / 4 + "px";
+let saveLastTouchX = 0;
+let saveLastTouchY = 0;
 
-let ZFPBoundingClient = zoomFramePreview.getBoundingClientRect();
-
-
-/* bottom
-: 
-972
-height
-: 
-864
-left
-: 
-192
-right
-: 
-1728
-top
-: 
-108
-width
-: 
-1536
-x
-: 
-192
-y
-: 
-108 */
-
-let previewMovingFrame = document.querySelector("#zoom-book-end-preview span")
-
-let PMFCenterX = previewMovingFrame.offsetWidth / 2;
-let PMFCenterY = previewMovingFrame.offsetHeight / 2;
-    previewMovingFrame.style.position = "absolute";
 
 function bookZoomPreview(x,y){
 
 
-    let movingX = Math.floor(192/x * 100);
-    let movingY = Math.floor( 108/y * 100);
+    let movingX = x / 1920 * 100 ;
+    let movingY = y / 1080 * 100 ;
 
-    if(movingX >= 101){
-            previewMovingFrame.style.left = "100%";
+    if(movingX >= 101)
+    {
+        movingX = (1920 - (previewMovingFrame.offsetWidth * 2)) / 1920 * 100
     }
-    else if(movingX <= 0){
-        previewMovingFrame.style.left = "0%";
-    }
-    else{
-         previewMovingFrame.style.left = movingX + "%";
+    else if( movingX < 0){
+        movingX = 0;
     }
 
+     if(movingY >= 101)
+    {
+        movingY = (1080 - (previewMovingFrame.offsetHeight * 2)) / 1080 * 100
+    }
+    else if( movingY < 0){
+        movingY = 0;
+    }
 
     previewMovingFrame.style.top = movingY + "%";
+    previewMovingFrame.style.left = movingX + "%";
 
     console.log(movingX, movingY)
 }
 
+
+
+bookZoomEndContainer.addEventListener("touchstart", () => {
+  
+    previewMovingFrame.style.width = "20%"
+    previewMovingFrame.style.height = "10%"
+
+    let touchX = saveLastTouchX;
+    let touchY = saveLastTouchY;
+
+    bookZoomPreview(touchX, touchY);
+   
+} , { passive: true });
+
+
+
 bookZoomEndContainer.addEventListener("touchmove", (event) => {
 
-    let touchX = event.touches[0].offsetX;
-    let touchY = event.touches[0].offsetY;
+    let touchX = event.touches[0].pageX;
+    let touchY = event.touches[0].pageY;
+
+    saveLastTouchX = touchX;
+    saveLastTouchY = touchY
 
     bookZoomPreview(touchX, touchY);
 } , { passive: true });
 
-  function zoomOut() {
+bookZoomEndContainer.addEventListener("touchend", () => {
+
+    let touchX = saveLastTouchX;
+    let touchY = saveLastTouchY;
+    
+    bookZoomPreview(touchX, touchY);
+} , { passive: true });  
+
+/* ------------------------------------
+BOUTONS ZOOM 
+------------------------------------ */
+
+function zoomOut() {
     console.log('zoomOut pressed')
     zoomIndex = zoomIndex - 1
     zoomBookEndPhotoReliure.style.transform = `scale (${zoomIndex})`
