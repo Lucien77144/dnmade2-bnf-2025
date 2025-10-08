@@ -10,8 +10,8 @@
 
 
 #zoom-book-end-container{
-   width: 80%;
-   height: 80%;
+   width: 1536px;
+   height: 864px;
    margin: auto;
    overflow-x: scroll;
    overflow-y: scroll;
@@ -19,6 +19,7 @@
 
 #zoom-book-end-container img{
     width: 200%;
+    object-fit: cover;
     overflow: hidden;
     touch-action: pan-x pan-y pinch-zoom;
   
@@ -28,9 +29,8 @@
     position:absolute;
     top:5%;
     right:2%;
+    border:5% solid black;
     background-color: rgba(0, 0, 0, 0.497);
-    width:200px;
-    height:320px;
     border-radius:20px;
 }
 
