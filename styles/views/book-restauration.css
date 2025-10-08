@@ -8,9 +8,21 @@
     justify-content: center;
     align-items: center;
 
-    background-image: url('../../public/images/background-table-book.png');
+    background-image: url('../../public/images/game/background-table-book.png');
+    background-color: black;
     background-position: center center;
     background-size: cover;
+}
+
+.interactive-scene {
+    display: flex;
+}
+
+.gems-list {
+    width: 20vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .game-book {
@@ -18,8 +30,17 @@
     height: 780px;
 
     /* background-color: gold; */
-    background-image: url('../../public/images/book-front-shadow.png');
+    background-image: url('../../public/images/game/book-front-shadow.png');
 }
+
+.gemContent {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    background-color: brown;
+}
+
+
 
 *{
     margin:0;
@@ -69,7 +90,9 @@ h2{
     padding: 25px;
     border-radius: 20px;
     transition: all 300ms ease-in-out;
-}.restauration__draggable{
+}
+
+.restauration__draggable{
     display: flex;
     justify-content: center;
 
