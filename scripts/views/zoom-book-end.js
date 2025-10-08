@@ -1,7 +1,7 @@
 // import ScrollSmoother from "./gsap/umd/ScrollSmoother.js";
 // import ScrollTrigger from "./gsap/umd/ScrollTrigger.js";
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', (e) => {
   /*---------------------------------------------------
   -----------------------------------------------------
   
