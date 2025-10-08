@@ -1,4 +1,10 @@
 
+
+#zoom-book-end{
+    background-image: url(../../public/images/fond.png);
+
+}
+
 #zoom-book-end{
     width: 100%;
     height: 100vh;
@@ -15,12 +21,22 @@
    margin: auto;
    overflow-x: scroll;
    overflow-y: scroll;
+   scrollbar-width: none;
 }
 
 #zoom-book-end-container img{
     width: 200%;
     object-fit: cover;
     overflow: hidden;
+    touch-action: manipulation ;
+
+
+
+}
+
+h1{
+    color: white;
+    font-size: 0.001px;
     touch-action: pan-x pan-y pinch-zoom;
   
 }
