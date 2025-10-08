@@ -12,14 +12,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const zoomInButton = document.getElementById('zoom-book-end-zoom-in-button')
   const zoomOutButton = document.getElementById('zoom-book-end-zoom-out-button')
-  const previewContainer = document.getElementById('zoom-book-end-container')
-  const previewMovingFrame = document.getElementById('zoom-book-end-image')
+  const containerEl = document.getElementById('zoom-book-end-container')
+  const imageEl = document.getElementById('zoom-book-end-image')
 
   let zoomIndex = 0
 
   const sizes = {
-    width: previewMovingFrame.offsetWidth,
-    height: previewMovingFrame.offsetHeight,
+    width: imageEl.offsetWidth,
+    height: imageEl.offsetHeight,
   }
 
   const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
@@ -30,7 +30,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function zoomIn() {
     const scale = SCALE_SIZES[zoomIndex]
-    if (zoomIndex < SCALE_SIZES.length - 1) zoomIndex++
+
+    if (zoomIndex >= SCALE_SIZES.length - 1) return
+    zoomIndex++
 
     // Set the width scale
     const currentWidth = sizes.width * scale
@@ -40,17 +42,18 @@ window.addEventListener('DOMContentLoaded', () => {
     tl.totalProgress(1)
 
     // Set the width scale and scroll to center the image
-    tl.to(previewMovingFrame, {
+    tl.to(imageEl, {
       width: `${currentWidth}px`,
       onStart: () => {
-        previewContainer.classList.add('zoomed')
+        containerEl.classList.add('zoomed')
       },
       onUpdate: () => {
-        previewContainer.scrollTo({
-          left:
-            (previewContainer.scrollWidth - previewContainer.clientWidth) / 2,
-          top:
-            (previewContainer.scrollHeight - previewContainer.clientHeight) / 2,
+        const left = containerEl.scrollWidth - containerEl.clientWidth
+        const top = containerEl.scrollHeight - containerEl.clientHeight
+
+        containerEl.scrollTo({
+          left: left / 2,
+          top: top / 2,
           behavior: 'instant',
         })
       },
@@ -62,17 +65,17 @@ window.addEventListener('DOMContentLoaded', () => {
     const movingY = Math.floor((108 / y) * 100)
 
     if (movingX >= 101) {
-      previewMovingFrame.style.left = '100%'
+      imageEl.style.left = '100%'
     } else if (movingX <= 0) {
-      previewMovingFrame.style.left = '0%'
+      imageEl.style.left = '0%'
     } else {
-      previewMovingFrame.style.left = movingX + '%'
+      imageEl.style.left = movingX + '%'
     }
 
-    previewMovingFrame.style.top = movingY + '%'
+    imageEl.style.top = movingY + '%'
   }
 
-  previewContainer.addEventListener(
+  containerEl.addEventListener(
     'touchmove',
     (event) => {
       const touchX = event.touches[0].offsetX
@@ -87,11 +90,11 @@ window.addEventListener('DOMContentLoaded', () => {
     if (zoomIndex > 0) {
       zoomIndex--
     }
-    previewMovingFrame.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
+    imageEl.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
 
     // Remove zoomed class when back to scale 1
     if (SCALE_SIZES[zoomIndex] <= 1) {
-      previewContainer.classList.remove('zoomed')
+      containerEl.classList.remove('zoomed')
     }
   }
 
