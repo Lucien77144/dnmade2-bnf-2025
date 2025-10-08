@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('data/data.json')
+    fetch('public/data/data.json')
         .then((response) => response.json())
         .then((data) => {
 
