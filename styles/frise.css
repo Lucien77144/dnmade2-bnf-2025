@@ -2,7 +2,7 @@ body {
   background-color: #252525;
   width: 1920px;
   height: 1080px;
-  /* border: 1px red solid; */
+  border: 1px red solid;
 }
 
 
@@ -30,10 +30,11 @@ body {
 
 
 ol {
-  position: relative;
+  /* position: relative; */
   display: flex;
   justify-content: center;
-  margin: 100px;
+  top: 100px;
+  margin: 100px 0px;
   height: 8px;
   background: #ECA900;
   background: radial-gradient(circle, rgba(236, 169, 0, 1) 0%, rgba(119, 85, 0, 1) 25%, rgba(119, 85, 0, 1) 80%, rgba(37, 37, 37, 1) 100%);
@@ -92,7 +93,7 @@ li .annee.active {
 
 li .vl {
   position: relative;
-  left: 74px;
+  left: 72px;
   border-left: 2px dashed white;
   height: 120px;
   width: 1px;
@@ -137,7 +138,7 @@ ul li p.description.active {
 
 li .pointBas {
   top: 103px;
-  left: -30.8px;
+  left: -32.8px;
   display: block;
   width: 12px;
   height: 12px;
@@ -165,7 +166,7 @@ li .pointBas.active {
   margin-left: 80px;
   display: flex;
   top: 75px;
-  right: -25%;
+  right: 0%;
   transition: all 0.15s;
   width: 60px;
   height: 60px;
@@ -176,7 +177,7 @@ li .pointBas.active {
   margin-left: 80px;
   display: flex;
   top: 75px;
-  right: -25%;
+  right: 0%;
   transition: all 0.15s;
   width: 60px;
   height: 60px;
