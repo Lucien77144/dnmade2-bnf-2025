@@ -36,7 +36,7 @@ ol {
   margin: 100px;
   height: 8px;
   background: #ECA900;
-  background: radial-gradient(circle, rgba(236, 169, 0, 1) 0%, rgba(119, 85, 0, 1) 25%);
+  background: radial-gradient(circle, rgba(236, 169, 0, 1) 0%, rgba(119, 85, 0, 1) 25%, rgba(119, 85, 0, 1) 80%, rgba(37, 37, 37, 1) 100%);
   gap: 150px;
 }
 
@@ -164,15 +164,20 @@ li .pointBas.active {
   position: absolute;
   margin-left: 80px;
   display: flex;
-  top: 85px;
-  right: -37%;
+  top: 75px;
+  right: -25%;
   transition: all 0.15s;
+  width: 60px;
+  height: 60px;
 }
+
 #bouton-retour-hover {
   position: absolute;
   margin-left: 80px;
   display: flex;
-  top: 85px;
-  right: -37%;
+  top: 75px;
+  right: -25%;
   transition: all 0.15s;
+  width: 60px;
+  height: 60px;
 }
