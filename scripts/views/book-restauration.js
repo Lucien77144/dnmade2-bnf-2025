@@ -1,10 +1,11 @@
 const viewBookRestauration = document.querySelector('section#view-book-restauration');
-
 const gemsList = document.querySelectorAll('.gems-list');
 
+function pageGameInit() {
 
-
-function pageInit() {
+  const targetPosition = [
+    [100, 200]
+  ]
 
   let count = 0;
   gemsList.forEach((value, i) => {
@@ -12,15 +13,50 @@ function pageInit() {
       //const element = array[i];
       const gemContent = document.createElement('div');
       gemContent.classList.add('gemContent')
-      gemContent.setAttribute('data-gemid', count);
-      value.appendChild(gemContent)
+      gemContent.setAttribute('data-gemcontentid', count);
+
+      const xButton = document.createElement('img');
+      xButton.classList.add('xButton');
+      xButton.src = '../../public/images/ui/info-button.svg';
+      gemContent.appendChild(xButton);
+
+      const gemImages = document.createElement('div');
+      const gemImageDragable = document.createElement('img');
+      const gemImageGhost = document.createElement('img');
+
+      //const imageUrl = `../../public/images/game/gems/gem-${count}.png`;
+      const imageUrl = `../../public/images/game/gems/gem-0.png`;
+      gemImageDragable.src = imageUrl;
+      gemImageGhost.src = imageUrl;
+
+      gemImageDragable.setAttribute('data-gemid', count);
+      gemImageDragable.classList.add('gem-dragable', 'gem');
+      gemImageGhost.classList.add('gem-ghost', 'gem');
+
+      gemImages.appendChild(gemImageGhost);
+      gemImages.appendChild(gemImageDragable);
+
+      gemContent.appendChild(gemImages);
+
+      value.appendChild(gemContent);
+
+
+      /* Init dragable zone position */
+
+      const pos = targetPosition[i];
+
+      const droppableZone = document.createElement('div');
+      droppableZone.setAttribute('data-droppable-for-gemid', i);
+      
+
 
       count++
     }
-  })
+  });
+
 }
 
-pageInit();
+pageGameInit();
 
 // function hitTest(item1, item2){
 //   console.log(item1, item2)
@@ -73,3 +109,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
   },
   });
 });
+function createPopup(id){
+    let popupNode = document.querySelector(id);
+    let overlay = popupNode.querySelector(".overlay");
+    let closeBtn = popupNode.querySelector(".close-btn");
+
+    function openPopup(){
+        popupNode.classList.add("active");
+    }
+
+    function closePopup(){
+        popupNode.classList.remove("active");
+    }
+
+    overlay.addEventListener("click", closePopup); //click pour écran tactile aussi ??
+    closeBtn.addEventListener("click", closePopup);
+
+    return openPopup;
+}
+
+let popup = createPopup("#popup");
+
+document.querySelector("#open-popup").addEventListener("click", popup);
