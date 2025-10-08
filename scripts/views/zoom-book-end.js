@@ -1,5 +1,25 @@
 
-const pinchZoom = (imageElement) => {
+window.addEventListener("DOMContentLoaded",()=>{
+
+const element=document.querySelector("#zoom-book-end-image")
+
+    
+    
+
+    
+  
+        pinchZoom(element);
+    
+    
+    
+    
+    console.log("hello world")
+
+}
+)
+
+
+function pinchZoom(imageElement){
     let imageElementScale = 1;
   
     let start = {};
@@ -57,3 +77,4 @@ const pinchZoom = (imageElement) => {
       imageElement.style.zIndex = "";
     });
   }
+
