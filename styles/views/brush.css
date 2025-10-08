@@ -6,6 +6,14 @@
      align-items: center;
      height: 100vh;
  }
+
+ p{
+    color: white;
+ }
+
+ span{
+    color: #ECA900;
+ }
  
 .book-area {
      position: relative;
