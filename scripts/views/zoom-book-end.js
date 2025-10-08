@@ -84,6 +84,30 @@ bookZoomEndContainer.addEventListener("touchmove", (event) => {
     bookZoomPreview(touchX, touchY);
 } , { passive: true });
 
+
+
+
+
+
+
+
+const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
+function zoomIn() {
+  console.log('zoomIn pressed')
+
+  zoomBookEndPhotoReliure.style.width = `calc(40vw*${SCALE_SIZES[zoomIndex]})`
+
+  if (zoomIndex === SCALE_SIZES.length - 1) {
+    // zoomIndex = 0
+  } else {
+    zoomIndex++
+  }
+
+  console.log(zoomIndex)
+}
+
+
+
 bookZoomEndContainer.addEventListener("touchend", () => {
 
     let touchX = saveLastTouchX;
