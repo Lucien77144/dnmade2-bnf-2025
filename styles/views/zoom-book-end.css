@@ -16,24 +16,21 @@
 }
 
 #zoom-book-end-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  overflow: auto;
-  scrollbar-width: none;
 }
 
-#zoom-book-end-container img {
-  width: 40%;
+#zoom-book-end-image {
   display: flex;
-
-  overflow: hidden;
+  width: 40vw;
   touch-action: manipulation;
-  align-items: center;
+  user-select: none;
+  transform-origin: center center;
+  transition: transform 0.3s ease;
 }
 
 #zoom-book-end-buttons {
@@ -67,22 +64,3 @@ h1 {
   color: white;
   display: none;
 }
-
-#zoom-book-end-preview {
-  position: absolute;
-  top: 5%;
-  right: 2%;
-  border: 5% solid black;
-  background-color: rgba(0, 0, 0, 0.497);
-  border-radius: 20px;
-}
-
-#zoom-book-end-preview span {
-  border: 5px white solid;
-  padding: 20px 40px;
-}
-
-/* #zoom-book-end-container img:active{
- transform:scale(2);
- transition:transform 1s ease-in-out;
-} */

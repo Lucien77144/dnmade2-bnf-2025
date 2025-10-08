@@ -15,99 +15,62 @@ window.addEventListener('DOMContentLoaded', () => {
   zoomBookEndPhotoReliure = document.getElementById('zoom-book-end-image')
   let zoomIndex = 0
 
-  const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
+  const SCALE_SIZES = [1, 1.2, 1.6, 2, 2.2]
   function zoomIn() {
-    console.log('zoomIn pressed')
-
-    zoomBookEndPhotoReliure.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
-
-    if (zoomIndex === SCALE_SIZES.length - 1) {
-      // zoomIndex = 0
-    } else {
+    if (zoomIndex < SCALE_SIZES.length - 1) {
       zoomIndex++
     }
+    zoomBookEndPhotoReliure.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
 
-    console.log(zoomIndex)
+    // Add zoomed class when scale > 1
+    if (SCALE_SIZES[zoomIndex] > 1) {
+      bookZoomEndContainer.classList.add('zoomed')
+    }
   }
-let bookZoomEndContainer = document.getElementById("zoom-book-end-container");
+  const bookZoomEndContainer = document.getElementById(
+    'zoom-book-end-container'
+  )
 
-let bookWidth = bookZoomEndContainer.offsetWidth;
-let bookHeight = bookZoomEndContainer.offsetHeight;
+  const previewMovingFrame = document.querySelector('#zoom-book-end-image')
 
-let zoomFramePreview = document.getElementById("zoom-book-end-preview");
-zoomFramePreview.style.width = bookWidth / 4 + "px";
-zoomFramePreview.style.height = bookHeight / 4 + "px";
+  function bookZoomPreview(x, y) {
+    const movingX = Math.floor((192 / x) * 100)
+    const movingY = Math.floor((108 / y) * 100)
 
-let ZFPBoundingClient = zoomFramePreview.getBoundingClientRect();
-
-
-/* bottom
-: 
-972
-height
-: 
-864
-left
-: 
-192
-right
-: 
-1728
-top
-: 
-108
-width
-: 
-1536
-x
-: 
-192
-y
-: 
-108 */
-
-let previewMovingFrame = document.querySelector("#zoom-book-end-preview span")
-
-let PMFCenterX = previewMovingFrame.offsetWidth / 2;
-let PMFCenterY = previewMovingFrame.offsetHeight / 2;
-    previewMovingFrame.style.position = "absolute";
-
-function bookZoomPreview(x,y){
-
-
-    let movingX = Math.floor(192/x * 100);
-    let movingY = Math.floor( 108/y * 100);
-
-    if(movingX >= 101){
-            previewMovingFrame.style.left = "100%";
-    }
-    else if(movingX <= 0){
-        previewMovingFrame.style.left = "0%";
-    }
-    else{
-         previewMovingFrame.style.left = movingX + "%";
+    if (movingX >= 101) {
+      previewMovingFrame.style.left = '100%'
+    } else if (movingX <= 0) {
+      previewMovingFrame.style.left = '0%'
+    } else {
+      previewMovingFrame.style.left = movingX + '%'
     }
 
-
-    previewMovingFrame.style.top = movingY + "%";
+    previewMovingFrame.style.top = movingY + '%'
 
     console.log(movingX, movingY)
-}
+  }
 
-bookZoomEndContainer.addEventListener("touchmove", (event) => {
+  bookZoomEndContainer.addEventListener(
+    'touchmove',
+    (event) => {
+      const touchX = event.touches[0].offsetX
+      const touchY = event.touches[0].offsetY
 
-    let touchX = event.touches[0].offsetX;
-    let touchY = event.touches[0].offsetY;
-
-    bookZoomPreview(touchX, touchY);
-} , { passive: true });
+      bookZoomPreview(touchX, touchY)
+    },
+    { passive: true }
+  )
 
   function zoomOut() {
-    console.log('zoomOut pressed')
-    zoomIndex = zoomIndex - 1
-    zoomBookEndPhotoReliure.style.transform = `scale (${zoomIndex})`
-    zoomIndex = zoomIndex - 1
-    console.log(zoomIndex)
+    if (zoomIndex > 0) {
+      zoomIndex--
+    }
+    zoomBookEndPhotoReliure.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
+
+    // Remove zoomed class when back to scale 1
+    if (SCALE_SIZES[zoomIndex] <= 1) {
+      bookZoomEndContainer.classList.remove('zoomed')
+    }
   }
 
   zoomInButton.addEventListener('click', zoomIn)
