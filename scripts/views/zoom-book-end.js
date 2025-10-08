@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', () => {
   function zoomIn() {
     console.log('zoomIn pressed')
 
-    zoomBookEndPhotoReliure.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
+    zoomBookEndPhotoReliure.style.width = `calc(40vw*${SCALE_SIZES[zoomIndex]})`
 
     if (zoomIndex === SCALE_SIZES.length - 1) {
       // zoomIndex = 0
@@ -101,6 +101,12 @@ bookZoomEndContainer.addEventListener("touchmove", (event) => {
 
     bookZoomPreview(touchX, touchY);
 } , { passive: true });
+
+
+
+
+
+
 
   function zoomOut() {
     console.log('zoomOut pressed')
