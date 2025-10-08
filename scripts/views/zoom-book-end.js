@@ -11,16 +11,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
   -----------------------------------------------------*/
 
   e.preventDefault();
-
-
-  let zoomInButton = document.getElementById('zoom-book-end-zoom-in-button')
-  let zoomOutButton = document.getElementById('zoom-book-end-zoom-out-button')
-  let zoomBookEndPhotoReliure = document.getElementById('zoom-book-end-image')
-  let zoomIndex = 0
-
-
-
-
+  }
+)
 
 
 /* ---------------------------------------------------------
@@ -124,31 +116,51 @@ bookZoomEndContainer.addEventListener("touchend", () => {
     bookZoomPreview(touchX, touchY);
 } , { passive: true });  
 
+
 /* ------------------------------------
 BOUTONS ZOOM 
 ------------------------------------ */
 
-function zoomOut() {
-  console.log('zoomOut  pressed')
 
-  zoomBookEndPhotoReliure.style.width = `calc(40vw*${SCALE_SIZES[zoomIndex]})`
+  let zoomInButton = document.getElementById('zoom-book-end-zoom-in-button')
+  let zoomOutButton = document.getElementById('zoom-book-end-zoom-out-button')
+  let zoomBookEndPhotoReliure = document.getElementById('zoom-book-end-image')
+  let zoomIndex = 0
 
-  if (zoomIndex === SCALE_SIZES.length - 1) {
-    // zoomIndex = 0
-  } else {
-    zoomIndex--
-  }
+  const SCALE_SIZES = [6, 9, 12, 18];
 
-  console.log(zoomIndex)
+  function zoomIn() {
+    console.log('zoomIn pressed')
+
+    zoomBookEndPhotoReliure.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
+
+    if (zoomIndex === SCALE_SIZES.length) {
+      // zoomIndex = 0
+    }
+    else if(zoomIndex < 0){
+         zoomIndex = 0
+    }
+    else {
+      zoomIndex++
+    }
+
+    console.log(zoomIndex)
 }
+
 function zoomOut() {
+
+    if(zoomIndex <= 0){
+    zoomIndex = 0;
+    zoomBookEndPhotoReliure.style.transform = `scale(1)`
+    }
+    else{
     console.log('zoomOut pressed')
     zoomIndex = zoomIndex - 1
-    zoomBookEndPhotoReliure.style.transform = `scale (${zoomIndex})`
-    zoomIndex = zoomIndex - 1
+    zoomBookEndPhotoReliure.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
     console.log(zoomIndex)
+    }
+
   }
 
   zoomInButton.addEventListener('click', zoomIn)
   zoomOutButton.addEventListener('click', zoomOut)
-})
