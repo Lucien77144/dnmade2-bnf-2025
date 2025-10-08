@@ -9,10 +9,19 @@
 
  p{
     color: white;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 500px;
+    left: 0;
+    flex-flow: column;
+   
+
  }
 
  span{
     color: #ECA900;
+    
  }
  
 .book-area {
