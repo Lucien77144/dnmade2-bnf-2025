@@ -22,28 +22,54 @@ function pageInit() {
 
 pageInit();
 
+// function hitTest(item1, item2){
+//   console.log(item1, item2)
+// }
+
 document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(Draggable)
 
-  var remainingSpace = "60%";
-
-  const item = ".draggable";
+  const overlapThreshold = "60%";
+  const item = ".draggable"
+  const dropArea = ".drop__box";
 
   // selection de la pierre
+
+// function dragDrop(e){
+
+// }
+
   const onDragStart = (e) => {
     gsap.to(item, {duration: 0.1, scale: 1.2, rotate: 'random(-9,9)', zIndex: 100})
-    console.log(e)
-  }
-
-  // relâchement de la pierre
-  const onDragEnd = (e) => {
-    gsap.to(item, {duration: 0.5, x:0, y:0, opacity: 1, rotate: 0, ease:'elastic.out(.45)'})
     console.log(e)
   }
 
   Draggable.create(item, {
     inertia: true,
     onDragStart,
-    onDragEnd,
+    onDragEnd: function(e) {
+  
+
+    if(!this.hitTest(dropArea, overlapThreshold)) {
+
+    gsap.to(item, {
+      duration: 0.7, 
+      x:0, 
+      y:0, 
+      scale: 1, 
+      rotate: 0, 
+      ease:'elastic.out(.45)'
+    });
+    } else {
+      gsap.to(item, {
+        x: 0,
+        y: 500,
+        scale: 0.5,
+        rotate: 0,
+        ease:'elastic.out(.45)',
+      })
+    }
+  
+  },
   });
 });
