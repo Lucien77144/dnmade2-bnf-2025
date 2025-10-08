@@ -1,4 +1,5 @@
 const viewBookRestauration = document.querySelector('section#view-book-restauration');
+
 const gemsList = document.querySelectorAll('.gems-list');
 
 
@@ -21,23 +22,28 @@ function pageInit() {
 
 pageInit();
 
-
-
-
-
 document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(Draggable)
 
-    const onDragStart = (e) => {
-            console.log(e)
-        }
+  var remainingSpace = "60%";
 
-    const onDragEnd = (e) => {
+  const item = ".draggable";
 
-    }
- 
-    Draggable.create(".draggable", {
-        inertia: true,
-        onDragStart,
-    });
- });
+  // selection de la pierre
+  const onDragStart = (e) => {
+    gsap.to(item, {duration: 0.1, scale: 1.2, rotate: 'random(-9,9)', zIndex: 100})
+    console.log(e)
+  }
+
+  // relâchement de la pierre
+  const onDragEnd = (e) => {
+    gsap.to(item, {duration: 0.5, x:0, y:0, opacity: 1, rotate: 0, ease:'elastic.out(.45)'})
+    console.log(e)
+  }
+
+  Draggable.create(item, {
+    inertia: true,
+    onDragStart,
+    onDragEnd,
+  });
+});
