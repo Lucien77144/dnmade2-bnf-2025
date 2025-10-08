@@ -1,10 +1,11 @@
 //a mettre dans le DOM
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
   fetch('/public/data/brush.json')
     .then((response) => response.json())
     .then((data) => {
       document.querySelector('#text').textContent = data.text;
     });
+    */
   
   //Partie de Sara
   const brush = document.getElementById('brush');
@@ -17,9 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     reveal.classList.add('active');
   })
   //Fin partie de Sara
-});
+//});
 
+/*
 const data = require('/public/data/brush.json');
 console.log(data);
+*/
+
 
 
