@@ -38,12 +38,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
     zoom(scale)
   }
 
-
-
-
-
-
-
   function zoomOut() {
     zoomIndex--
 
@@ -98,6 +92,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
     previewSpanEl.style.top = movingY + '%'
     previewSpanEl.style.left = movingX + '%'
   }
+
+  console.log(zoomIndex)
 
   zoomInButton.addEventListener('click', zoomIn)
   zoomOutButton.addEventListener('click', zoomOut)
