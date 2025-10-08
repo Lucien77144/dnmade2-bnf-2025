@@ -1,0 +1,178 @@
+body {
+  background-color: #252525;
+  width: 1920px;
+  height: 1080px;
+  /* border: 1px red solid; */
+}
+
+
+
+@font-face {
+  font-family: "Injurial-Regular";
+  src: url("/ressources/205TF-Injurial-Regular.otf");
+}
+
+@font-face {
+  font-family: "VelinoText-Medium";
+  src: url("/ressources/VelinoText-Medium.otf");
+}
+
+@font-face {
+  font-family: "VelinoText-Bold";
+  src: url("/ressources/VelinoText-Bold.otf");
+}
+
+@font-face {
+  font-family: "VelinoText-Black";
+  src: url("/ressources/VelinoText-Black.otf");
+}
+
+
+
+ol {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 100px;
+  height: 8px;
+  background: #ECA900;
+  background: radial-gradient(circle, rgba(236, 169, 0, 1) 0%, rgba(119, 85, 0, 1) 25%);
+  gap: 150px;
+}
+
+li {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  font: bold 14px arial;
+  height: 50px;
+}
+
+li .annee {
+  position: absolute;
+  top: -70px;
+  left: 30px;
+  color: #775500;
+  transition: all 0.25s;
+  font-family: "Impact-Regular";
+  font-size: 24px;
+}
+
+li .point {
+  top: -9px;
+  left: 41%;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 7px solid #775500;
+  border-radius: 15px;
+  background: #252525;
+  position: absolute;
+  transition: all 0.30s;
+}
+
+li .point:hover {
+  cursor: pointer;
+}
+
+li .point.active {
+  top: -11px;
+  left: 39.55%;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #eca900;
+  border-radius: 20px;
+  background: white;
+  transition: all 0.30s;
+}
+
+li .annee.active {
+  color: #eca900;
+}
+
+li .vl {
+  position: relative;
+  left: 74px;
+  border-left: 2px dashed white;
+  height: 120px;
+  width: 1px;
+  opacity: 0;
+  transition: all 0.35s;
+}
+
+li .vl.active {
+  opacity: 1;
+  transition: all 0.35s;
+}
+
+.ecart-G {
+  position: relative;
+  top: 0px;
+  left: -18px;
+}
+
+ul.descriptionContainer {
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  position: relative;
+  left: 100px;
+  top: -95px;
+}
+
+ul li p.description {
+  color: #d5be87;
+  margin-top: 20px;
+  font-family: "VelinoText-Bold";
+  width: 250px;
+  opacity: 0;
+  transition: all 0.35s;
+  font-size: 24px;
+}
+
+ul li p.description.active {
+  opacity: 1;
+  transition: all 0.35s;
+}
+
+li .pointBas {
+  top: 103px;
+  left: -30.8px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 15px;
+  background: #D5BE87;
+  position: absolute;
+  transition: all 0.30s;
+  opacity: 0;
+}
+
+li .pointBas.active {
+  opacity: 1;
+  transition: all 0.30s;
+}
+
+#bouton-retour:hover {
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.15s;
+}
+
+#bouton-retour {
+  position: absolute;
+  margin-left: 80px;
+  display: flex;
+  top: 85px;
+  right: -37%;
+  transition: all 0.15s;
+}
+#bouton-retour-hover {
+  position: absolute;
+  margin-left: 80px;
+  display: flex;
+  top: 85px;
+  right: -37%;
+  transition: all 0.15s;
+}
