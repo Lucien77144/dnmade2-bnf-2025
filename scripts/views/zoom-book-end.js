@@ -15,30 +15,15 @@ window.addEventListener('DOMContentLoaded', () => {
   zoomBookEndPhotoReliure = document.getElementById('zoom-book-end-image')
   let zoomIndex = 0
 
-  const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
-  function zoomIn() {
-    console.log('zoomIn pressed')
-
-    zoomBookEndPhotoReliure.style.width = `calc(40vw*${SCALE_SIZES[zoomIndex]})`
-
-    if (zoomIndex === SCALE_SIZES.length - 1) {
-      // zoomIndex = 0
-    } else {
-      zoomIndex++
-    }
-
-    console.log(zoomIndex)
-  }
 let bookZoomEndContainer = document.getElementById("zoom-book-end-container");
 
 let bookWidth = bookZoomEndContainer.offsetWidth;
 let bookHeight = bookZoomEndContainer.offsetHeight;
 
 let zoomFramePreview = document.getElementById("zoom-book-end-preview");
-zoomFramePreview.style.width = bookWidth / 4 + "px";
-zoomFramePreview.style.height = bookHeight / 4 + "px";
 
-let ZFPBoundingClient = zoomFramePreview.getBoundingClientRect();
+
+//let ZFPBoundingClient = zoomFramePreview.getBoundingClientRect();
 
 
 /* bottom
@@ -108,13 +93,37 @@ bookZoomEndContainer.addEventListener("touchmove", (event) => {
 
 
 
-  function zoomOut() {
-    console.log('zoomOut pressed')
-    zoomIndex = zoomIndex - 1
-    zoomBookEndPhotoReliure.style.transform = `scale (${zoomIndex})`
-    zoomIndex = zoomIndex - 1
-    console.log(zoomIndex)
+
+const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
+function zoomIn() {
+  console.log('zoomIn pressed')
+
+  zoomBookEndPhotoReliure.style.width = `calc(40vw*${SCALE_SIZES[zoomIndex]})`
+
+  if (zoomIndex === SCALE_SIZES.length - 1) {
+    // zoomIndex = 0
+  } else {
+    zoomIndex++
   }
+
+  console.log(zoomIndex)
+}
+
+
+
+function zoomOut() {
+  console.log('zoomOut  pressed')
+
+  zoomBookEndPhotoReliure.style.width = `calc(40vw*${SCALE_SIZES[zoomIndex]})`
+
+  if (zoomIndex === SCALE_SIZES.length - 1) {
+    // zoomIndex = 0
+  } else {
+    zoomIndex--
+  }
+
+  console.log(zoomIndex)
+}
 
   zoomInButton.addEventListener('click', zoomIn)
   zoomOutButton.addEventListener('click', zoomOut)
