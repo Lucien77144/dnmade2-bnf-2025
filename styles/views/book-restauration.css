@@ -77,7 +77,10 @@
     padding: 0;
     box-sizing: border-box;
     color: rgb(255, 255, 255);
-    
+}
+
+h2{
+    color: rgb(255, 179, 0);
 }
 
 .center {
@@ -122,6 +125,9 @@
 }
 
 .restauration__draggable{
+    border: solid 2px black;
+    width: 10rem;
+    height: 10rem;
     display: flex;
     justify-content: center;
 
@@ -224,6 +230,8 @@
     height: 5rem;
     background-color: rgb(50, 160, 255);
 }
+
+
 
 .drop__box{
     width: 10rem;
