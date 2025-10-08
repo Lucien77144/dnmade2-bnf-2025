@@ -1,92 +1,33 @@
+//import ScrollSmoother from "./gsap/umd/ScrollSmoother.js";
+//import ScrollTrigger from "./gsap/umd/ScrollTrigger.js";
 
-window.addEventListener("DOMContentLoaded",()=>{
-
-
-
-
- gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-
- ScrollSmoother.create({
-    smooth: 1,
-    effects: true,
-
-  });
-
-const element=document.querySelector("#zoom-book-end-image")
-
-    
-    
-
-    
+window.addEventListener('DOMContentLoaded', () => {
+  /*---------------------------------------------------
+  -----------------------------------------------------
   
-        pinchZoom(element);
-    
-    
-    
-    
-    console.log("hello world")
+  AGGRANDIR ET RETRECIR L'IMAGE
+  
+  -----------------------------------------------------
+  -----------------------------------------------------*/
 
-}
-)
+  zoomInButton = document.getElementById('zoom-book-end-zoom-in-button')
+  zoomOutButton = document.getElementById('zoom-book-end-zoom-out-button')
+  zoomBookEndPhotoReliure = document.getElementById('zoom-book-end-image')
+  let zoomIndex = 0
 
+  const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
+  function zoomIn() {
+    console.log('zoomIn pressed')
 
-function pinchZoom(imageElement){
-    let imageElementScale = 1;
-  
-    let start = {};
-  
-    // Calculate distance between two fingers
-    const distance = (event) => {
-      return Math.hypot(event.touches[0].pageX - event.touches[1].pageX, event.touches[0].pageY - event.touches[1].pageY);
-    };
-  
-    imageElement.addEventListener('touchstart', (event) => {
-      // console.log('touchstart', event);
-      if (event.touches.length === 2) {
-        event.preventDefault(); // Prevent page scroll
-  
-        // Calculate where the fingers have started on the X and Y axis
-        start.x = (event.touches[0].pageX + event.touches[1].pageX) / 2;
-        start.y = (event.touches[0].pageY + event.touches[1].pageY) / 2;
-        start.distance = distance(event);
-      }
-    });
-  
-    imageElement.addEventListener('touchmove', (event) => {
-      // console.log('touchmove', event);
-      if (event.touches.length === 2) {
-        event.preventDefault(); // Prevent page scroll
-  
-        // Safari provides event.scale as two fingers move on the screen
-        // For other browsers just calculate the scale manually
-        let scale;
-        if (event.scale) {
-          scale = event.scale;
-        } else {
-          const deltaDistance = distance(event);
-          scale = deltaDistance / start.distance;
-        }
-        imageElementScale = Math.min(Math.max(1, scale), 4);
-  
-        // Calculate how much the fingers have moved on the X and Y axis
-        const deltaX = (((event.touches[0].pageX + event.touches[1].pageX) / 2) - start.x) * 2; // x2 for accelarated movement
-        const deltaY = (((event.touches[0].pageY + event.touches[1].pageY) / 2) - start.y) * 2; // x2 for accelarated movement
-  
-        // Transform the image to make it grow and move with fingers
-        const transform = `translate3d(${deltaX}px, ${deltaY}px, 0) scale(${imageElementScale})`;
-        imageElement.style.transform = transform;
-        imageElement.style.WebkitTransform = transform;
-        imageElement.style.zIndex = "9999";
-      }
-    });
-  
-    imageElement.addEventListener('touchend', (event) => {
-      // console.log('touchend', event);
-      // Reset image to it's original format
-      imageElement.style.transform = "";
-      imageElement.style.WebkitTransform = "";
-      imageElement.style.zIndex = "";
-    });
+    zoomBookEndPhotoReliure.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
+
+    if (zoomIndex === SCALE_SIZES.length - 1) {
+      // zoomIndex = 0
+    } else {
+      zoomIndex++
+    }
+
+    console.log(zoomIndex)
   }
 let bookZoomEndContainer = document.getElementById("zoom-book-end-container");
 
@@ -161,3 +102,14 @@ bookZoomEndContainer.addEventListener("touchmove", (event) => {
     bookZoomPreview(touchX, touchY);
 } , { passive: true });
 
+  function zoomOut() {
+    console.log('zoomOut pressed')
+    zoomIndex = zoomIndex - 1
+    zoomBookEndPhotoReliure.style.transform = `scale (${zoomIndex})`
+    zoomIndex = zoomIndex - 1
+    console.log(zoomIndex)
+  }
+
+  zoomInButton.addEventListener('click', zoomIn)
+  zoomOutButton.addEventListener('click', zoomOut)
+})
