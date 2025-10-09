@@ -6,7 +6,7 @@ export let saveLastTouchY = 50
 
 const previewSpanEl = document.querySelector('#zoom-book-end-preview span')
 const previewBookContainerEl = document.querySelector('#zoom-book-end-preview')
-const containerEl = document.getElementById('zoom-book-end-container')
+const containerEl = document.getElementById('zoom-book-end-container');
 
 let fullScreen = true
 let hasUserTouched = false
@@ -21,35 +21,12 @@ function returnPercentageY(y) {
 
 window.addEventListener('DOMContentLoaded', () => {
 
-
-
   previewBookContainerEl.style.width =
-    containerEl.getBoundingClientRect().width / 6
+    containerEl.getBoundingClientRect().width / 4 + 'px'
   previewBookContainerEl.style.height =
-    containerEl.getBoundingClientRect().height / 6
-
-  let touchXStart
-  let touchYStart
+    containerEl.getBoundingClientRect().height / 4 + 'px'
 
 
-  let lastPosX = returnPercentageX(previewSpanEl.getBoundingClientRect().left);
-  let lastPosY = returnPercentageY(previewSpanEl.getBoundingClientRect().top);
-
-  containerEl.addEventListener(
-    'touchstart',
-    (event) => {
-
-      hasUserTouched = true;
-
-      touchXStart =  returnPercentageX(event.touches[0].pageX)
-      touchYStart =  returnPercentageY(event.touches[0].pageY)
-
-      previewSpanEl.style.top = 100 - lastPosY + "%";
-      previewSpanEl.style.left = 100 - lastPosX + "%";
-
-    },
-    { passive: true }
-  )
 
   containerEl.addEventListener(
     'touchmove',
@@ -62,37 +39,32 @@ window.addEventListener('DOMContentLoaded', () => {
 
         saveLastTouchY = 100 - returnPercentageY(touchY)
         saveLastTouchX = 100 - returnPercentageX(touchX)
-        
+
+        if(saveLastTouchX >= 101){
+          saveLastTouchX = 100 - previewBookContainerEl.offsetWidth / 2
+        }
+        else if(saveLastTouchX <= 0){
+         saveLastTouchX = 0;
+        }
+
+        if(saveLastTouchY >= 101){
+          saveLastTouchY = 100 - previewBookContainerEl.offsetHeight/ 2
+        }
+        else if(saveLastTouchY <= 0){
+         saveLastTouchY = 0;
+        }
 
       previewSpanEl.style.top = saveLastTouchY + "%";
       previewSpanEl.style.left = saveLastTouchX + "%";
       
-    }else{
-       previewSpanEl.style.top = "50%";
-      previewSpanEl.style.left = "50%";
+      console.log(saveLastTouchX,saveLastTouchY)
     }
   },
     { passive: true }
   )
-
-/*   containerEl.addEventListener(
-    'touchend',
-    () => {
-      if (fullScreen == false) {
-      touchXEnd = saveLastTouchX;
-      touchYEnd = saveLastTouchY;
-
-      spanTop = touchYEnd 
-      }
-    },
-    { passive: true }
-  )
-}) */
-})
+}) 
 
 export function resizePreview(index) {
-
-
   let scalePreviewSize = [100, 80, 50, 25]
 
   previewSpanEl.style.transition =
@@ -116,9 +88,8 @@ export function resizePreview(index) {
     previewSpanEl.style.top = "50%";
     previewSpanEl.style.left = "50%";
     previewSpanEl.style.transform = 'translate(-50%, -50%)'
-  } else if (index > 0) {
+  } else{
     fullScreen = false
     hasUserTouched = true
-    
   }
 }
