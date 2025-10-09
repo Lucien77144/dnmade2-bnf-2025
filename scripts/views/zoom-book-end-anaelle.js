@@ -1,20 +1,16 @@
 // Anaelle
 
 
- const previewSpanEl = document.querySelector('#zoom-book-end-preview span')
+const previewSpanEl = document.querySelector('#zoom-book-end-preview span')
 
-window.addEventListener('DOMContentLoaded', (e) => {
-  /*---------------------------------------------------
-  -----------------------------------------------------
-  
-  AGGRANDIR ET RETRECIR L'IMAGE
-  
-  -----------------------------------------------------
-  -----------------------------------------------------*/
+let fullScreen = true
+
+window.addEventListener('DOMContentLoaded', () => {
+  let saveLastTouchX
+  let saveLastTouchY
 
   const containerEl = document.getElementById('zoom-book-end-container')
   const previewSpanEl = document.querySelector('#zoom-book-end-preview span')
-
 
   function bookZoomPreview(x, y) {
     let movingX = (x / 1920) * 100
@@ -34,38 +30,39 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
     previewSpanEl.style.top = movingY + '%'
     previewSpanEl.style.left = movingX + '%'
+
+    console.log(movingX, movingY)
   }
 
-  let saveLastTouchX = 0
-  let saveLastTouchY = 0
-
-
-
-
-  containerEl.addEventListener(
+  /* containerEl.addEventListener(
     'touchstart',
     () => {
-      previewSpanEl.style.width = '20%'
-      previewSpanEl.style.height = '10%'
-
-      const touchX = saveLastTouchX
-      const touchY = saveLastTouchY
-
-      bookZoomPreview(touchX, touchY)
+    
+    if(!fullScreen){
+    previewSpanEl.style.top = (saveLastTouchX / 1920) * 100 + '%'
+    previewSpanEl.style.left = (saveLastTouchY / 1080) * 100 + '%'
+    }
+    else{
+    previewSpanEl.style.top = '50%'
+    previewSpanEl.style.left = '50%'
+    previewSpanEl.style.transform = 'translate(-50%, -50%)'
+    }
     },
     { passive: true }
-  )
+  ) */
 
   containerEl.addEventListener(
     'touchmove',
     (event) => {
-      const touchX = event.touches[0].pageX
-      const touchY = event.touches[0].pageY
+      if (fullScreen == false) {
+        const touchX = event.touches[0].pageX
+        const touchY = event.touches[0].pageY
 
-      saveLastTouchX = touchX
-      saveLastTouchY = touchY
+        saveLastTouchX = touchX
+        saveLastTouchY = touchY
 
-      bookZoomPreview(touchX, touchY)
+        bookZoomPreview(touchX, touchY)
+      }
     },
     { passive: true }
   )
@@ -73,15 +70,43 @@ window.addEventListener('DOMContentLoaded', (e) => {
   containerEl.addEventListener(
     'touchend',
     () => {
-      const touchX = saveLastTouchX
-      const touchY = saveLastTouchY
+      if (fullScreen == false) {
+        const touchX = saveLastTouchX
+        const touchY = saveLastTouchY
 
-      bookZoomPreview(touchX, touchY)
+        bookZoomPreview(touchX, touchY)
+      }
     },
     { passive: true }
   )
 })
 
-  export function resizePreview(index){
-    previewSpanEl.style.width = index * 10 + "%";
+export function resizePreview(index) {
+  let scalePreviewSize = [100, 60, 40, 20]
+
+  previewSpanEl.style.transition =
+    'width 0.3s ease-in-out, height 0.3s ease-in-out'
+
+  gsap.fromTo(
+    previewSpanEl,
+    {
+      width: scalePreviewSize[index] + `%`,
+      height: scalePreviewSize[index] + `%`,
+    },
+    {
+      width: scalePreviewSize[index] + `%`,
+      height: scalePreviewSize[index] + `%`,
+    }
+  )
+
+  if (index <= 0) {
+    fullScreen = true
+    previewSpanEl.style.top = '50%'
+    previewSpanEl.style.left = '50%'
+    previewSpanEl.style.transform = 'translate(-50%, -50%)'
+  } else {
+    fullScreen = false
   }
+
+  console.log(fullScreen)
+}
