@@ -52,7 +52,7 @@ function pageGameInit() {
   ]
 
 
-    const backButton = document.querySelector('.back-button');
+  const backButton = document.querySelector('.back-button');
   const closeButton = document.querySelector('.close-button');
 
   backButton.addEventListener('click', () => {
