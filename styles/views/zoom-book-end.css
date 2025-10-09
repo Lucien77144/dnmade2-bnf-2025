@@ -54,7 +54,6 @@
 
 
 #zoom-book-end-preview{
-
     width:360px;
     height:300px;
     z-index:10;
@@ -65,7 +64,7 @@
     top:5%;
     right:2%;
     border:5% solid black;
-    background-color: rgba(255, 0, 0, 0.497);
+    background-color: rgba(0, 0, 0, 0.497);
 }
 
 #zoom-book-end-preview img{
@@ -81,7 +80,7 @@ top:50%;
 left:50%;
 transform:translate(-50%,-50%);
 z-index:105;
-border:5px white solid;
+border:4px white solid;
 width:100%;
 height:100%;
 }
