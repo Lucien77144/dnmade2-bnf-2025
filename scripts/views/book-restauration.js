@@ -86,27 +86,28 @@ function pageGameInit() {
       gemContent.appendChild(infoButton);
 
       const gemImages = document.createElement('div');
-      const gemImageDragable = document.createElement('img');
+      const gemImageDraggable = document.createElement('img');
       const gemImageGhost = document.createElement('img');
 
       //const imageUrl = `../../public/images/game/gems/gem-${count}.png`;
       const imageUrl = `../../public/images/game/gems/gem-0.png`;
-      gemImageDragable.src = imageUrl;
+      gemImageDraggable.src = imageUrl;
       gemImageGhost.src = imageUrl;
 
-      gemImageDragable.setAttribute('data-gemid', count);
-      gemImageDragable.classList.add('gem-draggable', 'gem');
+      gemImageDraggable.setAttribute('data-gemid', count);
+      gemImageDraggable.setAttribute('data-in-box', false),
+      gemImageDraggable.classList.add('gem-draggable', 'gem');
       gemImageGhost.classList.add('gem-ghost', 'gem');
 
       gemImages.appendChild(gemImageGhost);
-      gemImages.appendChild(gemImageDragable);
+      gemImages.appendChild(gemImageDraggable);
 
       gemContent.appendChild(gemImages);
 
       value.appendChild(gemContent);
 
       const overlapThreshold = "100%";
-      /* Init dragable zone position */
+      /* Init draggable zone position */
 
       const pos = targetPosition[count];
 
@@ -119,20 +120,27 @@ function pageGameInit() {
 
       /* Init draggable item */
 
-      const onDragStart = (e) => {
-        gsap.to(gemImageDragable, {duration: 0.1, scale: 1.2, rotate: 'random(-9,9)', zIndex: 1})
-        console.log(e)
-      }
+      //const onDragStart = 
 
-      Draggable.create(gemImageDragable, {
+      Draggable.create(gemImageDraggable, {
         inertia: true,
-        onDragStart,
-        onDragEnd: function(e) {
-      
+        onDragStart: (e) => {
+          
+          console.log('test')
+          gsap.to(gemImageDraggable, {
+            duration: 0.1, 
+            scale: 1.2, 
+            rotate: 'random(-9,9)', 
+            zIndex: 1
+          })
+          
+          console.log(e)
+        },
 
+        onDragEnd: function(e) {
           if(!this.hitTest(droppableZone, overlapThreshold)) {
 
-            gsap.to(gemImageDragable, {
+            gsap.to(gemImageDraggable, {
               x: 0,
               y: 0,
               duration: 0.7, 
@@ -142,11 +150,12 @@ function pageGameInit() {
             });
           
           } else {
-            gsap.to(gemImageDragable, {
+            gsap.to(gemImageDraggable, {
               scale: 0.5,
               rotate: 0,
-              ease:'elastic.out(.45)',
+              ease:'elastic.out(.45)'
             })
+            gemImageDraggable.setAttribute('data-in-box', true)
           }
       
         },

@@ -80,6 +80,7 @@
         border-radius: 50%;
         /* background-color: rgba(255, 255, 255, 0.2); */
         /* pointer-events: none; */
+        
     }
 }
 
@@ -198,7 +199,6 @@ h2{
     background-color: black;
 }
 
-
 .popup .popup-content h2 {
     margin:10px 0px;
     font-size: 40px;
@@ -222,7 +222,6 @@ h2{
     text-align: center;
     line-height: 1.5;
 }
-
 
 .close-btn {
     position: absolute;
@@ -320,6 +319,13 @@ h2{
     width: 10rem;
     height: 10rem;
     background-color: black;
+}
+
+.halo-active {
+    background: radial-gradient(circle, rgba(236, 169, 0, 1) 0%, transparent 60%);
+    border-radius: 50%;
+    filter: blur(20px);
+    animation: haloPulse 2s ease-in-out infinite;
 }
 
 
