@@ -3,37 +3,37 @@
         {
             "name": "emeraude",
             "description": "c'est une emeraude",
-            "img": "",
+            "img": "../../public/images/game/gems/gem-0.png",
             "dropbox": [100, 200]
         },
         {
             "name": "saphir",
             "description": "c'est un saphir",
-            "img": "",
+            "img": "../../public/images/game/gems/gem-0.png",
             "dropbox": [150, 250]
         },
         {
             "name": "rubis",
             "description": "c'est un rubis",
-            "img": "",
+            "img": "../../public/images/game/gems/gem-0.png",
             "dropbox": [200, 300]
         },
         {
             "name": "diamant",
             "description": "c'est un diamant",
-            "img": "",
+            "img": "../../public/images/game/gems/gem-0.png",
             "dropbox": [250, 350]
         },
         {
             "name": "perle",
             "description": "c'est une perle",
-            "img": "",
+            "img": "../../public/images/game/gems/gem-0.png",
             "dropbox": [300, 400]
         },
         {
             "name": "calcedoine",
             "description": "c'est une calcedoine",
-            "img": "",
+            "img": "../../public/images/game/gems/gem-0.png",
             "dropbox": [350, 450]
         }
     ]

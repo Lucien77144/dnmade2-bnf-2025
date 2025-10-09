@@ -1,19 +1,19 @@
+const viewBookRestauration = document.querySelector('section#view-book-restauration');
+const gemsList = document.querySelectorAll('.gems-list');
+const gameBook = document.querySelector('.game-book');
+
 let json;
+let popup = createPopup("#popup");
 
 document.addEventListener('DOMContentLoaded', async () => {
   gsap.registerPlugin(Draggable)
 
   const response = await fetch('../../public/data/book-restauration.json');
   json = await response.json();
-
   console.log(json);
+  
+  pageGameInit();
 });
-
-
-const viewBookRestauration = document.querySelector('section#view-book-restauration');
-const gemsList = document.querySelectorAll('.gems-list');
-const gameBook = document.querySelector('.game-book');
-
 
 function createPopup(id){
     let popupNode = document.querySelector(id);
@@ -34,23 +34,9 @@ function createPopup(id){
     return openPopup;
 }
 
-let popup = createPopup("#popup");
-
-
-
 
 
 function pageGameInit() {
-
-  const targetPosition = [
-    [100, 200],
-    [150, 250],
-    [200, 300],
-    [250, 350],
-    [300, 400],
-    [350, 450],
-  ]
-
 
   const backButton = document.querySelector('.back-button');
   const closeButton = document.querySelector('.close-button');
@@ -64,8 +50,6 @@ function pageGameInit() {
     console.warn('Implement close navigation');
     //window.location.href = 'library.html';
   });
-
-
 
   let count = 0;
   gemsList.forEach((value, i) => {
@@ -90,12 +74,13 @@ function pageGameInit() {
       const gemImageGhost = document.createElement('img');
 
       //const imageUrl = `../../public/images/game/gems/gem-${count}.png`;
-      const imageUrl = `../../public/images/game/gems/gem-0.png`;
+      //const imageUrl = `../../public/images/game/gems/gem-0.png`;
+      const imageUrl = json.gemID[count].img;
       gemImageDraggable.src = imageUrl;
       gemImageGhost.src = imageUrl;
 
       gemImageDraggable.setAttribute('data-gemid', count);
-      gemImageDraggable.setAttribute('data-in-box', false),
+      gemImageDraggable.setAttribute('data-in-box', 'false');
       gemImageDraggable.classList.add('gem-draggable', 'gem');
       gemImageGhost.classList.add('gem-ghost', 'gem');
 
@@ -107,9 +92,9 @@ function pageGameInit() {
       value.appendChild(gemContent);
 
       const overlapThreshold = "100%";
-      /* Init draggable zone position */
+      /* Init Draggable zone position */
 
-      const pos = targetPosition[count];
+      const pos = json.gemID[count].dropbox;
 
       const droppableZone = document.createElement('div');
       droppableZone.setAttribute('data-droppable-for-gemid', count);
@@ -120,20 +105,15 @@ function pageGameInit() {
 
       /* Init draggable item */
 
-      //const onDragStart = 
-
       Draggable.create(gemImageDraggable, {
         inertia: true,
+
+        onPress: function(e) {
+          if(gemImageDraggable.getAttribute('data-in-box') === 'true') this.endDrag(e);
+        },
+
         onDragStart: (e) => {
-          
-          console.log('test')
-          gsap.to(gemImageDraggable, {
-            duration: 0.1, 
-            scale: 1.2, 
-            rotate: 'random(-9,9)', 
-            zIndex: 1
-          })
-          
+          gsap.to(gemImageDraggable, {duration: 0.1, scale: 1.2, rotate: 'random(-9,9)', zIndex: 1})
           console.log(e)
         },
 
@@ -150,12 +130,20 @@ function pageGameInit() {
             });
           
           } else {
+
             gsap.to(gemImageDraggable, {
+              //center in drop zone using gemID[count].dropbox
+              /* x: pos[0] + 'px',
+              y: pos[1] + 'px', */
+              duration: 1,
+              
+              
               scale: 0.5,
               rotate: 0,
-              ease:'elastic.out(.45)'
-            })
-            gemImageDraggable.setAttribute('data-in-box', true)
+              ease:'elastic.out(.45)',
+            });
+            gemImageDraggable.setAttribute('data-in-box', 'true');
+
           }
       
         },
@@ -166,61 +154,4 @@ function pageGameInit() {
   });
 
 }
-
-pageGameInit();
-
-// function hitTest(item1, item2){
-//   console.log(item1, item2)
-// }
-
-/*document.addEventListener("DOMContentLoaded", (event) => {
-  gsap.registerPlugin(Draggable)
-
-  const overlapThreshold = "60%";
-  const item = ".gem-draggable"
-  const dropArea = ".drop__box";
-
-  // selection de la pierre
-
-// function dragDrop(e){
-
-// }
-
-  const onDragStart = (e) => {
-    gsap.to(item, {duration: 0.1, scale: 1.2, rotate: 'random(-9,9)', zIndex: 100})
-    console.log(e)
-  }
-
-  Draggable.create(item, {
-    inertia: true,
-    onDragStart,
-    onDragEnd: function(e) {
-  
-
-    if(!this.hitTest(dropArea, overlapThreshold)) {
-
-    gsap.to(item, {
-      duration: 0.7, 
-      x:0, 
-      y:0, 
-      scale: 1, 
-      rotate: 0, 
-      ease:'elastic.out(.45)'
-    });
-    } else {
-      gsap.to(item, {
-        x: 0,
-        y: 500,
-        scale: 0.5,
-        rotate: 0,
-        ease:'elastic.out(.45)',
-      })
-    }
-  
-  },
-  });
-});*/
-
-
-
 

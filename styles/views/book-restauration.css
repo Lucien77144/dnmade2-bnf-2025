@@ -92,7 +92,7 @@
     display: flex;
 
     & .infoButton {
-        width: 40px;
+        width: 5vmin;
         position: absolute;
         top: 0;
         right: 0;
@@ -100,8 +100,9 @@
 
     & .gem {
         width: auto;
-        height: 100px;
-        
+        height: 15vmin;
+        user-select: none;
+
         position: absolute;
 
     }
@@ -163,7 +164,7 @@ h2{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.15) ;
-    max-width:440px;
+    max-width:690px;
     width:90%;
     background-color: rgba(0,0,0,0.8);
     padding: 25px;
@@ -200,8 +201,8 @@ h2{
 }
 
 .popup .popup-content h2 {
-    margin:10px 0px;
-    font-size: 40px;
+    margin: 50px 0 30px;
+    font-size: 60px;
     font-family:"Injurial";
     color:rgb(255, 179, 0);
     text-align: center;
@@ -209,15 +210,15 @@ h2{
 
 .popup .popup-content h3 {
     margin:10px 0px;
-    font-size: 13px;
+    font-size: 21px;
     font-family: 'VelinoText-ThinItalic';
     color:white;
     text-align: center;
 }
 
 .popup .popup-content p {
-    margin:15px 20px 15px 0;
-    font-size: 14px;
+    margin:15px 50px 35px 50px;
+    font-size: 23px;
     color:white;
     text-align: center;
     line-height: 1.5;
@@ -225,21 +226,21 @@ h2{
 
 .close-btn {
     position: absolute;
-    top:18px;
-    right: 10px;
+    top:22px;
+    right: 22px;
     cursor: pointer;
     background: none;
     border: none;
 }
 
 .close-btn img {
-    width: 70%;
+    width: 100%;
 }
 
 .image {
     position: relative;
     width: 80%;
-    margin: 30px auto;
+    margin: 50px auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -265,6 +266,7 @@ h2{
     width: 100px;
     z-index: 1;
     display: block;
+    width: 150px
 }
 
 @keyframes haloPulse {
