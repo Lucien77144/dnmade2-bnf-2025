@@ -39,6 +39,8 @@ body {
 }
  
 .book-area {
+    top: 5%;  
+    left: 10%;
     position: relative;
     width: 120px;
     height: 600px;
