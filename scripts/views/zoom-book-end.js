@@ -99,6 +99,28 @@ bookZoomEndContainer.addEventListener("touchmove", (event) => {
 
 
 
+
+
+
+
+bookZoomEndContainer.addEventListener("touchend", () => {
+
+    let touchX = saveLastTouchX;
+    let touchY = saveLastTouchY;
+    
+    bookZoomPreview(touchX, touchY);
+} , { passive: true });  
+
+/* --------------------------------------------------
+-----------------------------------------------------
+
+BOUTONS ZOOM 
+
+-----------------------------------------------------
+---------------------------------------------------*/
+
+
+
 const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
 function zoomIn() {
   console.log('zoomIn pressed')
@@ -115,23 +137,10 @@ function zoomIn() {
 }
 
 
-
-bookZoomEndContainer.addEventListener("touchend", () => {
-
-    let touchX = saveLastTouchX;
-    let touchY = saveLastTouchY;
-    
-    bookZoomPreview(touchX, touchY);
-} , { passive: true });  
-
-/* ------------------------------------
-BOUTONS ZOOM 
------------------------------------- */
-
 function zoomOut() {
-  console.log('zoomOut  pressed')
+  console.log('zoomOut pressed')
 
-  zoomBookEndPhotoReliure.style.width = `calc(40vw*${SCALE_SIZES[zoomIndex]})`
+  zoomBookEndPhotoReliure.style.width = `calc(-40vw*${SCALE_SIZES[zoomIndex]})`
 
   if (zoomIndex === SCALE_SIZES.length - 1) {
     // zoomIndex = 0
@@ -141,13 +150,7 @@ function zoomOut() {
 
   console.log(zoomIndex)
 }
-function zoomOut() {
-    console.log('zoomOut pressed')
-    zoomIndex = zoomIndex - 1
-    zoomBookEndPhotoReliure.style.transform = `scale (${zoomIndex})`
-    zoomIndex = zoomIndex - 1
-    console.log(zoomIndex)
-  }
+
 
   zoomInButton.addEventListener('click', zoomIn)
   zoomOutButton.addEventListener('click', zoomOut)
