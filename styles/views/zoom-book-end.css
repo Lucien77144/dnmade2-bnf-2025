@@ -58,6 +58,7 @@ h1 {
 
 
 #zoom-book-end-preview{
+
     width:360px;
     height:300px;
     z-index:10;
@@ -78,9 +79,11 @@ h1 {
 }
 
 #zoom-book-end-preview span{
+transform-origin: center;
 position:absolute;
- top:0;
-left:0;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
 z-index:105;
 border:5px white solid;
 width:100%;
