@@ -1,5 +1,27 @@
 @import url('../reset.css');
 
+@font-face {
+    font-family: 'Injurial';
+    src: url('../../public/fonts/Injurial/205TF-Injurial-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Injurial-ttf';
+    src: url('../../public/fonts/Injurial/205TF-Injurial-Regular.ttf') format('opentype');
+}
+
+
+@font-face {
+    font-family: 'VelinoText-Thin';
+    src: url('../../public/fonts/VELINO Text/VelinoText-Thin.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'VelinoText-ThinItalic';
+    src: url('../../public/fonts/VELINO Text/VelinoText-ThinItalic.otf') format('opentype');
+}
+
+
 #view-book-restauration {
     width: 100svw;
     height: 100svh;
@@ -12,6 +34,18 @@
     background-color: black;
     background-position: center center;
     background-size: cover;
+
+    & header {
+        display: flex;
+        position: fixed;
+        top: 0;
+        
+        width: 100%;
+        padding: 20px;
+        justify-content: space-between;
+
+        z-index: 10;
+    }
 }
 
 .interactive-scene {
@@ -90,11 +124,12 @@
     padding: 0;
     box-sizing: border-box;
     color: rgb(255, 255, 255);
+    font-family: "VelinoText-Thin";
 }
 
 h2{
     color: rgb(255, 179, 0);
-    font-family:"VelinoText-Light";
+    font-family:"Injurial";
     
 }
 
@@ -130,8 +165,8 @@ h2{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.15) ;
-    width:95%;
-    max-width: 350px;
+    max-width:440px;
+    width:90%;
     background-color: rgba(0,0,0,0.8);
     padding: 25px;
     border-radius: 20px;
@@ -178,26 +213,24 @@ h2{
 .popup .popup-content h3 {
     margin:10px 0px;
     font-size: 13px;
-    font-family: 'VelinoText-LightItalic';
+    font-family: 'VelinoText-ThinItalic';
     color:white;
     text-align: center;
 }
 
 .popup .popup-content p {
-    margin:15px 0px;
-    font-size: 15px;
+    margin:15px 20px 15px 0;
+    font-size: 14px;
     color:white;
     text-align: center;
+    line-height: 1.5;
 }
 
-.popup .popup-content .controls {
-    margin:0px 0px;
-    font-size: 17px;
-    color:white;
-    text-align: end;
-}
 
-.popup .popup-content .controls button {
+.close-btn {
+    position: absolute;
+    top:18px;
+    right: 10px;
     cursor: pointer;
     background: none;
     border: none;
@@ -210,7 +243,10 @@ h2{
 .image {
     position: relative;
     width: 80%;
-    margin: auto;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .image::before {
@@ -230,7 +266,7 @@ h2{
 
 .image img {
     position: relative;
-    width: 100%;
+    width: 100px;
     z-index: 1;
     display: block;
 }
@@ -295,6 +331,4 @@ h2{
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
 }
-
-
 

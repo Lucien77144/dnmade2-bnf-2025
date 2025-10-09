@@ -25,6 +25,22 @@ function pageGameInit() {
     [350, 450],
   ]
 
+
+  const backButton = document.querySelector('.back-button');
+  const closeButton = document.querySelector('.close-button');
+
+  backButton.addEventListener('click', () => {
+    console.warn('Implement back navigation');
+    //window.location.href = 'library.html';
+  });
+
+  closeButton.addEventListener('click', () => {
+    console.warn('Implement close navigation');
+    //window.location.href = 'library.html';
+  });
+
+
+
   let count = 0;
   gemsList.forEach((value, i) => {
     for (let j = 0; j < 3; j++) {
@@ -33,10 +49,15 @@ function pageGameInit() {
       gemContent.classList.add('gemContent')
       gemContent.setAttribute('data-gemcontentid', count);
 
-      const xButton = document.createElement('img');
-      xButton.classList.add('infoButton');
-      xButton.src = '../../public/images/ui/info-button.svg';
-      gemContent.appendChild(xButton);
+      const infoButton = document.createElement('img');
+      infoButton.classList.add('infoButton');
+      infoButton.src = '../../public/images/ui/info-button.svg';
+
+      infoButton.addEventListener('click', () => {
+        console.log('Clicked on infoButton number ' + count)
+      });
+      
+      gemContent.appendChild(infoButton);
 
       const gemImages = document.createElement('div');
       const gemImageDragable = document.createElement('img');
