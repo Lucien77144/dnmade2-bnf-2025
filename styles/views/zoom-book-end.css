@@ -1,7 +1,16 @@
+html, body {
+  overflow: visible;
+  max-width: none;
+  height: auto;
+}
 
+body {
+  overflow: auto;
+}
 
 #zoom-book-end {
   width: 100%;
+  max-width: none;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -13,9 +22,10 @@
 #zoom-book-end-container {
   overflow: auto;
   width: 100%;
+  max-width: none;
   height: 100%;
-  display: flex;
-  justify-content: center;
+ display: flex;
+  justify-content: safe center;
   align-items: safe center;
 }
 
@@ -23,6 +33,7 @@
   width: 40vw;
   touch-action: manipulation;
   user-select: none;
+  max-width: none;
 }
 
 #zoom-book-end-buttons {
