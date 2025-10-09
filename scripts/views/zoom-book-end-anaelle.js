@@ -2,12 +2,11 @@
 
 
 const previewSpanEl = document.querySelector('#zoom-book-end-preview span')
-
+export let saveLastTouchX
+export let saveLastTouchY
 let fullScreen = true
 
 window.addEventListener('DOMContentLoaded', () => {
-  let saveLastTouchX
-  let saveLastTouchY
 
   const containerEl = document.getElementById('zoom-book-end-container')
   const previewSpanEl = document.querySelector('#zoom-book-end-preview span')
@@ -31,7 +30,6 @@ window.addEventListener('DOMContentLoaded', () => {
     previewSpanEl.style.top = movingY + '%'
     previewSpanEl.style.left = movingX + '%'
 
-    console.log(movingX, movingY)
   }
 
   /* containerEl.addEventListener(
@@ -108,5 +106,4 @@ export function resizePreview(index) {
     fullScreen = false
   }
 
-  console.log(fullScreen)
 }
