@@ -14,6 +14,32 @@ const viewBookRestauration = document.querySelector('section#view-book-restaurat
 const gemsList = document.querySelectorAll('.gems-list');
 const gameBook = document.querySelector('.game-book');
 
+
+function createPopup(id){
+    let popupNode = document.querySelector(id);
+    let overlay = popupNode.querySelector(".overlay");
+    let closeBtn = popupNode.querySelector(".close-btn");
+
+    function openPopup(){
+        popupNode.classList.add("active");
+    }
+
+    function closePopup(){
+        popupNode.classList.remove("active");
+    }
+
+    overlay.addEventListener("click", closePopup); //click pour écran tactile aussi ??
+    closeBtn.addEventListener("click", closePopup);
+
+    return openPopup;
+}
+
+let popup = createPopup("#popup");
+
+
+
+
+
 function pageGameInit() {
 
   const targetPosition = [
@@ -26,7 +52,7 @@ function pageGameInit() {
   ]
 
 
-  const backButton = document.querySelector('.back-button');
+    const backButton = document.querySelector('.back-button');
   const closeButton = document.querySelector('.close-button');
 
   backButton.addEventListener('click', () => {
@@ -54,7 +80,7 @@ function pageGameInit() {
       infoButton.src = '../../public/images/ui/info-button.svg';
 
       infoButton.addEventListener('click', () => {
-        console.log('Clicked on infoButton number ' + count)
+        popup();
       });
       
       gemContent.appendChild(infoButton);
@@ -138,13 +164,14 @@ pageGameInit();
 //   console.log(item1, item2)
 // }
 
-/* document.addEventListener("DOMContentLoaded", (event) => {
+/*document.addEventListener("DOMContentLoaded", (event) => {
+  gsap.registerPlugin(Draggable)
 
   const overlapThreshold = "60%";
   const item = ".gem-draggable"
   const dropArea = ".drop__box";
 
-  // Drag and drop
+  // selection de la pierre
 
 // function dragDrop(e){
 
@@ -183,29 +210,8 @@ pageGameInit();
   
   },
   });
-}); */
+});*/
 
 
 
-function createPopup(id){
-    let popupNode = document.querySelector(id);
-    let overlay = popupNode.querySelector(".overlay");
-    let closeBtn = popupNode.querySelector(".close-btn");
 
-    function openPopup(){
-        popupNode.classList.add("active");
-    }
-
-    function closePopup(){
-        popupNode.classList.remove("active");
-    }
-
-    overlay.addEventListener("click", closePopup); //click pour écran tactile aussi ??
-    closeBtn.addEventListener("click", closePopup);
-
-    return openPopup;
-}
-
-let popup = createPopup("#popup");
-
-document.querySelector("#open-popup").addEventListener("click", popup);
