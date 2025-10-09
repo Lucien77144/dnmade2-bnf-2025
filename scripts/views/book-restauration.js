@@ -70,28 +70,29 @@ function pageGameInit() {
       gemContent.appendChild(infoButton);
 
       const gemImages = document.createElement('div');
-      const gemImageDragable = document.createElement('img');
+      const gemImageDraggable = document.createElement('img');
       const gemImageGhost = document.createElement('img');
 
       //const imageUrl = `../../public/images/game/gems/gem-${count}.png`;
       //const imageUrl = `../../public/images/game/gems/gem-0.png`;
       const imageUrl = json.gemID[count].img;
-      gemImageDragable.src = imageUrl;
+      gemImageDraggable.src = imageUrl;
       gemImageGhost.src = imageUrl;
 
-      gemImageDragable.setAttribute('data-gemid', count);
-      gemImageDragable.classList.add('gem-draggable', 'gem');
+      gemImageDraggable.setAttribute('data-gemid', count);
+      gemImageDraggable.setAttribute('data-in-box', 'false');
+      gemImageDraggable.classList.add('gem-draggable', 'gem');
       gemImageGhost.classList.add('gem-ghost', 'gem');
 
       gemImages.appendChild(gemImageGhost);
-      gemImages.appendChild(gemImageDragable);
+      gemImages.appendChild(gemImageDraggable);
 
       gemContent.appendChild(gemImages);
 
       value.appendChild(gemContent);
 
       const overlapThreshold = "100%";
-      /* Init dragable zone position */
+      /* Init Draggable zone position */
 
       const pos = json.gemID[count].dropbox;
 
@@ -104,20 +105,22 @@ function pageGameInit() {
 
       /* Init draggable item */
 
-      const onDragStart = (e) => {
-        gsap.to(gemImageDragable, {duration: 0.1, scale: 1.2, rotate: 'random(-9,9)', zIndex: 1})
-        console.log(e)
-      }
-
-      Draggable.create(gemImageDragable, {
+      Draggable.create(gemImageDraggable, {
         inertia: true,
-        onDragStart,
-        onDragEnd: function(e) {
-      
 
+        onPress: function(e) {
+          if(gemImageDraggable.getAttribute('data-in-box') === 'true') this.endDrag(e);
+        },
+
+        onDragStart: (e) => {
+          gsap.to(gemImageDraggable, {duration: 0.1, scale: 1.2, rotate: 'random(-9,9)', zIndex: 1})
+          console.log(e)
+        },
+
+        onDragEnd: function(e) {
           if(!this.hitTest(droppableZone, overlapThreshold)) {
 
-            gsap.to(gemImageDragable, {
+            gsap.to(gemImageDraggable, {
               x: 0,
               y: 0,
               duration: 0.7, 
@@ -127,11 +130,20 @@ function pageGameInit() {
             });
           
           } else {
-            gsap.to(gemImageDragable, {
+
+            gsap.to(gemImageDraggable, {
+              //center in drop zone using gemID[count].dropbox
+              /* x: pos[0] + 'px',
+              y: pos[1] + 'px', */
+              duration: 1,
+              
+              
               scale: 0.5,
               rotate: 0,
               ease:'elastic.out(.45)',
-            })
+            });
+            gemImageDraggable.setAttribute('data-in-box', 'true');
+
           }
       
         },
