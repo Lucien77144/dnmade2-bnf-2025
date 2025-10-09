@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', () => {
     height: imageEl.offsetHeight,
   }
 
-  const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
+  const SCALE_SIZES = [1.6, 1.6, 2, 2.2]
   const tl = gsap.timeline({
     duration: 0.5,
     ease: 'ease-in-out',
@@ -33,32 +33,64 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (zoomIndex >= SCALE_SIZES.length - 1) return
     zoomIndex++
+zoom(scale);
 
-    // Set the width scale
-    const currentWidth = sizes.width * scale
-    // previewMovingFrame.style.width = `${currentWidth}px`
-
-    // Instant finish previous zoom
-    tl.totalProgress(1)
-
-    // Set the width scale and scroll to center the image
-    tl.to(imageEl, {
-      width: `${currentWidth}px`,
-      onStart: () => {
-        containerEl.classList.add('zoomed')
-      },
-      onUpdate: () => {
-        const left = containerEl.scrollWidth - containerEl.clientWidth
-        const top = containerEl.scrollHeight - containerEl.clientHeight
-
-        containerEl.scrollTo({
-          left: left / 2,
-          top: top / 2,
-          behavior: 'instant',
-        })
-      },
-    })
   }
+
+  function zoomOut() {
+    
+    const scale = SCALE_SIZES[zoomIndex]
+
+    if (zoomIndex >= SCALE_SIZES.length - 1) return
+    zoomIndex++
+zoom(scale);
+
+  }
+
+
+
+  function zoom(scale){
+
+        // Set the width scale
+        const currentWidth = sizes.width * scale
+        
+    
+        // Instant finish previous zoom
+        tl.totalProgress(1) //on termone l'animation précédente
+    
+        // Set the width scale and scroll to center the image
+        // tl = timeline, déclarée au début
+        // on relance l'animation
+        tl.to(imageEl, {
+          width: `${currentWidth}px`,
+         /* onStart: () => {
+            containerEl.classList.add('zoomed')
+          },*/
+          onUpdate: () => {
+            const width = containerEl.scrollWidth - containerEl.clientWidth
+            const height = containerEl.scrollHeight - containerEl.clientHeight
+    
+            containerEl.scrollTo({
+              left: width / 2,
+              top: height / 2,
+              behavior: 'instant',
+              //à chaque frame on se remet au milieu
+            })
+          },
+        })
+
+  }
+
+
+ /*---------------------------------------------------
+  -----------------------------------------------------
+  
+ANAELLE
+  
+  -----------------------------------------------------
+  -----------------------------------------------------*/
+
+
 
   function bookZoomPreview(x, y) {
     const movingX = Math.floor((192 / x) * 100)
@@ -86,17 +118,7 @@ window.addEventListener('DOMContentLoaded', () => {
     { passive: true }
   )
 
-  function zoomOut() {
-    if (zoomIndex > 0) {
-      zoomIndex--
-    }
-    imageEl.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
-
-    // Remove zoomed class when back to scale 1
-    if (SCALE_SIZES[zoomIndex] <= 1) {
-      containerEl.classList.remove('zoomed')
-    }
-  }
+ 
 
   zoomInButton.addEventListener('click', zoomIn)
   zoomOutButton.addEventListener('click', zoomOut)
