@@ -1,5 +1,6 @@
 // Anaelle
 
+
  const previewSpanEl = document.querySelector('#zoom-book-end-preview span')
 
 window.addEventListener('DOMContentLoaded', (e) => {

@@ -1,5 +1,7 @@
 // Pauline
 
+//import {saveLastTouchX} from "./zoom-book-end-anaelle.js"
+//git import {saveLastTouchY} from "./zoom-book-end-anaelle.js"
 
  
 import {resizePreview} from "./zoom-book-end-anaelle.js"
@@ -57,6 +59,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
     const currentWidth = sizes.width * scale
     const currentHeight = sizes.height * scale
 
+
+    //get factor
+
     // Instant finish previous zoom
     tl.totalProgress(1)
 
@@ -68,12 +73,12 @@ window.addEventListener('DOMContentLoaded', (e) => {
         containerEl.classList.add('zoomed')
       },
       onUpdate: () => {
-        const left = containerEl.scrollWidth - containerEl.clientWidth
-        const top = containerEl.scrollHeight - containerEl.clientHeight
+        const width = containerEl.scrollWidth - containerEl.clientWidth
+        const height = containerEl.scrollHeight - containerEl.clientHeight
 
         containerEl.scrollTo({
-          left: left / 2,
-          top: top / 2,
+          left: width / 2,
+          top: height / 2,
           behavior: 'instant',
         })
       },
