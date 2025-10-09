@@ -1,10 +1,5 @@
 // Pauline
-
-import {
-  saveLastTouchX,
-  saveLastTouchY,
-  resizePreview,
-} from './zoom-book-end-anaelle.js'
+import { resizePreview } from './zoom-book-end-anaelle.js'
 export let zoomIndex = 0
 
 window.addEventListener('DOMContentLoaded', (e) => {
@@ -21,14 +16,13 @@ window.addEventListener('DOMContentLoaded', (e) => {
   const containerEl = document.getElementById('zoom-book-end-container')
   const imageEl = document.getElementById('zoom-book-end-image')
 
-  //get factor
-
+  const SCALE_SIZES = [1, 2, 3, 4, 5]
   const sizes = {
-    width: imageEl.offsetWidth,
-    height: imageEl.offsetHeight,
+    defaultWidth: imageEl.offsetWidth,
+    defaultHeight: imageEl.offsetHeight,
+    scale: SCALE_SIZES[0],
   }
 
-  const SCALE_SIZES = [1, 2, 3, 4, 5]
   const tl = gsap.timeline({
     duration: 0.5,
     ease: 'ease-in-out',
@@ -39,9 +33,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
     if (zoomIndex > SCALE_SIZES.length - 1) return
 
-    const scale = SCALE_SIZES[zoomIndex]
-    zoom(scale)
-    // console.log(imageEl.offsetWidth)
+    sizes.scale = SCALE_SIZES[zoomIndex]
+
+    zoom()
     resizePreview(zoomIndex)
   }
 
@@ -50,73 +44,57 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
     if (zoomIndex < 0) return
 
-    const scale = SCALE_SIZES[zoomIndex]
-    zoom(scale)
+    sizes.scale = SCALE_SIZES[zoomIndex]
+
+    zoom()
     resizePreview(zoomIndex)
   }
 
-  let currentWidth = sizes.width
-  let currentHeight = sizes.height
-  function zoom(scale) {
+  function getScrollableSizes() {
+    return {
+      width: containerEl.scrollWidth - containerEl.clientWidth,
+      height: containerEl.scrollHeight - containerEl.clientHeight,
+    }
+  }
 
-    // Save previous Width
-    const prevWidth = currentWidth
-    const prevHeight = currentHeight
-
-    // Set the width scale
-     currentWidth = sizes.width * scale
-     currentHeight = sizes.height * scale
-
-    //get factor
-
-    const UserpositionX = containerEl.scrollLeft + containerEl.clientWidth / 2
-    const UserpositionY = containerEl.scrollTop + containerEl.clientHeight / 2
-
-    const imageW = containerEl.scrollWidth
-    const imageH = containerEl.scrollHeight
-
-    let lastXfactor = UserpositionX / imageW
-    let lastYfactor = UserpositionY / imageH
-    console.log(UserpositionY, prevHeight, imageH)
-    console.log(lastYfactor)
-
-    lastXfactor = containerEl.clientWidth > imageW ? 0.5 : lastXfactor // if else poiur une variable en 1 ligne
-    lastYfactor = containerEl.clientHeight > imageH ? 0.5 : lastYfactor
-
-    // console.log(saveLastTouchX, saveLastTouchY)   maj+ cmd + :
-
+  function zoom() {
     // Instant finish previous zoom
     tl.totalProgress(1)
 
-    imageEl.lastXfactor ??= lastXfactor
-    imageEl.lastYfactor ??= lastYfactor
+    // Get the scrollable size
+    const scrollable = getScrollableSizes()
 
-    // Set the width scale and scroll to center the image
-    tl.to(
-      imageEl,
-      {
-        width: `${currentWidth}px`,
-        height: `${currentHeight}px`,
-        lastXfactor,
-        lastYfactor,
-        onStart: () => containerEl.classList.add('zoomed'),
-        onUpdate: () => {
-          const width = imageW / 2
-          //  - (containerEl.clientWidth * imageEl.lastXfactor)
-          const height = imageH / 2
-          //  - (containerEl.clientHeight * imageEl.lastYfactor)
+    // If the axis is scrollable, convert the user coordinates to a factor (0-1), else set factor to 0.5
+    const userScrollFactor = {
+      x: scrollable.width ? containerEl.scrollLeft / scrollable.width : 0.5,
+      y: scrollable.height ? containerEl.scrollTop / scrollable.height : 0.5,
+    }
 
-          containerEl.scrollTo({
-            left: width,
-            top: height,
-            behavior: 'instant',
-          })
-        },
+    // Set the new width & height
+    const width = sizes.defaultWidth * sizes.scale + 'px'
+    const height = sizes.defaultHeight * sizes.scale + 'px'
+
+    // Set the new width & height with gsap animation
+    tl.to(imageEl, {
+      width,
+      height,
+      onStart: () => {
+        containerEl.classList.add('zoomed')
       },
-    )
+      onUpdate: () => {
+        // Get the scrollable size (updated at each tick by gsap)
+        const scrollable = getScrollableSizes()
+
+        // Scroll to the new position
+        containerEl.scrollTo({
+          left: scrollable.width * userScrollFactor.x,
+          top: scrollable.height * userScrollFactor.y,
+          behavior: 'instant',
+        })
+      },
+    })
   }
 
   zoomInButton.addEventListener('click', zoomIn)
   zoomOutButton.addEventListener('click', zoomOut)
-  // console.log(imageEl.offsetWidth)
 })
