@@ -13,6 +13,22 @@ function pageGameInit() {
     [350, 450],
   ]
 
+
+  const backButton = document.querySelector('.back-button');
+  const closeButton = document.querySelector('.close-button');
+
+  backButton.addEventListener('click', () => {
+    console.warn('Implement back navigation');
+    //window.location.href = 'library.html';
+  });
+
+  closeButton.addEventListener('click', () => {
+    console.warn('Implement close navigation');
+    //window.location.href = 'library.html';
+  });
+
+
+
   let count = 0;
   gemsList.forEach((value, i) => {
     for (let j = 0; j < 3; j++) {
