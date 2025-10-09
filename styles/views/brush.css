@@ -21,6 +21,15 @@ body {
 
 }
 
+/* Première lettre agrandie */
+.texte p::first-letter {
+  font-size: 4rem;      
+  float: top;            
+  line-height: 1;
+  margin-top: 0.05em; 
+}
+
+
 span {
     color: #ECA900;
     display: block;
@@ -71,8 +80,8 @@ body {
 /* Pinceau */
 .brush {
     position: relative;
-    top: 8rem;
-    left: 1%;
+    top: 9rem;
+    left: -2%;
     width: 460px;
     transform: translate(-50%, -40%);
     transform-origin: bottom left;
