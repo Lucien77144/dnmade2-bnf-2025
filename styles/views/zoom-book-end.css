@@ -24,8 +24,8 @@ body {
   width: 100%;
   max-width: none;
   height: 100%;
-  display: flex;
-  justify-content: center;
+ display: flex;
+  justify-content: safe center;
   align-items: safe center;
 }
 
