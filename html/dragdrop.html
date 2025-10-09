@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="texte">
+    <p id="text"></p>
+  </div>
+    <script>
+  fetch('/public/data/dragdrop.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Erreur de chargement du JSON');
+      }
+      return response.json();
+    })
+    .then(data => {
+      document.getElementById('text').innerHTML = data.texte;
+    })
+    .catch(error => console.error(error));
+</script>
+
+</body>
+</html>
