@@ -163,7 +163,7 @@ h2{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.15) ;
-    max-width:440px;
+    max-width:650px;
     width:90%;
     background-color: rgba(0,0,0,0.8);
     padding: 25px;
@@ -201,8 +201,8 @@ h2{
 
 
 .popup .popup-content h2 {
-    margin:10px 0px;
-    font-size: 40px;
+    margin: 50px 0 20px;
+    font-size: 60px;
     font-family:"Injurial";
     color:rgb(255, 179, 0);
     text-align: center;
@@ -210,15 +210,15 @@ h2{
 
 .popup .popup-content h3 {
     margin:10px 0px;
-    font-size: 13px;
+    font-size: 17px;
     font-family: 'VelinoText-ThinItalic';
     color:white;
     text-align: center;
 }
 
 .popup .popup-content p {
-    margin:15px 20px 15px 0;
-    font-size: 14px;
+    margin:20px 35px 15px 35px;
+    font-size: 20px;
     color:white;
     text-align: center;
     line-height: 1.5;
@@ -241,7 +241,7 @@ h2{
 .image {
     position: relative;
     width: 80%;
-    margin: 30px auto;
+    margin: 50px auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -267,6 +267,7 @@ h2{
     width: 100px;
     z-index: 1;
     display: block;
+    width: 150px
 }
 
 @keyframes haloPulse {
