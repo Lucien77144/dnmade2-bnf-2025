@@ -93,7 +93,7 @@ function pageGameInit() {
       const overlapThreshold = "100%";
       /* Init dragable zone position */
 
-      const pos = targetPosition[count];
+      const pos = json.gemID[count].dropbox;
 
       const droppableZone = document.createElement('div');
       droppableZone.setAttribute('data-droppable-for-gemid', count);
