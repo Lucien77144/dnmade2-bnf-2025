@@ -38,16 +38,6 @@ function createPopup(id){
 
 function pageGameInit() {
 
-  const targetPosition = [
-    [100, 200],
-    [150, 250],
-    [200, 300],
-    [250, 350],
-    [300, 400],
-    [350, 450],
-  ]
-
-
   const backButton = document.querySelector('.back-button');
   const closeButton = document.querySelector('.close-button');
 
@@ -60,8 +50,6 @@ function pageGameInit() {
     console.warn('Implement close navigation');
     //window.location.href = 'library.html';
   });
-
-
 
   let count = 0;
   gemsList.forEach((value, i) => {
@@ -86,7 +74,8 @@ function pageGameInit() {
       const gemImageGhost = document.createElement('img');
 
       //const imageUrl = `../../public/images/game/gems/gem-${count}.png`;
-      const imageUrl = `../../public/images/game/gems/gem-0.png`;
+      //const imageUrl = `../../public/images/game/gems/gem-0.png`;
+      const imageUrl = json.gemID[count].img;
       gemImageDragable.src = imageUrl;
       gemImageGhost.src = imageUrl;
 
