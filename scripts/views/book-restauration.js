@@ -1,3 +1,15 @@
+let json;
+
+document.addEventListener('DOMContentLoaded', async () => {
+  gsap.registerPlugin(Draggable)
+
+  const response = await fetch('../../public/data/book-restauration.json');
+  json = await response.json();
+
+  console.log(json);
+});
+
+
 const viewBookRestauration = document.querySelector('section#view-book-restauration');
 const gemsList = document.querySelectorAll('.gems-list');
 const gameBook = document.querySelector('.game-book');
@@ -46,7 +58,7 @@ function pageGameInit() {
 
       value.appendChild(gemContent);
 
-
+      const overlapThreshold = "100%";
       /* Init dragable zone position */
 
       const pos = targetPosition[count];
@@ -57,6 +69,41 @@ function pageGameInit() {
       droppableZone.style.top = pos[1] + 'px';
       droppableZone.style.left = pos[0] + 'px';
       gameBook.appendChild(droppableZone);
+
+      /* Init draggable item */
+
+      const onDragStart = (e) => {
+        gsap.to(gemImageDragable, {duration: 0.1, scale: 1.2, rotate: 'random(-9,9)', zIndex: 100})
+        console.log(e)
+      }
+
+      Draggable.create(gemImageDragable, {
+        inertia: true,
+        onDragStart,
+        onDragEnd: function(e) {
+      
+
+          if(!this.hitTest(droppableZone, overlapThreshold)) {
+
+            gsap.to(gemImageDragable, {
+              x: 0,
+              y: 0,
+              duration: 0.7, 
+              scale: 1, 
+              rotate: 0, 
+              ease:'elastic.out(.45)'
+            });
+          
+          } else {
+            gsap.to(gemImageDragable, {
+              scale: 0.5,
+              rotate: 0,
+              ease:'elastic.out(.45)',
+            })
+          }
+      
+        },
+      });
 
       count++
     }
@@ -70,14 +117,13 @@ pageGameInit();
 //   console.log(item1, item2)
 // }
 
-document.addEventListener("DOMContentLoaded", (event) => {
-  gsap.registerPlugin(Draggable)
+/* document.addEventListener("DOMContentLoaded", (event) => {
 
   const overlapThreshold = "60%";
   const item = ".gem-draggable"
   const dropArea = ".drop__box";
 
-  // selection de la pierre
+  // Drag and drop
 
 // function dragDrop(e){
 
@@ -116,7 +162,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   
   },
   });
-});
+}); */
 
 
 

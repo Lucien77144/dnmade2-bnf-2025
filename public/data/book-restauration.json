@@ -1,0 +1,40 @@
+{
+    "gemID": [
+        {
+            "name": "emeraude",
+            "description": "c'est une emeraude",
+            "img": "",
+            "dropbox": [100, 200]
+        },
+        {
+            "name": "saphir",
+            "description": "c'est un saphir",
+            "img": "",
+            "dropbox": [150, 250]
+        },
+        {
+            "name": "rubis",
+            "description": "c'est un rubis",
+            "img": "",
+            "dropbox": [200, 300]
+        },
+        {
+            "name": "diamant",
+            "description": "c'est un diamant",
+            "img": "",
+            "dropbox": [250, 350]
+        },
+        {
+            "name": "perle",
+            "description": "c'est une perle",
+            "img": "",
+            "dropbox": [300, 400]
+        },
+        {
+            "name": "calcedoine",
+            "description": "c'est une calcedoine",
+            "img": "",
+            "dropbox": [350, 450]
+        }
+    ]
+}
