@@ -31,3 +31,24 @@ brush.addEventListener('click', () => {
 circle.addEventListener('click', () => {
   popup.classList.add('visible');
 });
+
+// popup 
+document.addEventListener("DOMContentLoaded", () => {
+  const circle = document.getElementById("circle");
+  const popup = document.getElementById("popup");
+
+  // visible
+  let popupVisible = false;
+
+  // Clic sur le cercle → toggle popup
+  circle.addEventListener("click", () => {
+    popupVisible = !popupVisible;
+
+    if (popupVisible) {
+      popup.classList.add("visible");
+    } else {
+      popup.classList.remove("visible");
+    }
+  });
+});
+
