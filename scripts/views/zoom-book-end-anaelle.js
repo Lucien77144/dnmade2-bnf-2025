@@ -1,5 +1,6 @@
-// import ScrollSmoother from "./gsap/umd/ScrollSmoother.js";
-// import ScrollTrigger from "./gsap/umd/ScrollTrigger.js";
+// Anaelle
+
+ const previewSpanEl = document.querySelector('#zoom-book-end-preview span')
 
 window.addEventListener('DOMContentLoaded', (e) => {
   /*---------------------------------------------------
@@ -10,68 +11,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
   -----------------------------------------------------
   -----------------------------------------------------*/
 
-  const zoomInButton = document.getElementById('zoom-book-end-zoom-in-button')
-  const zoomOutButton = document.getElementById('zoom-book-end-zoom-out-button')
   const containerEl = document.getElementById('zoom-book-end-container')
-  const imageEl = document.getElementById('zoom-book-end-image')
   const previewSpanEl = document.querySelector('#zoom-book-end-preview span')
 
-  let zoomIndex = 0
-
-  const sizes = {
-    width: imageEl.offsetWidth,
-    height: imageEl.offsetHeight,
-  }
-
-  const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
-  const tl = gsap.timeline({
-    duration: 0.5,
-    ease: 'ease-in-out',
-  })
-
-  function zoomIn() {
-    zoomIndex++
-
-    if (zoomIndex > SCALE_SIZES.length - 1) return
-
-    const scale = SCALE_SIZES[zoomIndex]
-    zoom(scale)
-  }
-
-  function zoomOut() {
-    zoomIndex--
-
-    if (zoomIndex < 0) return
-
-    const scale = SCALE_SIZES[zoomIndex]
-    zoom(scale)
-  }
-
-  function zoom(scale) {
-    // Set the width scale
-    const currentWidth = sizes.width * scale
-
-    // Instant finish previous zoom
-    tl.totalProgress(1)
-
-    // Set the width scale and scroll to center the image
-    tl.to(imageEl, {
-      width: `${currentWidth}px`,
-      onStart: () => {
-        containerEl.classList.add('zoomed')
-      },
-      onUpdate: () => {
-        const left = containerEl.scrollWidth - containerEl.clientWidth
-        const top = containerEl.scrollHeight - containerEl.clientHeight
-
-        containerEl.scrollTo({
-          left: left / 2,
-          top: top / 2,
-          behavior: 'instant',
-        })
-      },
-    })
-  }
 
   function bookZoomPreview(x, y) {
     let movingX = (x / 1920) * 100
@@ -93,13 +35,11 @@ window.addEventListener('DOMContentLoaded', (e) => {
     previewSpanEl.style.left = movingX + '%'
   }
 
-  console.log(zoomIndex)
-
-  zoomInButton.addEventListener('click', zoomIn)
-  zoomOutButton.addEventListener('click', zoomOut)
-
   let saveLastTouchX = 0
   let saveLastTouchY = 0
+
+
+
 
   containerEl.addEventListener(
     'touchstart',
@@ -140,3 +80,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
     { passive: true }
   )
 })
+
+  export function resizePreview(index){
+    previewSpanEl.style.width = index * 10 + "%";
+  }
