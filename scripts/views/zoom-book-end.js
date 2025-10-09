@@ -1,5 +1,5 @@
-//import ScrollSmoother from "./gsap/umd/ScrollSmoother.js";
-//import ScrollTrigger from "./gsap/umd/ScrollTrigger.js";
+// import ScrollSmoother from "./gsap/umd/ScrollSmoother.js";
+// import ScrollTrigger from "./gsap/umd/ScrollTrigger.js";
 
 window.addEventListener('DOMContentLoaded', () => {
   /*---------------------------------------------------
@@ -29,14 +29,26 @@ window.addEventListener('DOMContentLoaded', () => {
   })
 
   function zoomIn() {
-    const scale = SCALE_SIZES[zoomIndex]
-
-    if (zoomIndex >= SCALE_SIZES.length - 1) return
     zoomIndex++
 
+    if (zoomIndex > SCALE_SIZES.length - 1) return
+
+    const scale = SCALE_SIZES[zoomIndex]
+    zoom(scale)
+  }
+
+  function zoomOut() {
+    zoomIndex--
+
+    if (zoomIndex < 0) return
+
+    const scale = SCALE_SIZES[zoomIndex]
+    zoom(scale)
+  }
+
+  function zoom(scale) {
     // Set the width scale
     const currentWidth = sizes.width * scale
-    // previewMovingFrame.style.width = `${currentWidth}px`
 
     // Instant finish previous zoom
     tl.totalProgress(1)
@@ -85,18 +97,6 @@ window.addEventListener('DOMContentLoaded', () => {
     },
     { passive: true }
   )
-
-  function zoomOut() {
-    if (zoomIndex > 0) {
-      zoomIndex--
-    }
-    imageEl.style.transform = `scale(${SCALE_SIZES[zoomIndex]})`
-
-    // Remove zoomed class when back to scale 1
-    if (SCALE_SIZES[zoomIndex] <= 1) {
-      containerEl.classList.remove('zoomed')
-    }
-  }
 
   zoomInButton.addEventListener('click', zoomIn)
   zoomOutButton.addEventListener('click', zoomOut)
