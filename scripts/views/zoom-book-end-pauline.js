@@ -5,6 +5,9 @@
 import {resizePreview} from "./zoom-book-end-anaelle.js"
 export let zoomIndex = 0;
 
+import { saveLastTouchX } from "./zoom-book-end-anaelle.js";
+import { saveLastTouchY } from "./zoom-book-end-anaelle.js";
+
 window.addEventListener('DOMContentLoaded', (e) => {
   /*---------------------------------------------------
   -----------------------------------------------------
@@ -33,23 +36,22 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
   function zoomIn() {
     zoomIndex++
-
+    resizePreview(zoomIndex)
     if (zoomIndex > SCALE_SIZES.length - 1) return
-
     const scale = SCALE_SIZES[zoomIndex]
     zoom(scale)
     console.log(imageEl.offsetWidth)
-    resizePreview(zoomIndex)
+    
   }
 
   function zoomOut() {
     zoomIndex--
-
+   resizePreview(zoomIndex)
     if (zoomIndex < 0) return
 
     const scale = SCALE_SIZES[zoomIndex]
     zoom(scale)
-    resizePreview(zoomIndex)
+   
   }
 
   function zoom(scale) {
@@ -82,6 +84,5 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
   zoomInButton.addEventListener('click', zoomIn)
   zoomOutButton.addEventListener('click', zoomOut)
-  console.log(imageEl.offsetWidth)
 })
 
