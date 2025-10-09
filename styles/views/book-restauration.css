@@ -12,6 +12,17 @@
     background-color: black;
     background-position: center center;
     background-size: cover;
+
+    & header {
+        display: flex;
+        position: fixed;
+        top: 0;
+        
+        width: 100%;
+        justify-content: space-between;
+
+        z-index: 10;
+    }
 }
 
 .interactive-scene {

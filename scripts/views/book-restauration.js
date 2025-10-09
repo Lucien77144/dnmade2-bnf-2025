@@ -21,10 +21,15 @@ function pageGameInit() {
       gemContent.classList.add('gemContent')
       gemContent.setAttribute('data-gemcontentid', count);
 
-      const xButton = document.createElement('img');
-      xButton.classList.add('infoButton');
-      xButton.src = '../../public/images/ui/info-button.svg';
-      gemContent.appendChild(xButton);
+      const infoButton = document.createElement('img');
+      infoButton.classList.add('infoButton');
+      infoButton.src = '../../public/images/ui/info-button.svg';
+
+      infoButton.addEventListener('click', () => {
+        console.log('Clicked on infoButton number ' + count)
+      });
+      
+      gemContent.appendChild(infoButton);
 
       const gemImages = document.createElement('div');
       const gemImageDragable = document.createElement('img');
