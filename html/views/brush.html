@@ -48,24 +48,26 @@ Le plat en or portant le Christ sur la croix créé vers 1260-1270 a peut-être 
       <img src="/public/images/popup.svg" alt="Popup image" class="popup" id="popup">
     </div>
   </div>
+  <img src="/public/images/logoBnF.png" alt="Logo de la BnF" class="logo-bnf">
 
- <!--script pour texte-->
-<script>
-  fetch('/public/data/brush.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Erreur de chargement du JSON');
-      }
-      return response.json();
-    })
-    .then(data => {
-      document.getElementById('text').innerHTML = data.texte;
-    })
-    .catch(error => console.error(error));
-</script>
+  <!--script pour texte-->
+  <script>
+    fetch('/public/data/brush.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erreur de chargement du JSON');
+        }
+        return response.json();
+      })
+      .then(data => {
+        document.getElementById('text').innerHTML = data.texte;
+      })
+      .catch(error => console.error(error));
+  </script>
 
-<!--script -->
-<script src="/scripts/brush.js"></script>
+  <!--script -->
+  <script src="/scripts/brush.js"></script>
 
 </body>
+
 </html>

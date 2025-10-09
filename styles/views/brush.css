@@ -7,43 +7,43 @@ body {
     height: 100vh;
 }
 
-.texte{
+.texte {
     color: white;
-    font-size: 25px;
+    font-size: 37px;
     position: fixed;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 550px;
-    margin-left: 80px;
+    width: 800px;
+    margin-left: 110px;
     padding: 15px;
     display: flex;
 
- }
+}
 
- span{
+span {
     color: #ECA900;
     display: block;
     margin-top: 10px;
- }
+}
 
- @font-face {
+@font-face {
     font-family: 'VelinoText-Medium';
     src: url(/public/fonts/VelinoText-Medium.otf) format('opentype');
     font-weight: normal;
     font-style: normal;
- }
-
- body {
-  font-family: 'Velino Text Medium',serif;
 }
- 
+
+body {
+    font-family: 'Velino Text Medium', serif;
+}
+
 .book-area {
-    top: 3%; 
-    left: 17%;
+    top: 6%;
+    left: 20%;
     position: relative;
-    width: 120px;
-    height: 600px;
+    width: 180px;
+    height: 800px;
 }
 
 /* Tranches */
@@ -71,9 +71,9 @@ body {
 /* Pinceau */
 .brush {
     position: relative;
-    top: 6rem;
+    top: 8rem;
     left: 1%;
-    width: 350px;
+    width: 420px;
     transform: translate(-50%, -40%);
     transform-origin: bottom left;
     cursor: pointer;
@@ -101,21 +101,20 @@ body {
 }
 
 .Louis {
-    position: fixed; /* reste collée au bas de la fenêtre */
-    bottom: 0;       /* le bas de l’image touche le bas de la page */
-    left: 480px;         /* collée au bord gauche */
-    height: 80vh;   /* occupe toute la hauteur de l’écran */
-    opacity: 0.6;    /* légèrement estompée */
-    z-index: -1;     /* passe derrière tout (livre, texte, pinceau, etc.) */
-    pointer-events: none; /* empêche toute interaction */
+    position: fixed;
+    bottom: -60px;
+    left: 620px;
+    height: 80vh;
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* Conteneur cercle + popup */
 .circle-container {
     position: absolute;
     top: 60%;
-    /* ajustable selon l’endroit du livre */
-    left: 131%;
+    left: 105%;
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
@@ -124,8 +123,9 @@ body {
 
 /*cercle */
 .circle {
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
+    left: 100%;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
@@ -169,4 +169,15 @@ body {
     opacity: 1;
     transform: translateY(-50%) scale(1);
     pointer-events: auto;
+}
+
+.logo-bnf {
+  position: fixed;         
+  bottom: 60px;            
+  right: 60px;             
+  width: 120px;            
+  height: auto;
+  z-index: 100;           
+  pointer-events: none;  
+  user-select: none;
 }
