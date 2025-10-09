@@ -39,8 +39,8 @@ body {
 }
  
 .book-area {
-    top: 5%;  
-    left: 10%;
+    top: 3%; 
+    left: 15%;
     position: relative;
     width: 120px;
     height: 600px;
@@ -100,6 +100,16 @@ body {
     transform: translate(-50%, -40%) rotate(80deg) scale(1.1);
 }
 
+.Louis {
+    position: fixed; /* reste collée au bas de la fenêtre */
+    bottom: 0;       /* le bas de l’image touche le bas de la page */
+    left: 480px;         /* collée au bord gauche */
+    height: 80vh;   /* occupe toute la hauteur de l’écran */
+    opacity: 0.6;    /* légèrement estompée */
+    z-index: -1;     /* passe derrière tout (livre, texte, pinceau, etc.) */
+    pointer-events: none; /* empêche toute interaction */
+}
+
 /* Conteneur cercle + popup */
 .circle-container {
     position: absolute;
@@ -147,7 +157,7 @@ body {
     position: absolute;
     left: 100%;
     transform: translateY(-50%) scale(0.8);
-    height: 200px;
+    height: 300px;
     width: auto;
     opacity: 0;
     transition: opacity 0.5s ease, transform 0.5s ease;
