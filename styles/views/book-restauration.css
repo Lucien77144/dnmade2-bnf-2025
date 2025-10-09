@@ -91,7 +91,7 @@
     display: flex;
 
     & .infoButton {
-        width: 40px;
+        width: 5vmin;
         position: absolute;
         top: 0;
         right: 0;
@@ -99,8 +99,9 @@
 
     & .gem {
         width: auto;
-        height: 100px;
-        
+        height: 15vmin;
+        user-select: none;
+
         position: absolute;
 
     }
