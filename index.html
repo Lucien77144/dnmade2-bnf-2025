@@ -16,7 +16,8 @@
 
     <!-- Import scripts -->
 
-    <script src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
+  <script type="module" src="./scripts/views/zoom-book-end.js"></script>
     <!--/ Import scripts -->
   </head>
   <body>
@@ -35,8 +36,14 @@
         <button id="zoom-book-end-zoom-in-button">+</button>
         <button id="zoom-book-end-zoom-out-button">-</button>
       </div>
+      <div id="zoom-book-end-preview">
+        <img src="public/images/reliure-compressed.png" alt="image précise de la reliure"> 
+        <span></span>
+      </div>
+
     </section>
   </body>
 
-  <script src="scripts/views/zoom-book-end.js"></script>
+
+  </body>     
 </html>

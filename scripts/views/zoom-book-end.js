@@ -14,6 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const zoomOutButton = document.getElementById('zoom-book-end-zoom-out-button')
   const containerEl = document.getElementById('zoom-book-end-container')
   const imageEl = document.getElementById('zoom-book-end-image')
+  const previewSpanEl = document.querySelector('#zoom-book-end-preview span')
 
   let zoomIndex = 0
 
@@ -73,31 +74,67 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function bookZoomPreview(x, y) {
-    const movingX = Math.floor((192 / x) * 100)
-    const movingY = Math.floor((108 / y) * 100)
+    let movingX = (x / 1920) * 100
+    let movingY = (y / 1080) * 100
 
     if (movingX >= 101) {
-      imageEl.style.left = '100%'
-    } else if (movingX <= 0) {
-      imageEl.style.left = '0%'
-    } else {
-      imageEl.style.left = movingX + '%'
+      movingX = ((1920 - previewSpanEl.offsetWidth * 2) / 1920) * 100
+    } else if (movingX < 0) {
+      movingX = 0
     }
 
-    imageEl.style.top = movingY + '%'
+    if (movingY >= 101) {
+      movingY = ((1080 - previewSpanEl.offsetHeight * 2) / 1080) * 100
+    } else if (movingY < 0) {
+      movingY = 0
+    }
+
+    previewSpanEl.style.top = movingY + '%'
+    previewSpanEl.style.left = movingX + '%'
   }
 
+  zoomInButton.addEventListener('click', zoomIn)
+  zoomOutButton.addEventListener('click', zoomOut)
+
+  let saveLastTouchX = 0
+  let saveLastTouchY = 0
+
   containerEl.addEventListener(
-    'touchmove',
-    (event) => {
-      const touchX = event.touches[0].offsetX
-      const touchY = event.touches[0].offsetY
+    'touchstart',
+    () => {
+      previewSpanEl.style.width = '20%'
+      previewSpanEl.style.height = '10%'
+
+      const touchX = saveLastTouchX
+      const touchY = saveLastTouchY
 
       bookZoomPreview(touchX, touchY)
     },
     { passive: true }
   )
 
-  zoomInButton.addEventListener('click', zoomIn)
-  zoomOutButton.addEventListener('click', zoomOut)
+  containerEl.addEventListener(
+    'touchmove',
+    (event) => {
+      const touchX = event.touches[0].pageX
+      const touchY = event.touches[0].pageY
+
+      saveLastTouchX = touchX
+      saveLastTouchY = touchY
+
+      bookZoomPreview(touchX, touchY)
+    },
+    { passive: true }
+  )
+
+  containerEl.addEventListener(
+    'touchend',
+    () => {
+      const touchX = saveLastTouchX
+      const touchY = saveLastTouchY
+
+      bookZoomPreview(touchX, touchY)
+    },
+    { passive: true }
+  )
 })
