@@ -3,13 +3,17 @@
 export let saveLastTouchX = 50
 export let saveLastTouchY = 50
 
+// récupération des éléments 
+
 const previewSpanEl = document.querySelector('#zoom-book-end-preview span')
 const previewBookContainerEl = document.querySelector('#zoom-book-end-preview')
 const containerEl = document.getElementById('zoom-book-end-container')
 
-
+// plein écran et premiere action 
 let fullScreen = true
 let hasUserTouched = false
+
+// fonctions de math, poucentage et valeur min et max DONT TOUCH
 
 function toPercentX(x, baseWidth) {
   return (x / baseWidth) * 100
@@ -22,51 +26,55 @@ function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max)
 }
 
+// start 
+
 window.addEventListener('DOMContentLoaded', () => {
+
   const rect = containerEl.getBoundingClientRect()
 
   previewBookContainerEl.style.width = rect.width / 4 + 'px'
   previewBookContainerEl.style.height = rect.height / 4 + 'px'
 
-  let lastTouchX = 0
-  let lastTouchY = 0
-  let ticking = false
+// Position de départ du rectangle 
+  let startPosX = saveLastTouchX;
+  let startPosY = saveLastTouchY;
 
-  function updatePreviewPosition() {
+  //position de départ du toucher
+  let startTouchX;
+  let startTouchY;
 
-    const xPercent = toPercentX(lastTouchX, rect.width);
-    const yPercent = toPercentY(lastTouchY, rect.height);
+  containerEl.addEventListener('touchstart', (event) => {
 
-    const halfWidth = toPercentX(previewBookContainerEl.offsetWidth / 8, rect.width);
-    const halfHeight = toPercentY(previewBookContainerEl.offsetHeight / 8, rect.height);
+    const touch = event.touches[0];
 
-    saveLastTouchX = clamp(100 - xPercent, halfWidth, 100 - halfWidth);
-    saveLastTouchY = clamp(100 - yPercent, halfHeight, 100 - halfHeight);
+    startTouchX = touch.pageX
+    startTouchY = touch.pageY
 
-    previewSpanEl.style.left = `${saveLastTouchX}%`;
-    previewSpanEl.style.top = `${saveLastTouchY}%`;
-    ticking = false;
-  } 
-  
+    
+  }, { passive: true })
 
   containerEl.addEventListener(
     'touchmove',
     (event) => {
-      if (fullScreen == false) {
+  
         const touch = event.touches[0];
 
-        lastTouchX = touch.pageX - containerEl.offsetLeft
-        lastTouchY = touch.pageY - containerEl.offsetTop
-
+        const deltaY = touch.pageY - startTouchY;
+        const deltaX = touch.pageX - startTouchX;
         
-    if (!ticking) {
-      requestAnimationFrame(updatePreviewPosition)
-      console.log(touch.pageX, touch.pageY)
-      ticking = true
-    }
-      }
-    },
-    { passive: true }
+
+        const moveY = toPercentY(deltaY, previewSpanEl.getBoundingClientRect().height);
+        const moveX = toPercentX(deltaX, previewSpanEl.getBoundingClientRect().width);
+
+        saveLastTouchY = clamp(startPosY - moveY, 0,100);
+        saveLastTouchX = clamp(startPosX - moveX, 0, 100);
+
+        previewSpanEl.style.left = `${saveLastTouchX}%`
+        previewSpanEl.style.top = `${saveLastTouchY}%`
+
+        console.log(saveLastTouchY, saveLastTouchX)
+        
+    },{ passive: true }
   )
 
 })
