@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
     height: imageEl.offsetHeight,
   }
 
-  const SCALE_SIZES = [1.2, 1.6, 2, 2.2]
+  const SCALE_SIZES = [ 1, 2, 3, 4, 5, ]
   const tl = gsap.timeline({
     duration: 0.5,
     ease: 'ease-in-out',
@@ -38,6 +38,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
     const scale = SCALE_SIZES[zoomIndex]
     zoom(scale)
+    console.log(imageEl.offsetWidth)
     resizePreview(zoomIndex)
   }
 
@@ -54,6 +55,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
   function zoom(scale) {
     // Set the width scale
     const currentWidth = sizes.width * scale
+    const currentHeight = sizes.height * scale
 
     // Instant finish previous zoom
     tl.totalProgress(1)
@@ -61,6 +63,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
     // Set the width scale and scroll to center the image
     tl.to(imageEl, {
       width: `${currentWidth}px`,
+      height: `${currentHeight}px`,
       onStart: () => {
         containerEl.classList.add('zoomed')
       },
@@ -79,5 +82,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
   zoomInButton.addEventListener('click', zoomIn)
   zoomOutButton.addEventListener('click', zoomOut)
+  console.log(imageEl.offsetWidth)
 })
 
