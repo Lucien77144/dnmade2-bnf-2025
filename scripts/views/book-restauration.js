@@ -120,7 +120,7 @@ function pageGameInit() {
       /* Init draggable item */
 
       const onDragStart = (e) => {
-        gsap.to(gemImageDragable, {duration: 0.1, scale: 1.2, rotate: 'random(-9,9)', zIndex: 100})
+        gsap.to(gemImageDragable, {duration: 0.1, scale: 1.2, rotate: 'random(-9,9)', zIndex: 1})
         console.log(e)
       }
 
