@@ -7,22 +7,36 @@ body {
     height: 100vh;
 }
 
- p{
+.texte{
     color: white;
-    padding: 15px;
+    font-size: 25px;
     position: fixed;
-    top: 0;
-    width: 500px;
+    top: 50%;
     left: 0;
-    flex-flow: column;
-   
+    transform: translateY(-50%);
+    width: 550px;
+    margin-left: 60px;
+    padding: 15px;
+    display: flex;
 
  }
 
  span{
     color: #ECA900;
-    
+    display: block;
+    margin-top: 10px;
  }
+
+ @font-face {
+    font-family: 'VelinoText-Medium';
+    src: url(/public/fonts/VelinoText-Medium.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+ }
+
+ body {
+  font-family: 'Velino Text Medium',serif;
+}
  
 .book-area {
     position: relative;
