@@ -94,7 +94,7 @@ function addGems() {
 
       value.appendChild(gemContent)
 
-      const overlapThreshold = '100%'
+      const overlapThreshold = '70%'
       /* Init Draggable zone position */
 
       const pos = json.gemID[count].dropbox
@@ -143,14 +143,15 @@ function addGems() {
             gsap.to(gemImageDraggable, {
               /* left: endBox.left - endBox.width / 2, */
               // top: endBox.top - endBox.height / 2,
-              left: endBox.left - startBox.width * 0.5 / 2,
-              top: endBox.top - startBox.height * 0.5 / 2,
+              left: endBox.left - (endBox.width - startBox.width * 0.5) / 2,
+              top: endBox.top - (endBox.height - startBox.height * 0.5) / 2,
               duration: 1,
               scale: 0.5,
               rotate: 0,
               ease: 'elastic.out(.45)',
             })
-            gemImageDraggable.setAttribute('data-in-box', 'true')
+            gemImageDraggable.setAttribute('data-in-box', 'true'),
+            droppableZone.classList.remove('droppable-zone')
           } else {
             gsap.to(gemImageDraggable, {
               left: startBox.left,
@@ -161,7 +162,7 @@ function addGems() {
               ease: 'elastic.out(.45)',
             })
           }
-        },
+        }, 
       })
 
       count++
