@@ -1,101 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  background-color: rgba(1, 1, 1, 0.8);
+  padding: 40px;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            background-color:rgba(1, 1, 1, 0.8);
-            padding: 40px;
-        }
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1300px;
+  gap: 40px;
+  align-items: flex-start;
+  margin: 0 auto;
+}
 
-        .container {
-            display: flex;
-            width: 100%;
-            max-width: 1300px;
-            gap: 40px;
-            align-items: flex-start;
-            margin: 0 auto;
-        }
+.text-section {
+  flex: 0 0 40%;
+  color: white;
+}
 
-        .text-section {
-            flex: 0 0 40%;
-            color: white;
-        }
+.text-section p {
+  font-size: 25px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+}
 
+.instructions {
+  font-size: 16px;
+  color: rgba(238, 197, 73, 1);
+  margin-top: 30px;
+  opacity: 0;
+}
 
-        .text-section p {
-            font-size: 25px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-        }
+.image-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  position: relative;
+  opacity: 0;
+}
 
-        .instructions {
-            font-size: 16px;
-            color: rgba(238, 197, 73, 1);
-            margin-top: 30px;
-            opacity: 0;
-        }
+.image-container {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: scale(0.8);
+  cursor: pointer;
+}
 
-        .image-section {
-            display: flex;
-            align-items: flex-start;
-            gap: 30px;
-            position: relative;
-            opacity: 0;
-        }
+.image {
+  width: 100%;
+  height: 100%;
+  background-image: url('../public/images/etape1_feuilletevangiles.webp');
+  background-size: cover;
+  background-position: center;
+}
 
-        .image-container {
-            position: relative;
-            width: 400px;
-            height: 500px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-            transform: scale(0.8);
-            cursor: pointer;
-        }
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(254, 237, 210, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        .image {
-            width: 100%;
-            height: 100%;
-            background-image: url('public/images/etape1_FeuilletEvangiles.webp');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .cover {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(254, 237, 210, 1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .reveal-btn {
-            width: 80px;
-            height: 80px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            position: absolute;
-            right: -90px;
-            top: 20px;
-            z-index: 10;
-            opacity: 0;
-            transform: scale(0.5) rotate(-180deg);
-           background-image: url('public/images/Plume.PNG');
-        }
+.reveal-btn {
+  width: 80px;
+  height: 80px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  position: absolute;
+  right: -90px;
+  top: 20px;
+  z-index: 10;
+  opacity: 0;
+  transform: scale(0.5) rotate(-180deg);
+  background-image: url('../public/images/Plume.png');
+}
