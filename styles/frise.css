@@ -34,7 +34,7 @@ ol {
   display: flex;
   justify-content: center;
   top: 100px;
-  margin: 100px 25px 100px 25px;
+  margin: 100px;
   height: 8px;
   background: #ECA900;
   background: radial-gradient(circle, rgba(236, 169, 0, 1) 0%, rgba(119, 85, 0, 1) 25%, rgba(119, 85, 0, 1) 80%, rgba(37, 37, 37, 1) 100%);
@@ -166,7 +166,7 @@ li .pointBas.active {
   margin-left: 80px;
   display: flex;
   top: 75px;
-  right: 20px;
+  right: 4vw;
   transition: all 0.15s;
   width: 60px;
   height: 60px;
@@ -177,7 +177,7 @@ li .pointBas.active {
   margin-left: 0px;
   display: flex;
   top: 75px;
-  right: 20px;
+  right: 4vw;
   transition: all 0.15s;
   width: 60px;
   height: 60px;

@@ -1,8 +1,8 @@
-let points
-let annees
-let tirets
-let descriptions
-let pointsBas
+let points;
+let annees;
+let tirets;
+let descriptions;
+let pointsBas;
 
 document.addEventListener('DOMContentLoaded', () => {
   fetch('public/data/data.json')
@@ -34,11 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log(points)
   for (let i = 0; i < points.length; i++) {
-    let point = points[i]
-    let annee = annees[i]
-    let tiret = tirets[i]
-    let description = descriptions[i]
-    let pointBas = pointsBas[i]
+    let point = points[i];
+    let annee = annees[i];
+    let tiret = tirets[i];
+    let description = descriptions[i];
+    let pointBas = pointsBas[i];
     point.addEventListener('click', function () {
       changerEtat(point, annee, tiret, description, pointBas)
     })

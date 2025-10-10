@@ -1,0 +1,6 @@
+•   Passer le code sur le fichier index.html
+•   Étape 1 illuminée par défaut
+•   Scroll + margins à arranger (la frise depasse vers le haut du body)
+•   Animations (sur les points & le gradient de la barre)
+•   Revoir l'archi HTMl (grouper dans une div l'ensemble de la nav)
+•   Faire le fond et préparer l'animation (deux circles avec blur + mouvement qnd déplacement avec la timeline)
