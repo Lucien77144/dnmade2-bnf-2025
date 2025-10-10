@@ -29,6 +29,15 @@ body {
   align-items: safe center;
 }
 
+.zoom-title-tuto{
+  position:absolute;
+  color:white;
+  font-size:3vw;
+  text-align:center;
+  text-shadow: 2px 2px 0px black;
+  
+}
+
 #zoom-book-end-container button{
   width: 100px;
   height: 100px;
