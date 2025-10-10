@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   fetch('../public/data/data.json')
     .then((response) => response.json())
