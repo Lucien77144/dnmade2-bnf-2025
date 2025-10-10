@@ -40,7 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let description = descriptions[i];
     let pointBas = pointsBas[i];
     point.addEventListener('click', function () {
+
       changerEtat(point, annee, tiret, description, pointBas)
+      // gsap.to(
+      //   ".categories.active", {
+      //     scale: 2,
+      //   }
+      // )
     })
   }
 })
