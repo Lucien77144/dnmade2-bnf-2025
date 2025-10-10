@@ -1,6 +1,6 @@
 .texte{
     color: white;
-    font-size: 57px;
+    font-size: 37px;
     position: fixed;
     top: 50%;
     left: 0;
@@ -28,6 +28,11 @@
  body {
   font-family: 'Velino Text Medium',serif;
   background-color: #252525;
+  margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 
