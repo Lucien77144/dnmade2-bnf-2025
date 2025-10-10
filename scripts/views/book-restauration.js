@@ -130,8 +130,6 @@ function addGems() {
 
           startBox ??= gemImageDraggable.getBoundingClientRect();
           endBox ??= droppableZone.getBoundingClientRect();
-
-          console.warn(endBox)
         },
 
         onDragEnd: function (e) {
