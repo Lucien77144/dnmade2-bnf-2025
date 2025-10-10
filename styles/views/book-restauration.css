@@ -423,3 +423,11 @@ h2{
  
 }
 
+
+
+.btn_ending{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    
+}
