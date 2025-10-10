@@ -27,7 +27,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 60%;
-  max-width: 700px;
+  max-width: 850px;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 20px;
   padding: 40px;
@@ -38,34 +38,28 @@
 
 .intro-window h2 {
   font-family: "Injurial";
-  font-size: 48px;
+  font-size: 52px;
   color: rgb(255, 179, 0);
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 .intro-window p {
   font-family: 'VelinoText-Thin';
-  font-size: 22px;
+  font-size: 25px;
   color: white;
-  margin-bottom: 40px;
+  margin: 35px 180px;
   line-height: 1.5;
 }
 
-.start-button {
-  font-size: 20px;
-  font-family: "Injurial";
-  color: black;
-  background-color: rgb(255, 179, 0);
-  border: none;
-  padding: 15px 40px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.3s;
+.start-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
-.start-button:hover {
-  background-color: rgb(255, 210, 70);
-  transform: scale(1.05);
+.start-btn img{
+    width: 180px;
+    height: auto;
 }
 
 @keyframes fadeIn {
@@ -78,6 +72,23 @@
     transform: translate(-50%, -50%);
   }
 }
+
+.intro-gems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 60px;
+  margin: 40px 0 60px 0;
+}
+
+.intro-gems img {
+  width: 60px;
+  height: auto;
+  filter: drop-shadow(0 0 8px rgba(236, 169, 0, 0.6));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
 
 
 #view-book-restauration {
@@ -104,12 +115,6 @@
 
         z-index: 10;
     }
-}
-
-.start-btn {
-    cursor: pointer;
-    background: none;
-    border: none;
 }
 
 .interactive-scene {

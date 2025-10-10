@@ -18,17 +18,29 @@
         <div class="intro-window">
       <h2>Reconstituez la reliure</h2>
       <p>
-        Vite ! 
+        Vite !
+        <br>
         Les pierres du livre ont été volées !
+        <br>
         Renseignez-vous sur les pierres et placez-les sur la Reliure.
       </p>
+
+      <div class="intro-gems">
+        <img src='../../public/images/game/gems/calcedoine.png'>
+        <img src='../../public/images/game/gems/perle.png'>
+        <img src='../../public/images/game/gems/spinelle.png'>
+        <img src='../../public/images/game/gems/saphir.png'>
+        <img src='../../public/images/game/gems/rubis.png'>
+        <img src='../../public/images/game/gems/emeraude.png'>
+      </div>
+
       <button type="button" class="start-btn">
                 <img src='../../public/images/ui/start-button.svg'>
       </button>
     </div>
 
   <script>
-    document.querySelector('.start-button').addEventListener('click', () => {
+    document.querySelector('.start-btn').addEventListener('click', () => {
       window.location.href = './book-restauration.html';
     });
   </script>
