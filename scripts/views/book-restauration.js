@@ -63,34 +63,38 @@ function addGems() {
       const gemContent = document.createElement('div')
       gemContent.classList.add('gemContent')
       gemContent.setAttribute('data-gemcontentid', count)
+      gemContent.setAttribute('data-gemColumn', i)
 
       const infoButton = document.createElement('img')
       infoButton.classList.add('infoButton')
       infoButton.src = '../../public/images/ui/info-button.svg'
 
       infoButton.addEventListener('click', () => {
-        openPopup(i * j)
+        const gemIndex = JSON.parse(gemContent.getAttribute('data-gemcontentid'));
+        openPopup(gemIndex);
       })
 
       gemContent.appendChild(infoButton)
 
-      const gemImages = document.createElement('div')
+      //const gemImages = document.createElement('div')
       const gemImageDraggable = document.createElement('img')
       const gemImageGhost = document.createElement('img')
 
       const imageUrl = json.gemID[count].image;
       gemImageDraggable.src = imageUrl;
       gemImageGhost.src = imageUrl;
+      
+      /* const position = gemImageDraggable.getBoundingClientRect()
+      gemImageDraggable.style.top = position.top + 'px'
+      gemImageDraggable.style.left = position.left + 'px' */
 
       gemImageDraggable.setAttribute('data-gemid', count)
       gemImageDraggable.setAttribute('data-in-box', 'false')
       gemImageDraggable.classList.add('gem-draggable', 'gem')
       gemImageGhost.classList.add('gem-ghost', 'gem')
 
-      gemImages.appendChild(gemImageGhost)
-      gemImages.appendChild(gemImageDraggable)
-
-      gemContent.appendChild(gemImages)
+      gemContent.appendChild(gemImageGhost)
+      gemContent.appendChild(gemImageDraggable)
 
       value.appendChild(gemContent)
 
@@ -102,8 +106,9 @@ function addGems() {
       const droppableZone = document.createElement('div')
       droppableZone.setAttribute('data-droppable-for-gemid', count)
       droppableZone.classList.add('droppable-zone')
-      droppableZone.style.top = pos[1] + 'px'
-      droppableZone.style.left = pos[0] + 'px'
+      droppableZone.style.position = 'fixed'
+      droppableZone.style.left = pos[0] + '%'
+      droppableZone.style.top = pos[1] + '%'
       gameBook.appendChild(droppableZone)
 
       /* Init draggable item */
@@ -122,10 +127,13 @@ function addGems() {
         onDragStart: (e) => {
           droppableZone.classList.add('halo-active')
           gsap.to(gemImageDraggable, {
+            /* top: e.clientY - gemImageDraggable.height / 2,
+            left: e.clientX - gemImageDraggable.width / 2, */
             duration: 0.1,
             scale: 1.2,
             rotate: 'random(-9,9)',
             zIndex: 1,
+            /* position: 'fixed', */
           })
 
           startBox ??= gemImageDraggable.getBoundingClientRect();
@@ -155,6 +163,7 @@ function addGems() {
               scale: 1,
               rotate: 0,
               ease: 'elastic.out(.45)',
+              /* position: 'unset', */
             })
           }
         }, 
