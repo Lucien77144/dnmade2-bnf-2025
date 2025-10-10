@@ -1,14 +1,13 @@
-const viewBookRestauration = document.querySelector(
-  'section#view-book-restauration'
-)
+const viewBookRestauration = document.querySelector('section#view-book-restauration')
 const gemsList = document.querySelectorAll('.gems-list')
 const gameBook = document.querySelector('.game-book')
 
-let json
-let popup = createPopup('#popup')
+let json;
+let popup, popupNode;
 
 document.addEventListener('DOMContentLoaded', async () => {
   gsap.registerPlugin(Draggable)
+  createPopup('#popup')
 
   const response = await fetch('../../public/data/book-restauration.json')
   json = await response.json()
@@ -17,23 +16,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   pageGameInit()
 })
 
+function openPopup(index) {
+  popupNode.classList.add('active')
+  document.getElementById('popup-image').src = json.gemID[index].image
+  document.getElementById('popup-name').textContent = json.gemID[index].name
+  document.getElementById('popup-text').textContent = json.gemID[index].text
+}
+
+function closePopup() {
+  popupNode.classList.remove('active')
+}
+
 function createPopup(id) {
-  let popupNode = document.querySelector(id)
+  popupNode = document.querySelector(id)
   let overlay = popupNode.querySelector('.overlay')
   let closeBtn = popupNode.querySelector('.close-btn')
 
-  function openPopup() {
-    popupNode.classList.add('active')
-  }
-
-  function closePopup() {
-    popupNode.classList.remove('active')
-  }
-
   overlay.addEventListener('click', closePopup) //click pour écran tactile aussi ??
   closeBtn.addEventListener('click', closePopup)
-
-  return openPopup
 }
 
 function pageGameInit() {
@@ -50,6 +50,12 @@ function pageGameInit() {
     //window.location.href = 'library.html';
   })
 
+  addGems();
+}
+
+
+
+function addGems() {
   let count = 0
   gemsList.forEach((value, i) => {
     for (let j = 0; j < 3; j++) {
@@ -63,7 +69,7 @@ function pageGameInit() {
       infoButton.src = '../../public/images/ui/info-button.svg'
 
       infoButton.addEventListener('click', () => {
-        popup()
+        openPopup(count)
       })
 
       gemContent.appendChild(infoButton)
@@ -72,11 +78,9 @@ function pageGameInit() {
       const gemImageDraggable = document.createElement('img')
       const gemImageGhost = document.createElement('img')
 
-      //const imageUrl = `../../public/images/game/gems/gem-${count}.png`;
-      //const imageUrl = `../../public/images/game/gems/gem-0.png`;
-      const imageUrl = json.gemID[count].img
-      gemImageDraggable.src = imageUrl
-      gemImageGhost.src = imageUrl
+      const imageUrl = json.gemID[count].image;
+      gemImageDraggable.src = imageUrl;
+      gemImageGhost.src = imageUrl;
 
       gemImageDraggable.setAttribute('data-gemid', count)
       gemImageDraggable.setAttribute('data-in-box', 'false')
@@ -163,4 +167,21 @@ function pageGameInit() {
       count++
     }
   })
+}
+
+
+function checkCompletion() {
+  const allGems = document.querySelectorAll('.gem-draggable');
+  let completed = true
+  allGems.forEach((value, i) => {
+    if(value.getAttribute('data-in-box') === 'false') completed = false
+  });
+  if(!completed) return;
+
+  endScene();
+}
+
+
+function endScene() {
+  console.log('End scene triggered');
 }
