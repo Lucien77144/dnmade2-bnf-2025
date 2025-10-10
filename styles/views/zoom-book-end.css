@@ -37,32 +37,47 @@ body {
 }
 
 #zoom-book-end-buttons {
+  margin:auto;
+  width:20%;
   display: flex;
+  justify-content: space-evenly;
   bottom: 5%;
   right: 5%;
-
   position: fixed;
+  top:85%;
+  left:80%;
 }
+
+/* #zoom-book-end-zoom-in-button,
+#zoom-book-end-zoom-out-button {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.465);
+  color: white;
+  border: 5px solid white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 5vw;
+} */
 
 #zoom-book-end-zoom-in-button,
 #zoom-book-end-zoom-out-button {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   display: flex;
-  background-color: rgba(255, 255, 255, 0);
-  color: white;
-  border: 2px solid white;
-  border-radius: 50%;
-  align-items: center;
   justify-content: center;
-  font-size: 3vw;
+  align-items: center;
+ background:none;
 }
 
-#zoom-book-end-plus-button:hover,
-#zoom-book-end-less-button:hover {
-  background-color: red;
+#zoom-book-end-buttons img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
 }
-
 
 #zoom-book-end-preview{
     position:absolute;
