@@ -3,85 +3,48 @@
 export let saveLastTouchX = 50
 export let saveLastTouchY = 50
 
-// récupération des éléments 
+import { getZoomTarget } from './zoom-book-end-pauline.js'
+
+// récupération des éléments
 
 const previewSpanEl = document.querySelector('#zoom-book-end-preview span')
 const previewBookContainerEl = document.querySelector('#zoom-book-end-preview')
 const containerEl = document.getElementById('zoom-book-end-container')
 
-// plein écran et premiere action 
+// plein écran et premiere action
 let fullScreen = true
-let hasUserTouched = false
 
-// fonctions de math, poucentage et valeur min et max DONT TOUCH
-
-function toPercentX(x, baseWidth) {
-  return (x / baseWidth) * 100
-}
-function toPercentY(y, baseHeight) {
-  return (y / baseHeight) * 100
-}
-
-function clamp(value, min, max) {
-  return Math.min(Math.max(value, min), max)
-}
-
-// start 
+// start
 
 window.addEventListener('DOMContentLoaded', () => {
-
   const rect = containerEl.getBoundingClientRect()
 
   previewBookContainerEl.style.width = rect.width / 4 + 'px'
   previewBookContainerEl.style.height = rect.height / 4 + 'px'
 
-// Position de départ du rectangle 
-  let startPosX = saveLastTouchX;
-  let startPosY = saveLastTouchY;
-
-  //position de départ du toucher
-  let startTouchX;
-  let startTouchY;
-
-  containerEl.addEventListener('touchstart', (event) => {
-
-    const touch = event.touches[0];
-
-    startTouchX = touch.pageX
-    startTouchY = touch.pageY
-
-    
-  }, { passive: true })
 
   containerEl.addEventListener(
     'touchmove',
-    (event) => {
-  
-        const touch = event.touches[0];
+    () => {
+      if (!fullScreen) {
 
-        const deltaY = touch.pageY - startTouchY;
-        const deltaX = touch.pageX - startTouchX;
-        
+        const target = getZoomTarget()
+        console.log(target.x, target.y)
 
-        const moveY = toPercentY(deltaY, previewSpanEl.getBoundingClientRect().height);
-        const moveX = toPercentX(deltaX, previewSpanEl.getBoundingClientRect().width);
+        let posX = target.x * 100;
+        let posY = target.y * 100;
 
-        saveLastTouchY = clamp(startPosY - moveY, 0,100);
-        saveLastTouchX = clamp(startPosX - moveX, 0, 100);
+        console.log(posY,posX)
 
-        previewSpanEl.style.left = `${saveLastTouchX}%`
-        previewSpanEl.style.top = `${saveLastTouchY}%`
-
-        console.log(saveLastTouchY, saveLastTouchX)
-        
-    },{ passive: true }
+        previewSpanEl.style.left = `${posX}%`
+        previewSpanEl.style.top = `${posY}%`
+      }
+    },
+    { passive: true }
   )
-
 })
 
 export function resizePreview(index) {
-
-   
 
   let scalePreviewSize = [100, 50, 33.33, 25, 20]
 
@@ -102,12 +65,10 @@ export function resizePreview(index) {
 
   if (index <= 0) {
     fullScreen = true
-    hasUserTouched = false
     previewSpanEl.style.top = '50%'
     previewSpanEl.style.left = '50%'
     previewSpanEl.style.transform = 'translate(-50%, -50%)'
   } else {
     fullScreen = false
-    hasUserTouched = true
   }
 }
