@@ -101,14 +101,13 @@
     & .gem {
         width: auto;
         height: 15vmin;
-        user-select: none;
-
+        
         position: absolute;
-
     }
     
 
     & .gem-ghost  {
+        user-select: none;
         filter: grayscale(1);
     }
 }
