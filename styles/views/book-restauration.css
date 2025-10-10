@@ -21,6 +21,64 @@
     src: url('../../public/fonts/VELINO Text/VelinoText-ThinItalic.otf') format('opentype');
 }
 
+.intro-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  max-width: 700px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(236, 169, 0, 0.3);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.intro-window h2 {
+  font-family: "Injurial";
+  font-size: 48px;
+  color: rgb(255, 179, 0);
+  margin-bottom: 20px;
+}
+
+.intro-window p {
+  font-family: 'VelinoText-Thin';
+  font-size: 22px;
+  color: white;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+
+.start-button {
+  font-size: 20px;
+  font-family: "Injurial";
+  color: black;
+  background-color: rgb(255, 179, 0);
+  border: none;
+  padding: 15px 40px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.start-button:hover {
+  background-color: rgb(255, 210, 70);
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
 
 #view-book-restauration {
     width: 100svw;
@@ -46,6 +104,12 @@
 
         z-index: 10;
     }
+}
+
+.start-btn {
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
 .interactive-scene {
@@ -157,7 +221,7 @@ h2{
     width: 100%;
     height: 100%;
     transition: top 0ms ease-in-out 300ms;
-    z-index: 2;
+    z-index: 3;
 }
 
 .popup .overlay {
@@ -353,3 +417,4 @@ h2{
     background: rgba(0, 0, 0, 0.2);
  
 }
+
