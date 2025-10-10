@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function openPopup(index) {
   popupNode.classList.add('active')
-  document.getElementById('popup-image').src = json.gemID[index].image
-  document.getElementById('popup-name').textContent = json.gemID[index].name
-  document.getElementById('popup-text').textContent = json.gemID[index].text
+  document.getElementById('popup-image').src = json.gemID[index].image;
+  document.getElementById('popup-name').textContent = json.gemID[index].name;
+  document.getElementById('popup-text').textContent = json.gemID[index].text;
 }
 
 function closePopup() {
@@ -56,7 +56,7 @@ function pageGameInit() {
 
 
 function addGems() {
-  let count = 0
+  let count = 0;
   gemsList.forEach((value, i) => {
     for (let j = 0; j < 3; j++) {
       //const element = array[i];
@@ -69,7 +69,7 @@ function addGems() {
       infoButton.src = '../../public/images/ui/info-button.svg'
 
       infoButton.addEventListener('click', () => {
-        openPopup(count)
+        openPopup(i * j)
       })
 
       gemContent.appendChild(infoButton)
@@ -108,10 +108,8 @@ function addGems() {
 
       /* Init draggable item */
 
-      let startBox
-      let endBox 
-
-      console.log(startBox)
+      let startBox;
+      let endBox;
 
       Draggable.create(gemImageDraggable, {
         inertia: true,
@@ -130,11 +128,8 @@ function addGems() {
             zIndex: 1,
           })
 
-          startBox ??= gemImageDraggable.getBoundingClientRect()
-
-          endBox ??= droppableZone.getBoundingClientRect()
-
-          console.warn(endBox)
+          startBox ??= gemImageDraggable.getBoundingClientRect();
+          endBox ??= droppableZone.getBoundingClientRect();
         },
 
         onDragEnd: function (e) {
