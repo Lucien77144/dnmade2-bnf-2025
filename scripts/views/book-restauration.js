@@ -1,12 +1,9 @@
-const viewBookRestauration = document.querySelector(
-  'section#view-book-restauration'
-)
+const viewBookRestauration = document.querySelector('section#view-book-restauration')
 const gemsList = document.querySelectorAll('.gems-list')
 const gameBook = document.querySelector('.game-book')
 
-let json
-let popup
-let popupNode
+let json;
+let popup, popupNode;
 
 document.addEventListener('DOMContentLoaded', async () => {
   gsap.registerPlugin(Draggable)
@@ -21,12 +18,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function openPopup(index) {
   popupNode.classList.add('active')
-  document.getElementById('popup-image').src =
-    json.gemID[index].image
-  document.getElementById('popup-name').textContent =
-    json.gemID[index].name
-  document.getElementById('popup-text').textContent =
-    json.gemID[index].text
+  document.getElementById('popup-image').src = json.gemID[index].image
+  document.getElementById('popup-name').textContent = json.gemID[index].name
+  document.getElementById('popup-text').textContent = json.gemID[index].text
 }
 
 function closePopup() {
@@ -49,13 +43,19 @@ function pageGameInit() {
   backButton.addEventListener('click', () => {
     console.warn('Implement back navigation')
     //window.location.href = 'library.html';
-  })
+  });
 
   closeButton.addEventListener('click', () => {
     console.warn('Implement close navigation')
     //window.location.href = 'library.html';
-  })
+  });
 
+  addGems();
+}
+
+
+
+function addGems() {
   let count = 0
   gemsList.forEach((value, i) => {
     for (let j = 0; j < 3; j++) {
@@ -68,14 +68,8 @@ function pageGameInit() {
       infoButton.classList.add('infoButton')
       infoButton.src = '../../public/images/ui/info-button.svg'
 
-
-      const gemIndex = count
       infoButton.addEventListener('click', () => {
-        //const gemcontentid = this.closest('.gemContent').datalist('gemcontentid');
-        //console.log(gemcontentid);
-        console.log(gemIndex);
-        
-        openPopup(gemIndex)
+        openPopup(count)
       })
 
       gemContent.appendChild(infoButton)
@@ -84,8 +78,6 @@ function pageGameInit() {
       const gemImageDraggable = document.createElement('img');
       const gemImageGhost = document.createElement('img');
 
-      //const imageUrl = `../../public/images/game/gems/gem-${count}.png`;
-      //const imageUrl = `../../public/images/game/gems/gem-0.png`;
       const imageUrl = json.gemID[count].image;
       gemImageDraggable.src = imageUrl;
       gemImageGhost.src = imageUrl;
@@ -124,8 +116,7 @@ function pageGameInit() {
         },
 
         onDragStart: (e) => {
-          gsap.to(gemImageDraggable, {duration: 0.1, scale: 1.2, rotate: 'random(-9,9)', zIndex: 1})
-          console.log(e)
+          gsap.to(gemImageDraggable, {duration: 0.1, scale: 1.2, rotate: 'random(-9,9)', zIndex: 1});
         },
 
         onDragEnd: function(e) {
@@ -138,7 +129,9 @@ function pageGameInit() {
               zIndex: 1
             });
             gemImageDraggable.setAttribute('data-in-box', 'true');
-            
+
+            checkCompletion();
+
           } else {
 
             gsap.to(gemImageDraggable, {
@@ -158,4 +151,21 @@ function pageGameInit() {
       count++
     }
   })
+}
+
+
+function checkCompletion() {
+  const allGems = document.querySelectorAll('.gem-draggable');
+  let completed = true
+  allGems.forEach((value, i) => {
+    if(value.getAttribute('data-in-box') === 'false') completed = false
+  });
+  if(!completed) return;
+
+  endScene();
+}
+
+
+function endScene() {
+  console.log('End scene triggered');
 }
