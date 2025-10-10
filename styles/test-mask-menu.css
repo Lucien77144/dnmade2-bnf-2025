@@ -1,0 +1,38 @@
+.menu-images {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  animation: menu-images-animation 5s ease-in-out infinite;
+}
+
+.menu-image {
+  height: 100vh;
+}
+
+.menu-image-left {
+  margin-right: -5vw;
+  background-image: url('../public/images/menu-img-left.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.menu-image-right {
+  margin-left: -5vw;
+  clip-path: polygon(10vw 0%, 100% 0, 100% 100%, 0% 100%);
+  background-image: url('../public/images/menu-img-right.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes menu-images-animation {
+  0%,
+  30%,
+  100% {
+    grid-template-columns: 60% 40%;
+  }
+  50%,
+  80% {
+    grid-template-columns: 40% 60%;
+  }
+}
