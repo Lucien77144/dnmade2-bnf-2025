@@ -29,6 +29,26 @@ body {
   align-items: safe center;
 }
 
+#zoom-book-end-container button{
+  width: 100px;
+  height: 100px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position:fixed;
+  top:5%;
+  left:5%;
+  background:none;
+  border: none;
+  opacity:0.6
+}
+
+#zoom-book-end-container button a,#zoom-book-end-container button img{
+  width:100%;
+  height:100%;
+  object-fit: contain;
+}
+
 #zoom-book-end-image {
   width: 40vw;
   touch-action: manipulation;
@@ -37,6 +57,7 @@ body {
 }
 
 #zoom-book-end-buttons {
+
   margin:auto;
   width:20%;
   display: flex;
@@ -48,35 +69,23 @@ body {
   left:80%;
 }
 
-/* #zoom-book-end-zoom-in-button,
-#zoom-book-end-zoom-out-button {
-  width: 150px;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.465);
-  color: white;
-  border: 5px solid white;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 5vw;
-} */
 
 #zoom-book-end-zoom-in-button,
 #zoom-book-end-zoom-out-button {
+  opacity:0.6;
   width: 150px;
   height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
  background:none;
+ border:none;
 }
 
 #zoom-book-end-buttons img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
+  width:80%;
+  height:80%;
+  object-fit: contain;
 }
 
 #zoom-book-end-preview{

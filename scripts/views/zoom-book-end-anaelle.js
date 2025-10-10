@@ -7,37 +7,68 @@ import { getZoomTarget } from './zoom-book-end-pauline.js'
 
 // récupération des éléments
 
-const previewSpanEl = document.querySelector('#zoom-book-end-preview span')
-const previewBookContainerEl = document.querySelector('#zoom-book-end-preview')
-const containerEl = document.getElementById('zoom-book-end-container')
+let previewSpanEl
+let  previewBookContainerEl 
+let containerEl
+let imageEl;
+
+let zoomIndex = 0;
 
 // plein écran et premiere action
 let fullScreen = true
 
+ function clamp(num, min, max) {
+  return num <= min 
+    ? min 
+    : num >= max 
+      ? max 
+      : num
+} 
+
 // start
 
 window.addEventListener('DOMContentLoaded', () => {
+
+   containerEl = document.getElementById('zoom-book-end-container')
+   imageEl = document.getElementById('zoom-book-end-image')
+
   const rect = containerEl.getBoundingClientRect()
+
+  previewSpanEl = document.querySelector('#zoom-book-end-preview span')
+ previewBookContainerEl = document.querySelector('#zoom-book-end-preview')
+
 
   previewBookContainerEl.style.width = rect.width / 4 + 'px'
   previewBookContainerEl.style.height = rect.height / 4 + 'px'
 
-
   containerEl.addEventListener(
-    'touchmove',
+    'scroll',
     () => {
       if (!fullScreen) {
+
 
         const target = getZoomTarget()
         console.log(target.x, target.y)
 
-        let posX = target.x * 100;
-        let posY = target.y * 100;
+        let posX = target.x * 100
+        let posY = target.y * 100
 
-        console.log(posY,posX)
+        console.log(posY, posX)
 
+        if(zoomIndex <=1 ){
         previewSpanEl.style.left = `${posX}%`
         previewSpanEl.style.top = `${posY}%`
+        }
+        else if(zoomIndex == 2){
+        previewSpanEl.style.left = `${clamp(posX, 45, 55)}%`
+        previewSpanEl.style.top = `${clamp(posY,10,80)}%`
+        }
+        else{
+        previewSpanEl.style.left = `${clamp(posX, 40, 60)}%`
+        previewSpanEl.style.top = `${clamp(posY,5,85)}%`
+        }
+
+
       }
     },
     { passive: true }
@@ -71,4 +102,8 @@ export function resizePreview(index) {
   } else {
     fullScreen = false
   }
+
+  zoomIndex = index
+
+
 }
