@@ -1,0 +1,9 @@
+#ecran-fin-timeline{
+
+    background-image:url(public/images/reliure-fond-ecran-fin.png);
+    height: 100vh;
+}
+
+#title{
+    display:none ;
+}
