@@ -1,14 +1,22 @@
  @font-face {
     font-family: 'VelinoText-Medium';
-    src: url(/public/fonts/VelinoText-Medium.otf) format('opentype');
+    src: url(/public/fonts/VELINOText/VelinoText-Medium.otf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+ } 
+
+
+ @font-face {
+    font-family: 'VelinoText-Light';
+    src: url(/public/fonts/VELINOText/VelinoText-Light.otf) format('opentype');
     font-weight: normal;
     font-style: normal;
  } 
 
  @font-face {
     font-family: 'Injurial-total';
-    src: url(/public/fonts/Injurial/205TF-Injurial-Regular.ttf) format('opentype');
-    font-weight: normal;
+    src: url(/public/fonts/Injurial/205TF-Injurial-Regular.otf) format('opentype');
+    font-weight: 100;
     font-style: normal;
  }
 
@@ -38,7 +46,7 @@ background-size: 50%;
     font-size: 6vw;
     width: 60%;
     margin: auto;
-    padding-top: 20vh;
+    padding-top: 18vh;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -48,20 +56,22 @@ background-size: 50%;
     display: flex;
     margin: auto;
     font-family: 'VelinoText-Medium';
-    width: 75%;
+    width: 68%;
     margin-top: 6vh;
     color: white;
     text-align: center;
-    font-size: 2.5vw;
+    font-size: 2vw;
+    line-height: 5vh;
 }
 
 #ecran-fin-timeline-h3{
-    font-family: 'VelinoText-Medium';
+    font-family: 'VelinoText-light';
     width: 60%;
     margin: auto;
-    margin-top: 2.2vh;
+    margin-top: 3vh;
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
+    line-height: 3vh;
     color: white;
 }
 
@@ -71,7 +81,7 @@ background-size: 50%;
     height: 10vh;
     display: flex;
     margin: auto;
-    margin-top: 4vh;
+    margin-top: 5vh;
     text-align: center;
     font-family:'VelinoText-Medium' ;
     font-size: 4vh;
