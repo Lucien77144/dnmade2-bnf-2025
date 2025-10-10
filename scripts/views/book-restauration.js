@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 function openPopup(index) {
   popupNode.classList.add('active')
   document.getElementById('popup-image').src =
-    json.popupData[index].image
+    json.gemID[index].image
   document.getElementById('popup-name').textContent =
-    json.popupData[index].name
+    json.gemID[index].name
   document.getElementById('popup-text').textContent =
-    json.popupData[index].text
+    json.gemID[index].text
 }
 
 function closePopup() {
@@ -86,7 +86,7 @@ function pageGameInit() {
 
       //const imageUrl = `../../public/images/game/gems/gem-${count}.png`;
       //const imageUrl = `../../public/images/game/gems/gem-0.png`;
-      const imageUrl = json.gemID[count].img;
+      const imageUrl = json.gemID[count].image;
       gemImageDraggable.src = imageUrl;
       gemImageGhost.src = imageUrl;
 
@@ -129,7 +129,17 @@ function pageGameInit() {
         },
 
         onDragEnd: function(e) {
-          if(!this.hitTest(droppableZone, overlapThreshold)) {
+          if(this.hitTest(droppableZone, overlapThreshold)) {
+            gsap.to(gemImageDraggable, {
+              duration: 1,
+              scale: 0.5,
+              rotate: 0,
+              ease: 'elastic.out(.45)',
+              zIndex: 1
+            });
+            gemImageDraggable.setAttribute('data-in-box', 'true');
+            
+          } else {
 
             gsap.to(gemImageDraggable, {
               x: 0,
@@ -138,21 +148,8 @@ function pageGameInit() {
               scale: 1,
               rotate: 0,
               ease: 'elastic.out(.45)',
-            })
-          } else {
-
-            gsap.to(gemImageDraggable, {
-              //center in drop zone using gemID[count].dropbox
-              /* x: pos[0] + 'px',
-              y: pos[1] + 'px', */
-              duration: 1,
-              
-              
-              scale: 0.5,
-              rotate: 0,
-              ease: 'elastic.out(.45)',
+              zIndex: 1
             });
-            gemImageDraggable.setAttribute('data-in-box', 'true');
 
           }
         },

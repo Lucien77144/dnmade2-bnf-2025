@@ -1,73 +1,40 @@
 {
     "gemID": [
         {
-            "name": "emeraude",
-            "description": "c'est une emeraude",
-            "img": "../../public/images/game/gems/gem-0.png",
-            "dropbox": [100, 200]
-        },
-        {
-            "name": "saphir",
-            "description": "c'est un saphir",
-            "img": "../../public/images/game/gems/gem-0.png",
-            "dropbox": [150, 250]
-        },
-        {
-            "name": "rubis",
-            "description": "c'est un rubis",
-            "img": "../../public/images/game/gems/gem-0.png",
-            "dropbox": [200, 300]
-        },
-        {
-            "name": "diamant",
-            "description": "c'est un diamant",
-            "img": "../../public/images/game/gems/gem-0.png",
-            "dropbox": [250, 350]
-        },
-        {
-            "name": "perle",
-            "description": "c'est une perle",
-            "img": "../../public/images/game/gems/gem-0.png",
-            "dropbox": [300, 400]
-        },
-        {
-            "name": "calcedoine",
-            "description": "c'est une calcedoine",
-            "img": "../../public/images/game/gems/gem-0.png",
-            "dropbox": [350, 450]
-        }
-    ],
-
-    "popupData": [
-        {
             "name": "Émeraude",
-            "image": "../../public/images/game/gems/emeraude2.png",
-            "text": "Pierre précieuse verte symbole de renouveau, de fertilité et de sagesse. Les émeraudes étaient déjà très prisées dans l'Égypte antique et considérées comme des gemmes protectrices."
+            "image": "../../public/images/game/gems/emeraude.png",
+            "text": "Pierre précieuse verte symbole de renouveau, de fertilité et de sagesse. Les émeraudes étaient déjà très prisées dans l'Égypte antique et considérées comme des gemmes protectrices.",
+            "dropbox": [100, 200]
         },
         {
             "name": "Saphir",
             "image": "../../public/images/game/gems/saphir.png",
-            "text": "Pierre bleue profonde, symbole de vérité, de pureté et de fidélité. Ces saphirs proviennent d’Inde ou de Ceylan (Sri Lanka)."
+            "text": "Pierre bleue profonde, symbole de vérité, de pureté et de fidélité. Ces saphirs proviennent d’Inde ou de Ceylan (Sri Lanka).",
+            "dropbox": [150, 250]
         },
         {
             "name": "Rubis",
-            "image": "../../public/images/game/gems/rubis2.png",
-            "text": "Pierre rouge éclatante, symbole d’amour, de passion et de courage. Le rubis était autrefois appelé 'la reine des pierres précieuses' pour sa couleur ardente"
+            "image": "../../public/images/game/gems/rubis.png",
+            "text": "Pierre rouge éclatante, symbole d’amour, de passion et de courage. Le rubis était autrefois appelé 'la reine des pierres précieuses' pour sa couleur ardente",
+            "dropbox": [200, 300]
         },
         {
             "name": "Spinelle",
-            "image": "../../public/images/game/gems/spinelle2.png",
-            "text": "Pierre précieuse pouvant se présenter dans une large palette de couleurs (rouge, rose, bleu, violet). Elle a souvent été confondue avec le rubis dans l'histoire et symbolise vitalité et protection."
+            "image": "../../public/images/game/gems/spinelle.png",
+            "text": "Pierre précieuse pouvant se présenter dans une large palette de couleurs (rouge, rose, bleu, violet). Elle a souvent été confondue avec le rubis dans l'histoire et symbolise vitalité et protection.",
+            "dropbox": [250, 350]
         },
         {
             "name": "Perle",
-            "image": "../../public/images/game/gems/perle2.png",
-            "text": "Pierre organique née des profondeurs marines, symbole de douceur, de sagesse et de beauté naturelle. Les perles ont longtemps été associées à la lune et à la féminité."
+            "image": "../../public/images/game/gems/perle.png",
+            "text": "Pierre organique née des profondeurs marines, symbole de douceur, de sagesse et de beauté naturelle. Les perles ont longtemps été associées à la lune et à la féminité.",
+            "dropbox": [300, 400]
         },
         {
             "name": "Calcedoine",
-            "image": "../../public/images/game/gems/calcedoine2.png",
-            "text": "La calcédoine est un minéral ou une roche composée de cristallites de quartz, dont la taille est comprise entre 50 et 100 nm, agencées en fibres. Il s'agit d'une phase de la silice."
+            "image": "../../public/images/game/gems/calcedoine.png",
+            "text": "La calcédoine est un minéral ou une roche composée de cristallites de quartz, dont la taille est comprise entre 50 et 100 nm, agencées en fibres. Il s'agit d'une phase de la silice.",
+            "dropbox": [350, 450]
         }
     ]
 }
