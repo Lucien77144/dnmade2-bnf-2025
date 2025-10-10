@@ -16,20 +16,46 @@
 
     <!-- Import scripts -->
     <script src="./scripts/index.js"></script>
+    <script src="scripts/views/ecran-fin-timeline.js"></script>
     <!--/ Import scripts -->
   </head>
-  <body>
-    <h1 id="title">Ciao le World</h1>
-    <h1 id="ecran-fin-timeline-h1"></h1>
-    <h2 id="ecran-fin-timeline-h2"></h2>
-    <h2 id="ecran-fin-timeline-h3"></h2>
-    <button id="button-restaurer-evangeliaire"></button>
+  <body id="ecran-fin-timeline-body">
+    <h1 id="title"></h1>
+
     <section id="ecran-fin-timeline">
 
 
+    <h1 id="ecran-fin-timeline-h1"></h1>
+    <h2 id="ecran-fin-timeline-h2"></h2>
+    <h3 id="ecran-fin-timeline-h3"></h3>
+    <button id="button-restaurer-evangeliaire"></button>
+    
+
+  </section>
         
 
 
-    </section>
+
+
+
+    <script>
+
+    fetch('public/data/ecran-fin-timeline.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erreur de chargement du JSON');
+        }
+        return response.json();
+      })
+      .then(data => {
+        document.getElementById('title').innerText = data.title;
+        document.getElementById('ecran-fin-timeline-h1').innerText = data["ecran-fin-timeline-h1"];
+        document.getElementById('ecran-fin-timeline-h2').innerText = data["ecran-fin-timeline-h2"];
+        document.getElementById('ecran-fin-timeline-h3').innerText = data["ecran-fin-timeline-h3"];
+        document.getElementById('button-restaurer-evangeliaire').innerText = data["button-restaurer-evangeliaire"];
+      })
+      .catch(error => console.error(error));
+      
+      </script>
   </body>
 </html>
