@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/dragdrop.css">
-    <title>Drag and drop</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/dragdrop.css">
+  <title>Drag and drop</title>
 </head>
+
 <body>
-    <div class="texte">
+  <div class="texte">
     <p id="text"></p>
   </div>
-    <script>
-  fetch('/public/data/dragdrop.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Erreur de chargement du JSON');
-      }
-      return response.json();
-    })
-    .then(data => {
-      document.getElementById('text').innerHTML = data.texte;
-    })
-    .catch(error => console.error(error));
-</script>
+  <div class="dragdrop">
+  <div class="container">
+    <div class="book">
+      <div class="gem red" style="background-image: url('/public/images/rouge.png');"></div>
+      <div class="gem blue" style="background-image: url('/public/images/bleue.svg');"></div>
+      <div class="gem green" style="background-image: url('/public/images/vert.png');"></div>
+    </div>
+    <div class="dropzones">
+      <div class="dropzone"></div>
+      <div class="dropzone"></div>
+      <div class="dropzone"></div>
+      <div class="dropzone"></div>
+      <div class="dropzone"></div>
+      <div class="dropzone"></div>
+    </div>
+  </div>
+  </div>
+  <script src="/scripts/dragdrop.js"></script>
+  <script>
+    fetch('/public/data/dragdrop.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erreur de chargement du JSON');
+        }
+        return response.json();
+      })
+      .then(data => {
+        document.getElementById('text').innerHTML = data.texte;
+      })
+      .catch(error => console.error(error));
+  </script>
 
 </body>
+
 </html>

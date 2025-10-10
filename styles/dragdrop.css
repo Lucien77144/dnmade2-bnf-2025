@@ -1,38 +1,119 @@
-.texte{
-    color: white;
-    font-size: 37px;
-    position: fixed;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 900px;
-    margin-left: 110px;
-    padding: 15px;
-    display: flex
-
- }
-
- span{
-    color: #ECA900;
-    display: block;
-    margin-top: 10px;
- }
-
- @font-face {
-    font-family: 'VelinoText-Medium';
-    src: url(/public/fonts/VelinoText-Medium.otf) format('opentype');
-    font-weight: normal;
-    font-style: normal;
- }
-
- body {
-  font-family: 'Velino Text Medium',serif;
-  background-color: #252525;
-  margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.texte {
+   color: white;
+   font-size: 37px;
+   position: fixed;
+   top: 50%;
+   left: 0;
+   transform: translateY(-50%);
+   width: 750px;
+   margin-left: 110px;
+   padding: 15px;
+   display: flex
 }
 
+span {
+   color: #ECA900;
+   display: block;
+   margin-top: 10px;
+}
 
+@font-face {
+   font-family: 'VelinoText-Medium';
+   src: url(/public/fonts/VelinoText-Medium.otf) format('opentype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+body {
+   font-family: 'Velino Text Medium', serif;
+   background-color: #252525;
+   margin: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   user-select: none;
+   overflow: hidden;
+}
+
+.dragdrop {
+   position: absolute;
+   top: 50%;
+   left: 75%;
+   transform: translate(-50%, -50%);
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 50px;
+}
+
+.container {
+   position: relative;
+   width: 800px;
+   height: 500px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.book {
+   position: relative;
+   width: 430px;
+   height: 530px;
+   background: url("/public/images/book.png");
+   z-index: 1;
+}
+
+.gem {
+   position: absolute;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   cursor: grab;
+   z-index: 2;
+   touch-action: none;
+   /*tactile*/
+}
+
+.gem.red {
+   top: -5px;
+   left: 45px;
+   background-size: cover;
+}
+
+.gem.blue {
+   top: 30px;
+   left: 375px;
+   background-size: cover;
+}
+
+.gem.green {
+   top: 200px;
+   left: 23px;
+   background-size: cover;
+}
+
+.dropzone {
+   width: 70px;
+   height: 60px;
+   border-radius: 50%;
+   border: 2px solid white;
+   background-color: rgba(0, 0, 0, 0.799);
+   margin-left: 0px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.dropzone.active {
+   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dropzones {
+   display: grid;
+   gap: 30px;
+   grid-template-columns: repeat(3, 1fr);
+   margin-left: 50px;
+}
