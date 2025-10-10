@@ -1,14 +1,14 @@
 .texte{
     color: white;
-    font-size: 25px;
+    font-size: 57px;
     position: fixed;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 550px;
-    margin-left: 80px;
+    width: 900px;
+    margin-left: 110px;
     padding: 15px;
-    display: flex;
+    display: flex
 
  }
 
