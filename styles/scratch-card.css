@@ -1,0 +1,299 @@
+* {
+    overflow: hidden;
+}
+
+body {
+  background-color: rgb(35, 35, 35);
+}
+
+#scalpel {
+    width: 400px;
+    position: absolute;
+    cursor: pointer;
+    transform: rotate(90deg);
+    position: absolute;
+    top: 600px;
+    left: 1320px;
+    transform-origin: 50% 0px;
+    z-index: 100000;
+}
+
+/* Amandine CSS */
+
+#container_am{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 700px;
+    height: 600px;
+}
+
+/* #container_lo {
+    position: relative;
+    width: 100%;
+} */
+
+.finished_lo {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 700px;
+    height: 600px;
+    z-index: 10;
+}
+
+
+#livre_am {
+  height: 445px;
+}
+
+#canvas_gratte {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 700px;
+  height: 600px;
+}
+
+
+
+#canvas_gratte {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 700px;
+    height: 600px;
+}
+
+
+@keyframes haloPulse_lo {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 1;
+    }
+}
+
+
+
+.finished_lo {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(236, 169, 0, 1) 0%, transparent 60%);
+    z-index: 0;
+    border-radius: 50%;
+    filter: blur(20px);
+    animation: haloPulse_lo 5s ease-in-out unset;
+}
+
+
+
+
+.fond_gratte {
+  position: relative;
+}
+
+#logo_BnF {
+  width: 120px;
+}
+
+#logo {
+  position: absolute;
+  bottom: 5%;
+  left: 90%;
+}
+
+.gradient_1 {
+  position: absolute;
+  left: 60%;
+  top: 15%;
+  border-radius: 1100px;
+  width: 1100px;
+  height: 1100px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(213, 190, 135, 0.15) 0%,
+    rgba(236, 169, 0, 0) 100%
+  );
+}
+
+.gradient_2 {
+  position: absolute;
+  bottom: 25%;
+  right: 60%;
+  border-radius: 1094px;
+  width: 1094px;
+  height: 1094px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(213, 190, 135, 0.15) 0%,
+    rgba(236, 169, 0, 0) 100%
+  );
+}
+
+#text {
+  position: relative;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  width: 30%;
+}
+
+.text_orange {
+  color: #eca900;
+}
+
+.text_blanc {
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+
+#charles {
+  display: flex;
+  height: 80%;
+  position: absolute;
+  right: 1%;
+  top: 20%;
+}
+
+
+#miseEnPage_lo {
+    position: relative;
+    display: flex;
+    justify-content: left;
+    /* gap: 0px;
+    margin-left: 10%;
+    margin-top: 2%; */
+    margin: 5%;
+    margin-left: 8%;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    gap: 50px;
+}
+
+
+
+/* Perrine CSS */
+
+.pe_gratte_invisible {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_gratte_invisible {
+
+    position: absolute;
+    top: 0px;
+    left: 800px;
+    display: flex;
+    width: 1120px;
+    height: 980px;
+    z-index: 11;
+}
+
+.pe_part_2_tab_gratte {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 400px;
+    left: 500px;
+}
+
+
+.pe_img_modal_rond {
+    width: 90%;
+    border: 4px solid #ffffff;
+    border-radius: 180px;
+}
+
+
+
+
+/* NE PLUS TOUCHER */
+#container_pe_button_modal{
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 108px;
+  left: 205px;
+  z-index: 1000;
+}
+
+/* NE PLUS TOUCHER  */
+.pe_cercle_invisible {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: row;
+    /* z-index: 1000000; */
+    /* top: 200px; */
+}
+
+/* NE PLUS TOUCHER  */
+.rattrapage_lo {
+    display: flex;
+    align-items: center;
+    /* width: 60%; */
+    gap: 80px;
+    justify-content: center;
+    flex-direction: column;
+}
+/* #pe_cercle_invisible_1 {
+    top: 200px;
+    left:200px;
+}
+#pe_cercle_invisible_2 {
+    top: 200px;
+    left:400px;
+    
+}
+#pe_cercle_invisible_3 {
+    top:400px;
+    left: 200px;
+}
+#pe_cercle_invisible_4 {
+    top : 400px;
+    left : 400px;
+} */
+
+#pe_modal_grand_1 {
+    display : none;
+}
+#pe_modal_grand_2 {
+    display : none;
+}
+#pe_modal_grand_3 {
+    display : none;
+}
+#pe_modal_grand_4 {
+    display : none;
+}
+
+
+.pe_svg {
+  width: 1800px;
+  height: 1000px;
+  position: absolute;
+  top: 325px;
+  left: 15px;
+}
