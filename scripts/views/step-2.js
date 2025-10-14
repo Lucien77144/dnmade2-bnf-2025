@@ -18,7 +18,7 @@ function start() {
 
   // Création de l'image secondaire (zoom)
   const sideImage = document.createElement('img')
-  sideImage.src = '../img/zoom.webp'
+  sideImage.src = '../public/images/zoom.webp'
   sideImage.alt = 'Deuxième manuscrit'
   sideImage.style.display = 'none'
   sideImage.classList.add('side-image')
