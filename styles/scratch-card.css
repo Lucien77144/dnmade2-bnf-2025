@@ -1,5 +1,5 @@
 * {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 body {
@@ -7,26 +7,26 @@ body {
 }
 
 #scalpel {
-    width: 400px;
-    position: absolute;
-    cursor: pointer;
-    transform: rotate(90deg);
-    position: absolute;
-    top: 600px;
-    left: 1320px;
-    transform-origin: 50% 0px;
-    z-index: 100000;
+  width: 400px;
+  position: absolute;
+  cursor: pointer;
+  transform: rotate(90deg);
+  position: absolute;
+  top: 600px;
+  left: 1320px;
+  transform-origin: 50% 0px;
+  z-index: 100000;
 }
 
 /* Amandine CSS */
 
-#container_am{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 700px;
-    height: 600px;
+#container_am {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 700px;
+  height: 600px;
 }
 
 /* #container_lo {
@@ -35,15 +35,14 @@ body {
 } */
 
 .finished_lo {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 700px;
-    height: 600px;
-    z-index: 10;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 700px;
+  height: 600px;
+  z-index: 10;
 }
-
 
 #livre_am {
   height: 445px;
@@ -58,48 +57,41 @@ body {
   height: 600px;
 }
 
-
-
 #canvas_gratte {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 5;
-    width: 700px;
-    height: 600px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 700px;
+  height: 600px;
 }
-
 
 @keyframes haloPulse_lo {
-    0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.6;
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.15);
-        opacity: 1;
-    }
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 1;
+  }
 }
-
-
 
 .finished_lo {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(236, 169, 0, 1) 0%, transparent 60%);
-    z-index: 0;
-    border-radius: 50%;
-    filter: blur(20px);
-    animation: haloPulse_lo 5s ease-in-out unset;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(236, 169, 0, 1) 0%, transparent 60%);
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(20px);
+  animation: haloPulse_lo 5s ease-in-out unset;
 }
-
-
-
 
 .fond_gratte {
   position: relative;
@@ -162,71 +154,64 @@ body {
 
 #charles {
   display: flex;
-  height: 80%;
+  height: 90%;
   position: absolute;
   right: 1%;
-  top: 20%;
+  top: 18%;
+  opacity: 20%;
 }
-
 
 #miseEnPage_lo {
-    position: relative;
-    display: flex;
-    justify-content: left;
-    /* gap: 0px;
+  position: relative;
+  display: flex;
+  justify-content: left;
+  /* gap: 0px;
     margin-left: 10%;
     margin-top: 2%; */
-    margin: 5%;
-    margin-left: 8%;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    gap: 50px;
+  margin: 5%;
+  margin-left: 8%;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  gap: 50px;
 }
-
-
 
 /* Perrine CSS */
 
 .pe_gratte_invisible {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .img_gratte_invisible {
-
-    position: absolute;
-    top: 0px;
-    left: 800px;
-    display: flex;
-    width: 1120px;
-    height: 980px;
-    z-index: 11;
+  position: absolute;
+  top: 0px;
+  left: 800px;
+  display: flex;
+  width: 1120px;
+  height: 980px;
+  z-index: 11;
 }
 
 .pe_part_2_tab_gratte {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 400px;
-    left: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 400px;
+  left: 500px;
 }
-
 
 .pe_img_modal_rond {
-    width: 90%;
-    border: 4px solid #ffffff;
-    border-radius: 180px;
+  width: 90%;
+  border: 4px solid #ffffff;
+  border-radius: 180px;
 }
 
-
-
-
 /* NE PLUS TOUCHER */
-#container_pe_button_modal{
+#container_pe_button_modal {
   width: 100%;
   height: 100%;
   display: none;
@@ -238,25 +223,25 @@ body {
 
 /* NE PLUS TOUCHER  */
 .pe_cercle_invisible {
-    width: 150px;
-    height: 150px;
-    position: relative;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-    flex-direction: row;
-    /* z-index: 1000000; */
-    /* top: 200px; */
+  width: 150px;
+  height: 150px;
+  position: relative;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: row;
+  /* z-index: 1000000; */
+  /* top: 200px; */
 }
 
 /* NE PLUS TOUCHER  */
 .rattrapage_lo {
-    display: flex;
-    align-items: center;
-    /* width: 60%; */
-    gap: 80px;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  /* width: 60%; */
+  gap: 80px;
+  justify-content: center;
+  flex-direction: column;
 }
 /* #pe_cercle_invisible_1 {
     top: 200px;
@@ -277,18 +262,17 @@ body {
 } */
 
 #pe_modal_grand_1 {
-    display : none;
+  display: none;
 }
 #pe_modal_grand_2 {
-    display : none;
+  display: none;
 }
 #pe_modal_grand_3 {
-    display : none;
+  display: none;
 }
 #pe_modal_grand_4 {
-    display : none;
+  display: none;
 }
-
 
 .pe_svg {
   width: 1800px;
