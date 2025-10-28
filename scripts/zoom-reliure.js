@@ -3,13 +3,13 @@ const grands = document.getElementsByClassName("zoom-grand");
 const petits = document.getElementsByClassName("zoom-petit");
 const traits = document.getElementsByClassName("traits");
 
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('public/data/data.json')
-  .then((response) => response.json())
-  .then((data) => {
-    
-  })
-})
+// document.addEventListener('DOMContentLoaded', () => {
+//   fetch('public/data/data.json')
+//   .then((response) => response.json())
+//   .then((data) => {
+//     document.querySelector('#texte-zoom-reliure').textContent = data.textezoomreliure
+//   })
+// })
 
 function afficherZoom(cible1, cible2, cible3, cible4) {
   for (let i = 0; i < cercles.length; i++) {
