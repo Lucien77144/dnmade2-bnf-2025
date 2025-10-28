@@ -90,7 +90,7 @@ function move(e) {
         clientY = e.clientY;
     }
 
-    scalpel_lo.style.top = `${clientY + 130}px`;
+    scalpel_lo.style.top = `${clientY + 140}px`;
     scalpel_lo.style.left = `${clientX - 50}px`;
     scalpel_lo.style.transform = `rotate(45deg)`;
 
