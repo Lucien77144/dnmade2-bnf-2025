@@ -13,6 +13,12 @@ body {
   src: url("ressources/VelinoText-Light.otf");
 }
 
+#video_tuto {
+ width: 1920px;
+ height: 1080px;
+}
+
+
 #reliure {
   animation: reliure 5s ease-in-out infinite;
 }
@@ -29,18 +35,17 @@ body {
 .menu-image {
   height: 100vh;
 }
-
-.menu-image-left { /* reliure image */
-  margin-right: -5vw;
+.menu-image-right { /* chapelle image */
+  margin-left: -5vw;
+  clip-path: polygon(10vw 0%, 100% 0, 100% 100%, 0% 100%);
   background-image: url('../public/images/menu-img-left.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.menu-image-right { /* chapelle image */
-  margin-left: -5vw;
-  clip-path: polygon(10vw 0%, 100% 0, 100% 100%, 0% 100%);
+.menu-image-left { /* reliure image */
+  margin-right: -5vw;
   background-image: url('../public/images/menu-img-right.jpg');
   background-size: cover;
   background-position: center;
@@ -48,23 +53,23 @@ body {
 }
 
 /* ATTENTION AUX TEXTES DE CAUTION */
-.jeu { /*titre du jeu*/
+.jeu { /*titre du histoire car tt est inverser*/
   animation: jeu 5s ease-in-out infinite;
   font-family: "InjurialRegular", injurial, sans-serif;
-  text-shadow: 3px 10px 60px rgb(255, 230, 0);
+  text-shadow: 3px 10px 60px rgb(0, 55, 255);
   animation: jeu 5s ease-in-out infinite ;
-  transform-origin: left;
+  transform-origin: bottom left;
   left: 120px;
   top: 550px;
   font-size: 120px;
   z-index: 1;
 }
 
-#text_jeu {
-  transform-origin: left;
+#text_jeu { /*texte de histoire chapelle */
+  transform-origin: bottom left;
   z-index: 1;
   left: 120px;
-  top: 890px;
+  bottom: 40px;
   font-size: 50px;
   animation: jeu 5s ease-in-out infinite ;
 }
@@ -75,24 +80,24 @@ p {
   position: absolute;
 }
 
-.history { /*titre de l'histoire */
+.history { /*titre du jeu de la reliure */
   font-family: "InjurialRegular", injurial, sans-serif;
-  text-shadow: 3px 10px 60px rgb(0, 55, 255);
+  text-shadow: 3px 10px 60px rgb(255, 230, 0);
   animation: titre 5s ease-in-out infinite;
-  transform-origin: right;
+  transform-origin: top right;
   animation: history 5s ease-in-out infinite ;
   right: 120px;
-  bottom: 550px;
+  top: 40px;
   font-size: 120px;
   z-index: 1;
 }
 
-#text_histoire {
-  transform-origin: right;
+#text_histoire { /* texte du jeu */
+  transform-origin: top right;
   z-index: 1;
   font-size: 50px;
   right: 120px;
-  top: 340px;
+  top: 80px;
   animation: history 5s ease-in-out infinite;
   }
 
@@ -111,8 +116,8 @@ p {
 #gif_hand2 {
   height: 500px;
   width: 500px;
-  top: 100px;
-  right: 600px;
+  top: 300px;
+  right: 850px;
   z-index: auto;
   position: absolute;
   rotate: -15deg;
@@ -136,7 +141,7 @@ p {
   }
 }
 
-@keyframes histoire {
+@keyframes reliure {
   0%,
   30%,
   100% {
@@ -150,7 +155,7 @@ p {
   }
 }
 
-@keyframes reliure {
+@keyframes hitoire {
   0%,
   30%,
   100% {
