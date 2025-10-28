@@ -4,10 +4,10 @@
     font-size: 37px;
     position: fixed;
     top: 50%;
-    left: 0;
+    left: 0px;
     transform: translateY(-50%);
     width: 800px;
-    margin-left: 80px;
+    margin-left: 150px;
     padding: 15px;
     display: flex;
 
@@ -170,10 +170,10 @@ body {
 
 .Louis {
     position: fixed;
-    bottom: -60px;
-    left: 550px;
+    bottom: -70px;
+    left: -75px;
     height: 80vh;
-    opacity: 0.6;
+    opacity: 0.3;
     z-index: -1;
     pointer-events: none;
 }
