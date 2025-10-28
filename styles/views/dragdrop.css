@@ -8,7 +8,7 @@
    width: 750px;
    margin-left: 110px;
    padding: 15px;
-   display: flex
+   display: flex;
 }
 
 span {
@@ -36,84 +36,87 @@ body {
    overflow: hidden;
 }
 
+/* === Zone principale === */
 .dragdrop {
    position: absolute;
    top: 50%;
-   left: 75%;
+   left: 72%; /* décalé un peu plus à gauche */
    transform: translate(-50%, -50%);
    width: 100%;
    height: 100%;
    display: flex;
    justify-content: center;
    align-items: center;
-   gap: 50px;
 }
 
+/* === Conteneur général === */
 .container {
    position: relative;
-   width: 800px;
-   height: 500px;
+   width: 1000px;
+   height: 700px;
    display: flex;
    align-items: center;
    justify-content: center;
+   gap: 120px; /* espace entre le livre et les dropzones */
 }
 
-.book {
+/* === Livre === */
+.evangeliaire {
    position: relative;
-   width: 430px;
-   height: 530px;
-   background: url("/public/images/book.png");
+   width: 500px;
+   height: 600px;
    z-index: 1;
 }
 
+.BOOK {
+   position: absolute;
+   width: 550px; /* légèrement réduit pour correspondre à la zone */
+   height: auto;
+   left: 0;
+   top: 0;
+   z-index: 1;
+}
+
+/* === Gemmes === */
 .gem {
    position: absolute;
-   width: 50px;
-   height: 50px;
+   width: 60px;
+   height: 60px;
    border-radius: 50%;
    cursor: grab;
    z-index: 2;
    touch-action: none;
-   /*tactile*/
+   background-size: cover;
 }
-
 .gem.red {
-   top: -5px;
-   left: 45px;
-   background-size: cover;
+   left: 60px;
 }
-
 .gem.blue {
-   top: 30px;
-   left: 375px;
-   background-size: cover;
+   top: 629px;
+   left: 360px;
 }
-
 .gem.green {
-   top: 200px;
-   left: 23px;
-   background-size: cover;
+   top: 45px;
+   left: 490px;
 }
 
+/* === Dropzones === */
+.dropzones {
+   display: grid;
+   gap: 50px; /* plus espacées entre elles */
+   grid-template-columns: repeat(3, 1fr);
+}
 .dropzone {
    width: 70px;
-   height: 60px;
+   height: 70px;
    border-radius: 50%;
    border: 2px solid white;
-   background-color: rgba(0, 0, 0, 0.799);
-   margin-left: 0px;
+   background-color: rgba(0, 0, 0, 0.8);
    display: flex;
    justify-content: center;
    align-items: center;
+   transition: background-color 0.2s ease;
 }
-
 .dropzone.active {
    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.dropzones {
-   display: grid;
-   gap: 30px;
-   grid-template-columns: repeat(3, 1fr);
-   margin-left: 50px;
 }
