@@ -39,6 +39,10 @@ function createPopup(id) {
 function pageGameInit() {
   const backButton = document.querySelector('.back-button')
   const closeButton = document.querySelector('.close-button')
+  const startButton = document.querySelector('.start-btn')
+  const introWindow = document.getElementById('intro-window')
+  const gameScene = document.getElementById('game-scene')
+
 
   backButton.addEventListener('click', () => {
     console.warn('Implement back navigation')
@@ -50,9 +54,13 @@ function pageGameInit() {
     //window.location.href = 'library.html';
   })
 
-  addGems();
-}
+  startButton.addEventListener('click', () => {
+    introWindow.style.display = 'none'
+    gameScene.style.display = 'block'
 
+    addGems()
+  })
+}
 
 
 function addGems() {
