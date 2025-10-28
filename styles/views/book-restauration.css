@@ -92,7 +92,7 @@
 
 
 #view-book-restauration {
-    width: 100svw;
+    width: 100vw;
     height: 100svh;
 
     display: flex;
@@ -244,7 +244,7 @@ h2{
     left: 50%;
     transform: translate(-50%, -50%)
 }
-   
+
 .popup {
     position:fixed;
     top:-100vh;
@@ -441,14 +441,101 @@ h2{
 
 .popup.active .overlay {
     background: rgba(0, 0, 0, 0.2);
- 
 }
 
 
 
-.btn_ending{
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    
+/* ending scene */
+
+.ending-screen{
+    display: flex;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.ending-reliure{
+    transform: rotate(15deg);
+    position: absolute;
+    margin-left: 14rem;
+    z-index: 2;
+}
+
+.ending-glow{
+    position: absolute;
+    z-index: 1;
+}
+
+.ending_glow-1{
+    width: 80rem;
+    right: 27rem;
+    top: -14rem;
+}
+
+.ending_glow-2{
+    width: 48rem;
+    right: 14rem;
+    top: 21rem;
+}
+
+.ending_glow-3{
+    width: 112rem;
+    right: 23rem;
+    top: 16rem;
+}
+
+.ending-bg{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.ending-congrats{    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    margin-left: -48rem;
+    width: 30%;
+    height: 25%;
+    background-color: rgb(0,0,0,0.8);
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.ending-title{
+    font-size: 60px;
+    font-family:"Injurial";
+    color:rgb(255, 179, 0);
+    padding-bottom: 1rem;
+}
+
+.ending-text{
+    font-size: 21px;
+    font-family: 'VelinoText-ThinItalic';
+    color:white;
+}
+
+.ending-link{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 88%;
+    left: 69%;
+    z-index: 5;
+
+}
+
+.ending-link-text{
+    margin-right: 19px;
+}
+
+.ending-link-fingerprint{
+    width: 5rem;
 }
