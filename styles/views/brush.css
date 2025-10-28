@@ -1,13 +1,13 @@
 
 .texte {
     color: white;
-    font-size: 37px;
+    font-size: 40px;
     position: fixed;
     top: 50%;
     left: 0px;
     transform: translateY(-50%);
-    width: 800px;
-    margin-left: 150px;
+    width: 850px;
+    margin-left: 80px;
     padding: 15px;
     display: flex;
 
@@ -170,10 +170,10 @@ body {
 
 .Louis {
     position: fixed;
-    bottom: -70px;
-    left: -75px;
+    bottom: -100px;
+    left: 750px;
     height: 80vh;
-    opacity: 0.3;
+    opacity: 0.2;
     z-index: -1;
     pointer-events: none;
 }
