@@ -153,8 +153,9 @@ function addGems() {
               rotate: 0,
               ease: 'elastic.out(.45)',
             })
-            gemImageDraggable.setAttribute('data-in-box', 'true'),
-            droppableZone.classList.remove('droppable-zone')
+            gemImageDraggable.setAttribute('data-in-box', 'true');
+            droppableZone.classList.remove('droppable-zone');
+            checkCompletion();
           } else {
             gsap.to(gemImageDraggable, {
               left: startBox.left,
