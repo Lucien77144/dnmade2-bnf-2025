@@ -186,6 +186,13 @@ function pe_selection_modal (){
   const pe_cercle_2 =document.getElementById ("pe_cercle_invisible_2");
   const pe_cercle_3 = document.getElementById ("pe_cercle_invisible_3");
   const pe_cercle_4 = document.getElementById ("pe_cercle_invisible_4");
+
+  const modal_backdrop_1 = document.getElementById ("pe_modal_grand_backdrop_1");
+  const modal_backdrop_2 = document.getElementById ("pe_modal_grand_backdrop_2");
+  const modal_backdrop_3 = document.getElementById ("pe_modal_grand_backdrop_3");
+  const modal_backdrop_4 = document.getElementById ("pe_modal_grand_backdrop_4");
+
+
   pe_cercle_1.addEventListener("touchstart", (event)=> {
     console.log("cercle 1 touché");
     pe_apparraitre_modal ("pe_modal_grand_1");
@@ -213,6 +220,19 @@ function pe_selection_modal (){
     pe_disparraitre_modal("pe_modal_grand_1");
     pe_disparraitre_modal("pe_modal_grand_2");
     pe_disparraitre_modal("pe_modal_grand_3");
+  })
+
+  modal_backdrop_1.addEventListener("touchstart", (event)=> {
+    pe_disparraitre_modal("pe_modal_grand_1");
+  })
+  modal_backdrop_2.addEventListener("touchstart", (event)=> {
+    pe_disparraitre_modal("pe_modal_grand_2");
+  })
+  modal_backdrop_3.addEventListener("touchstart", (event)=> {
+    pe_disparraitre_modal("pe_modal_grand_3");
+  })
+  modal_backdrop_4.addEventListener("touchstart", (event)=> {
+    pe_disparraitre_modal("pe_modal_grand_4");
   })
   
 
