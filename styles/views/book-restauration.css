@@ -455,7 +455,7 @@ button {
 
 /* ending scene */
 
-.ending-screen{
+section#view-ending-screen{
     display: flex;
     position: absolute;
     top: 0;

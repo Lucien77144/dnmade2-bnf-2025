@@ -1,4 +1,5 @@
 const viewBookRestauration = document.querySelector('section#view-book-restauration')
+const viewEndingScreen = document.querySelector('section#view-ending-screen')
 const gemsList = document.querySelectorAll('.gems-list')
 const gameBook = document.querySelector('.game-book')
 
@@ -6,6 +7,8 @@ let json;
 let popup, popupNode;
 
 document.addEventListener('DOMContentLoaded', async () => {
+  viewBookRestauration.style.display = 'flex';
+  viewEndingScreen.style.display = 'none';
   gsap.registerPlugin(Draggable)
   createPopup('#popup')
 
@@ -46,6 +49,8 @@ function pageGameInit() {
 
   backButton.addEventListener('click', () => {
     console.warn('Implement back navigation')
+    removeGems();
+    introWindow.style.display = 'block';
     //window.location.href = 'library.html';
   })
 
@@ -183,6 +188,18 @@ function addGems() {
   })
 }
 
+function removeGems() {
+  const allGems = document.querySelectorAll('.gemContent');
+  const allDroppables = document.querySelectorAll('.droppable-zone');
+
+  allDroppables.forEach((value, i) => {
+    value.remove();
+  });
+  allGems.forEach((value, i) => {
+    value.remove();
+  });
+}
+
 
 function checkCompletion() {
   const allGems = document.querySelectorAll('.gem-draggable');
@@ -198,4 +215,6 @@ function checkCompletion() {
 
 function endScene() {
   console.log('End scene triggered');
+  viewBookRestauration.style.display = 'none';
+  viewEndingScreen.style.display = 'flex';
 }
