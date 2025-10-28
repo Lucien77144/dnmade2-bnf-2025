@@ -34,4 +34,4 @@ for (let i = 0; i < cercles.length; i++) {
   });
 }
 
-const buttonTermine = document
+const buttonTermine = document.getElementsByClassName("bouton-termine");
