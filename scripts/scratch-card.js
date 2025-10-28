@@ -152,8 +152,7 @@ function handlePercentage(filledInPixels) {
 
     ctx_am.clearRect(0, 0, canvas_gratte.width, canvas_gratte.height);
 
-    pe_selection_modal()
-    pe_apparraitre_modal("container_pe_button_modal");
+    
 
     setInterval(() => {
         
@@ -162,6 +161,9 @@ function handlePercentage(filledInPixels) {
         livre_am.style.transform = "scale(1.3)";
         const finished_lo = document.querySelector(".finished_lo");
         finished_lo.style.display = "flex";
+
+        pe_selection_modal()
+        pe_apparraitre_modal("container_pe_button_modal");
     }, 500);
 
     // scalpel_lo.style.transform = `rotate(90deg)`;
