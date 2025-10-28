@@ -234,14 +234,14 @@ body {
   /* top: 200px; */
 }
 
-.circle_pe {
+/*.circle_pe {
   display: flex;
   background: radial-gradient(circle, rgb(255, 255, 255) 0%, transparent 60%);
   z-index: 0;
   border-radius: 1000%;
   filter: blur(20px);
   animation: haloPulse_lo 5s ease-in-out infinite;
-}
+}*/
 
 /* NE PLUS TOUCHER  */
 .rattrapage_lo {
