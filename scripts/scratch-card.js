@@ -25,9 +25,7 @@ function getCoords(e) {
 
 let x, y;
 
-
 grattoire();
-
 
 function grattoire() {
     canvas_gratte.addEventListener(("touchstart"), clickANDTouch);
@@ -78,8 +76,6 @@ function clickANDTouch(e) {
 }
 
 function move(e) {
-    // scalpel_lo.style.top = (`${e.touches[0].clientY + 130}px`?? `${e.clientY + 130}px`);
-    //     scalpel_lo.style.left = (`${e.touches[0].clientX - 50}px` ?? `${e.clientX - 50}px`);
 
     let clientX, clientY;
     if (e.touches && e.touches.length > 0) { // SI on est en touch
@@ -105,7 +101,6 @@ function move(e) {
         ctx_am.lineTo(x, y);
         ctx_am.stroke();
         ctx_am.lineCap ='round'
-    // ctx_am.clearRect(x, y, 40, 40);
         lastX_am = x;
         lastY_am = y;
 
@@ -132,7 +127,6 @@ function getFilledInPixels(stride) {
         total    = (l / stride);
         count    = 0;
     
-    // Iterate over all pixels
     for(var i = count = 0; i < l; i += stride) {
     if (parseInt(pdata[i]) === 0) {
         count++;
@@ -146,8 +140,6 @@ function handlePercentage(filledInPixels) {
     filledInPixels = filledInPixels || 0;
     console.log(filledInPixels + '%');
     if (filledInPixels > 80) {
-    // Clear rect de facon smooth avec une transition ?
-    // desactiver le pointer event sur le canvas ?
     canvas_gratte.style.pointerEvents = "none";
 
     ctx_am.clearRect(0, 0, canvas_gratte.width, canvas_gratte.height);
@@ -166,11 +158,6 @@ function handlePercentage(filledInPixels) {
         pe_apparraitre_modal("container_pe_button_modal");
     }, 500);
 
-    // scalpel_lo.style.transform = `rotate(90deg)`;
-    // scalpel_lo.style.transition = `transform 0.1s ease-in-out`;
-    // scalpel_lo.style.top = `230px`;
-    // scalpel_lo.style.left = `400px`;
-    
     setInterval(() => {
         scalpel_lo.style.transition = "opacity 0.5s ease-out";
         scalpel_lo.style.opacity = "0";
@@ -178,75 +165,71 @@ function handlePercentage(filledInPixels) {
     }
 }
 
-
-
-// PERRINE 
 function pe_selection_modal (){
-  const pe_cercle_1 = document.getElementById("pe_cercle_invisible_1");
-  const pe_cercle_2 =document.getElementById ("pe_cercle_invisible_2");
-  const pe_cercle_3 = document.getElementById ("pe_cercle_invisible_3");
-  const pe_cercle_4 = document.getElementById ("pe_cercle_invisible_4");
+    const pe_cercle_1 = document.getElementById("pe_cercle_invisible_1");
+    const pe_cercle_2 =document.getElementById ("pe_cercle_invisible_2");
+    const pe_cercle_3 = document.getElementById ("pe_cercle_invisible_3");
+    const pe_cercle_4 = document.getElementById ("pe_cercle_invisible_4");
 
-  const modal_backdrop_1 = document.getElementById ("pe_modal_grand_backdrop_1");
-  const modal_backdrop_2 = document.getElementById ("pe_modal_grand_backdrop_2");
-  const modal_backdrop_3 = document.getElementById ("pe_modal_grand_backdrop_3");
-  const modal_backdrop_4 = document.getElementById ("pe_modal_grand_backdrop_4");
+    const modal_backdrop_1 = document.getElementById ("pe_modal_grand_backdrop_1");
+    const modal_backdrop_2 = document.getElementById ("pe_modal_grand_backdrop_2");
+    const modal_backdrop_3 = document.getElementById ("pe_modal_grand_backdrop_3");
+    const modal_backdrop_4 = document.getElementById ("pe_modal_grand_backdrop_4");
 
 
-  pe_cercle_1.addEventListener("touchstart", (event)=> {
-    console.log("cercle 1 touché");
-    pe_apparraitre_modal ("pe_modal_grand_1");
-    pe_disparraitre_modal("pe_modal_grand_2");
-    pe_disparraitre_modal("pe_modal_grand_3");
-    pe_disparraitre_modal("pe_modal_grand_4");
-  })
-  pe_cercle_2.addEventListener("touchstart", (event)=> {
-    console.log("cercle 2 touché");
-    pe_apparraitre_modal ("pe_modal_grand_2");
-    pe_disparraitre_modal("pe_modal_grand_1");
-    pe_disparraitre_modal("pe_modal_grand_3");
-    pe_disparraitre_modal("pe_modal_grand_4");
-  })
-  pe_cercle_3.addEventListener("touchstart", (event)=> {
-    console.log("cercle 3 touché");
-    pe_apparraitre_modal ("pe_modal_grand_3");
-    pe_disparraitre_modal("pe_modal_grand_1");
-    pe_disparraitre_modal("pe_modal_grand_2");
-    pe_disparraitre_modal("pe_modal_grand_4");
-  })
-  pe_cercle_4.addEventListener("touchstart", (event)=> {
-    console.log("cercle 4 touché");
-    pe_apparraitre_modal ("pe_modal_grand_4");
-    pe_disparraitre_modal("pe_modal_grand_1");
-    pe_disparraitre_modal("pe_modal_grand_2");
-    pe_disparraitre_modal("pe_modal_grand_3");
-  })
+    pe_cercle_1.addEventListener("touchstart", (event)=> {
+        console.log("cercle 1 touché");
+        pe_apparraitre_modal ("pe_modal_grand_1");
+        pe_disparraitre_modal("pe_modal_grand_2");
+        pe_disparraitre_modal("pe_modal_grand_3");
+        pe_disparraitre_modal("pe_modal_grand_4");
+    })
 
-  modal_backdrop_1.addEventListener("touchstart", (event)=> {
-    pe_disparraitre_modal("pe_modal_grand_1");
-  })
-  modal_backdrop_2.addEventListener("touchstart", (event)=> {
-    pe_disparraitre_modal("pe_modal_grand_2");
-  })
-  modal_backdrop_3.addEventListener("touchstart", (event)=> {
-    pe_disparraitre_modal("pe_modal_grand_3");
-  })
-  modal_backdrop_4.addEventListener("touchstart", (event)=> {
-    pe_disparraitre_modal("pe_modal_grand_4");
-  })
-  
+    pe_cercle_2.addEventListener("touchstart", (event)=> {
+        console.log("cercle 2 touché");
+        pe_apparraitre_modal ("pe_modal_grand_2");
+        pe_disparraitre_modal("pe_modal_grand_1");
+        pe_disparraitre_modal("pe_modal_grand_3");
+        pe_disparraitre_modal("pe_modal_grand_4");
+    })
 
+    pe_cercle_3.addEventListener("touchstart", (event)=> {
+        console.log("cercle 3 touché");
+        pe_apparraitre_modal ("pe_modal_grand_3");
+        pe_disparraitre_modal("pe_modal_grand_1");
+        pe_disparraitre_modal("pe_modal_grand_2");
+        pe_disparraitre_modal("pe_modal_grand_4");
+    })
+
+    pe_cercle_4.addEventListener("touchstart", (event)=> {
+        console.log("cercle 4 touché");
+        pe_apparraitre_modal ("pe_modal_grand_4");
+        pe_disparraitre_modal("pe_modal_grand_1");
+        pe_disparraitre_modal("pe_modal_grand_2");
+        pe_disparraitre_modal("pe_modal_grand_3");
+    })
+
+    modal_backdrop_1.addEventListener("touchstart", (event)=> {
+        pe_disparraitre_modal("pe_modal_grand_1");
+    })
+    modal_backdrop_2.addEventListener("touchstart", (event)=> {
+        pe_disparraitre_modal("pe_modal_grand_2");
+    })
+    modal_backdrop_3.addEventListener("touchstart", (event)=> {
+        pe_disparraitre_modal("pe_modal_grand_3");
+    })
+    modal_backdrop_4.addEventListener("touchstart", (event)=> {
+        pe_disparraitre_modal("pe_modal_grand_4");
+    })
 }
 
-
-
 function pe_apparraitre_modal (element){
-  const modal_ape = document.getElementById(element);
-  modal_ape.style.display="flex";
-  modal_ape.style.gap="30px";
+    const modal_ape = document.getElementById(element);
+    modal_ape.style.display="flex";
+    modal_ape.style.gap="30px";
 }
 
 function pe_disparraitre_modal (element){
-  const modal_dipe = document.getElementById(element);
-  modal_dipe.style.display="none";
+    const modal_dipe = document.getElementById(element);
+    modal_dipe.style.display="none";
 }

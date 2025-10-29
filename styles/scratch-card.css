@@ -18,8 +18,7 @@ body {
   z-index: 100000;
 }
 
-/* Amandine CSS */
-
+/* Container pour la carte à gratter */
 #container_am {
   display: flex;
   justify-content: center;
@@ -28,11 +27,6 @@ body {
   width: 700px;
   height: 600px;
 }
-
-/* #container_lo {
-    position: relative;
-    width: 100%;
-} */
 
 .finished_lo {
   display: none;
@@ -165,9 +159,6 @@ body {
   position: relative;
   display: flex;
   justify-content: left;
-  /* gap: 0px;
-    margin-left: 10%;
-    margin-top: 2%; */
   margin: 5%;
   margin-left: 8%;
   align-items: center;
@@ -175,8 +166,6 @@ body {
   height: 100vh;
   gap: 50px;
 }
-
-/* Perrine CSS */
 
 .pe_gratte_invisible {
   flex-direction: row;
@@ -210,7 +199,6 @@ body {
   border-radius: 180px;
 }
 
-/* NE PLUS TOUCHER */
 #container_pe_button_modal {
   width: 100%;
   height: 100%;
@@ -221,54 +209,22 @@ body {
   z-index: 1000;
 }
 
-/* NE PLUS TOUCHER  */
 .pe_cercle_invisible {
   width: 150px;
   height: 150px;
   position: relative;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   flex-direction: row;
-  /* z-index: 1000000; */
-  /* top: 200px; */
 }
 
-/*.circle_pe {
-  display: flex;
-  background: radial-gradient(circle, rgb(255, 255, 255) 0%, transparent 60%);
-  z-index: 0;
-  border-radius: 1000%;
-  filter: blur(20px);
-  animation: haloPulse_lo 5s ease-in-out infinite;
-}*/
-
-/* NE PLUS TOUCHER  */
 .rattrapage_lo {
   display: flex;
   align-items: center;
-  /* width: 60%; */
   gap: 80px;
   justify-content: center;
   flex-direction: column;
 }
-/* #pe_cercle_invisible_1 {
-    top: 200px;
-    left:200px;
-}
-#pe_cercle_invisible_2 {
-    top: 200px;
-    left:400px;
-    
-}
-#pe_cercle_invisible_3 {
-    top:400px;
-    left: 200px;
-}
-#pe_cercle_invisible_4 {
-    top : 400px;
-    left : 400px;
-} */
 
 #pe_modal_grand_1 {
   display: none;
@@ -292,10 +248,10 @@ body {
 }
 
 .modal-backdrop {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 999;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
   }
