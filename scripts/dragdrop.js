@@ -129,14 +129,14 @@ window.addEventListener('load', () => {
                     hand.style.opacity = 0;
                 }, 1500);
             }, 500);
-        }, 3000);
+        }, 1000);
     }
 
     // Lancer la première animation
     animateHand();
 
     // Répéter toutes les 6 secondes
-    const handInterval = setInterval(animateHand, 6000);
+    const handInterval = setInterval(animateHand, 5000);
 
     // Désactiver la main dès qu'on commence à prendre une pierre
     gems.forEach(gem => {
