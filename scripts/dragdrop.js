@@ -86,13 +86,14 @@ window.addEventListener('load', () => {
     const gems = document.querySelectorAll('.gem');
 
     hand.style.position = 'absolute';
-    hand.style.opacity = 0; 
+    hand.style.opacity = 0; // main invisible au départ
 
-    let handActive = true; 
+    let handActive = true; // drapeau pour savoir si la main doit s'afficher
 
     function animateHand() {
-        if (!handActive) return; 
+        if (!handActive) return; // si on a déjà pris une pierre, ne plus afficher la main
 
+        // Position initiale
         const gemRect = firstGem.getBoundingClientRect();
         const dropRect = firstDropzone.getBoundingClientRect();
         const parentRect = hand.parentElement.getBoundingClientRect();
@@ -103,12 +104,14 @@ window.addEventListener('load', () => {
         hand.style.left = (gemRect.left - parentRect.left - hand.offsetWidth + offsetXStart) + 'px';
         hand.style.top = (gemRect.top - parentRect.top - hand.offsetHeight + offsetYStart) + 'px';
 
+        // Apparition de la main avec fondu
         setTimeout(() => {
             if (!handActive) return;
 
             hand.style.transition = 'opacity 1s ease';
             hand.style.opacity = 1;
 
+            // Pause sur la position de départ
             setTimeout(() => {
                 if (!handActive) return;
 
@@ -120,6 +123,7 @@ window.addEventListener('load', () => {
                 hand.style.left = dropRect.left - parentRect.left + dropRect.width / 2 - hand.offsetWidth / 2 + offsetXEnd + 'px';
                 hand.style.top = dropRect.top - parentRect.top + dropRect.height / 2 - hand.offsetHeight / 2 + offsetYEnd + 'px';
 
+                // Disparition directement à la dropzone
                 setTimeout(() => {
                     hand.style.transition = 'opacity 1s ease';
                     hand.style.opacity = 0;
@@ -128,10 +132,11 @@ window.addEventListener('load', () => {
         }, 3000);
     }
 
-
+    // Lancer la première animation
     animateHand();
 
-    const handInterval = setInterval(animateHand, 4000);
+    // Répéter toutes les 6 secondes
+    const handInterval = setInterval(animateHand, 6000);
 
     // Désactiver la main dès qu'on commence à prendre une pierre
     gems.forEach(gem => {
@@ -140,7 +145,7 @@ window.addEventListener('load', () => {
                 handActive = false;
                 hand.style.transition = 'opacity 0.5s ease';
                 hand.style.opacity = 0;
-                clearInterval(handInterval); 
+                clearInterval(handInterval); // arrêter la répétition de l'animation
             }
         });
         gem.addEventListener('touchstart', () => {
