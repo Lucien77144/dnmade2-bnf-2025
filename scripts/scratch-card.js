@@ -146,7 +146,7 @@ function handlePercentage(filledInPixels) {
 
     
 
-    setInterval(() => {
+    setTimeout(() => {
         
         const livre_am = document.getElementById("livre_am");
         livre_am.style.transition = "transform 0.5s ease-out";
@@ -161,10 +161,14 @@ function handlePercentage(filledInPixels) {
         scalpel_lo.style.left = `1320px`;
 
         pe_selection_modal()
-        pe_apparraitre_modal("container_pe_button_modal");
+        //pe_apparraitre_modal("container_pe_button_modal");
+        //document.querySelector('#container_pe_button_modal').classList.add('active_zoom');
+        const modal_ape = document.getElementById("container_pe_button_modal");
+        modal_ape.style.display="flex";
+        modal_ape.style.gap="80px 30px";
     }, 500);
 
-    setInterval(() => {
+    setTimeout(() => {
         scalpel_lo.style.transition = "opacity 0.5s ease-out";
         scalpel_lo.style.opacity = "0";
     }, 2000);
@@ -172,70 +176,134 @@ function handlePercentage(filledInPixels) {
 }
 
 function pe_selection_modal (){
-    const pe_cercle_1 = document.getElementById("pe_cercle_invisible_1");
-    const pe_cercle_2 =document.getElementById ("pe_cercle_invisible_2");
-    const pe_cercle_3 = document.getElementById ("pe_cercle_invisible_3");
-    const pe_cercle_4 = document.getElementById ("pe_cercle_invisible_4");
+    const pe_cercles = document.querySelectorAll (".pe_cercle_invisible");
+    const img_gratte_invisible = document.querySelectorAll(".img_gratte_invisible");
+
+    pe_cercles.forEach((cercle, i) => {
+        cercle.addEventListener("touchstart", (event)=> {
+            // si image gratte n'a pas la classe active zoom faire ce qu'il y'a en dessous
+            if (!img_gratte_invisible[i].classList.contains("active_zoom")) {
+                img_gratte_invisible.forEach((modal, j) => {
+                    modal.classList.remove("active_zoom");
+                    console.log('removed active_zoom from' , modal);
+                });
+                img_gratte_invisible[i].classList.add("active_zoom");
+            } else {
+                img_gratte_invisible[i].classList.remove("active_zoom");
+            }
+        });
+    });
+
+    // const pe_cercle_1 = document.getElementById("pe_cercle_invisible_1");
+    // const pe_cercle_2 =document.getElementById ("pe_cercle_invisible_2");
+    // const pe_cercle_3 = document.getElementById ("pe_cercle_invisible_3");
+    // const pe_cercle_4 = document.getElementById ("pe_cercle_invisible_4");
 
     const modal_backdrop_1 = document.getElementById ("pe_modal_grand_backdrop_1");
     const modal_backdrop_2 = document.getElementById ("pe_modal_grand_backdrop_2");
     const modal_backdrop_3 = document.getElementById ("pe_modal_grand_backdrop_3");
     const modal_backdrop_4 = document.getElementById ("pe_modal_grand_backdrop_4");
 
+    // const pe_modal_grand_1 = document.getElementById ("pe_modal_grand_1");
+    // const pe_modal_grand_2 = document.getElementById ("pe_modal_grand_2");
+    // const pe_modal_grand_3 = document.getElementById ("pe_modal_grand_3");
+    // const pe_modal_grand_4 = document.getElementById ("pe_modal_grand_4");
 
-    pe_cercle_1.addEventListener("touchstart", (event)=> {
+
+    //si on clique sur un cercle on ajoute une classe active_zoom et donc le cercle où on a cliqué aparait en grand comme modal et les autre disparaissent mais si il y'a déja la classe active_zoom sur un cercle et qu'on clique dessus on la retire et le modal disparait
+    
+    /* pe_cercle_1.addEventListener("touchstart", (event)=> {
         console.log("cercle 1 touché");
-        pe_apparraitre_modal ("pe_modal_grand_1");
-        pe_disparraitre_modal("pe_modal_grand_2");
-        pe_disparraitre_modal("pe_modal_grand_3");
-        pe_disparraitre_modal("pe_modal_grand_4");
+        if (pe_modal_grand_1.classList.contains("active_zoom")) {
+            pe_disparraitre_modal("pe_modal_grand_1");
+            pe_modal_grand_1.classList.remove("active_zoom");
+        } else {
+            pe_modal_grand_1.classList.add("active_zoom");
+            pe_apparraitre_modal ("pe_modal_grand_1");
+            pe_disparraitre_modal("pe_modal_grand_2");
+            pe_disparraitre_modal("pe_modal_grand_3");
+            pe_disparraitre_modal("pe_modal_grand_4");
+
+        }
+        // pe_modal_grand_1.classList.add("active_zoom");
+        
     })
 
     pe_cercle_2.addEventListener("touchstart", (event)=> {
         console.log("cercle 2 touché");
-        pe_apparraitre_modal ("pe_modal_grand_2");
-        pe_disparraitre_modal("pe_modal_grand_1");
-        pe_disparraitre_modal("pe_modal_grand_3");
-        pe_disparraitre_modal("pe_modal_grand_4");
+        if (pe_modal_grand_2.classList.contains("active_zoom")) {
+            pe_disparraitre_modal("pe_modal_grand_2");
+            pe_modal_grand_2.classList.remove("active_zoom");
+        } else {
+            pe_modal_grand_2.classList.add("active_zoom");
+            pe_apparraitre_modal ("pe_modal_grand_2");
+            pe_disparraitre_modal("pe_modal_grand_1");
+            pe_disparraitre_modal("pe_modal_grand_3");
+            pe_disparraitre_modal("pe_modal_grand_4");
+        }
     })
 
     pe_cercle_3.addEventListener("touchstart", (event)=> {
         console.log("cercle 3 touché");
-        pe_apparraitre_modal ("pe_modal_grand_3");
-        pe_disparraitre_modal("pe_modal_grand_1");
-        pe_disparraitre_modal("pe_modal_grand_2");
-        pe_disparraitre_modal("pe_modal_grand_4");
+        if (pe_modal_grand_3.classList.contains("active_zoom")) {
+            pe_disparraitre_modal("pe_modal_grand_3");
+            pe_modal_grand_3.classList.remove("active_zoom");
+        } else {
+            pe_modal_grand_3.classList.add("active_zoom");
+            pe_apparraitre_modal ("pe_modal_grand_3");
+            pe_disparraitre_modal("pe_modal_grand_1");
+            pe_disparraitre_modal("pe_modal_grand_2");
+            pe_disparraitre_modal("pe_modal_grand_4");
+        }
     })
 
     pe_cercle_4.addEventListener("touchstart", (event)=> {
         console.log("cercle 4 touché");
-        pe_apparraitre_modal ("pe_modal_grand_4");
-        pe_disparraitre_modal("pe_modal_grand_1");
-        pe_disparraitre_modal("pe_modal_grand_2");
-        pe_disparraitre_modal("pe_modal_grand_3");
-    })
+        if (pe_modal_grand_4.classList.contains("active_zoom")) {
+            pe_disparraitre_modal("pe_modal_grand_4");
+            pe_modal_grand_4.classList.remove("active_zoom");
+        } else {
+            pe_modal_grand_4.classList.add("active_zoom");
+            pe_apparraitre_modal ("pe_modal_grand_4");
+            pe_disparraitre_modal("pe_modal_grand_1");
+            pe_disparraitre_modal("pe_modal_grand_2");
+            pe_disparraitre_modal("pe_modal_grand_3");
+        }
+    }): */
 
     modal_backdrop_1.addEventListener("touchstart", (event)=> {
-        pe_disparraitre_modal("pe_modal_grand_1");
+        // desactivé toutes les classes active_zoom des modals
+        img_gratte_invisible.forEach((modal) => {
+            modal.classList.remove("active_zoom");
+        });
     })
     modal_backdrop_2.addEventListener("touchstart", (event)=> {
-        pe_disparraitre_modal("pe_modal_grand_2");
+        img_gratte_invisible.forEach((modal) => {
+            modal.classList.remove("active_zoom");
+        });
     })
     modal_backdrop_3.addEventListener("touchstart", (event)=> {
-        pe_disparraitre_modal("pe_modal_grand_3");
+        img_gratte_invisible.forEach((modal) => {
+            modal.classList.remove("active_zoom");
+        });
     })
     modal_backdrop_4.addEventListener("touchstart", (event)=> {
-        pe_disparraitre_modal("pe_modal_grand_4");
+        img_gratte_invisible.forEach((modal) => {
+            modal.classList.remove("active_zoom");
+        });
     })
 }
 
-function pe_apparraitre_modal (element){
+/* function pe_apparraitre_modal (element){
     const modal_ape = document.getElementById(element);
     modal_ape.style.display="flex";
     modal_ape.style.gap="30px";
+    // modal_ape.classList.add("active_zoom");
 }
 
 function pe_disparraitre_modal (element){
     const modal_dipe = document.getElementById(element);
     modal_dipe.style.display="none";
+    modal_dipe.classList.remove("active_zoom");
 }
+ */
