@@ -10,13 +10,11 @@
    padding: 15px;
    display: flex;
 }
-
 span {
    color: #ECA900;
    display: block;
    margin-top: 10px;
 }
-
 @font-face {
    font-family: 'VelinoText-Medium';
    src: url(/public/fonts/VelinoText-Medium.otf) format('opentype');
@@ -36,11 +34,11 @@ body {
    overflow: hidden;
 }
 
-/* === Zone principale === */
+/* drag and drop*/
 .dragdrop {
    position: absolute;
    top: 50%;
-   left: 72%; /* décalé un peu plus à gauche */
+   left: 72%; 
    transform: translate(-50%, -50%);
    width: 100%;
    height: 100%;
@@ -48,8 +46,6 @@ body {
    justify-content: center;
    align-items: center;
 }
-
-/* === Conteneur général === */
 .container {
    position: relative;
    width: 1000px;
@@ -57,25 +53,23 @@ body {
    display: flex;
    align-items: center;
    justify-content: center;
-   gap: 120px; /* espace entre le livre et les dropzones */
+   gap: 120px; 
 }
-
-/* === Livre === */
 .evangeliaire {
    position: relative;
    width: 500px;
    height: 600px;
    z-index: 1;
 }
-
 .BOOK {
    position: absolute;
-   width: 550px; /* légèrement réduit pour correspondre à la zone */
+   width: 550px; 
    height: auto;
    left: 0;
    top: 0;
    z-index: 1;
 }
+
 
 /* === Gemmes === */
 .gem {
@@ -88,16 +82,30 @@ body {
    touch-action: none;
    background-size: cover;
 }
-.gem.red {
+.gem.bleue1 {
    left: 60px;
+   top: -3px;
+   filter: drop-shadow(0 0 2rem #ECA900);
 }
-.gem.blue {
-   top: 629px;
+.gem.bleue2 {
+   left: 488px;
+   top: 44px;
+   filter: drop-shadow(0 0 2rem #ECA900);
+}
+.gem.emeraude {
+   top: 220px;
+   left: 110px;
+   filter: drop-shadow(0 0 0.75rem #ECA900);
+}
+.gem.rubis {
+   top: 630px;
    left: 360px;
+   filter: drop-shadow(0 0 0.75rem #ECA900);
 }
-.gem.green {
-   top: 45px;
-   left: 490px;
+.gem.saphir {
+   top: 360px;
+   left: 300px;
+   filter: drop-shadow(0 0 0.75rem #ECA900);
 }
 
 /* === Dropzones === */
