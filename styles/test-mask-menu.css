@@ -18,8 +18,8 @@ body {
 #reliure {
   animation: reliure 5s ease-in-out infinite;
 }
-#histoire {
-  animation: histoire 5s ease-in-out infinite;
+#histoire2 {
+  animation: histoire2 5s ease-in-out infinite;
 }
 
 .menu-images {
@@ -32,13 +32,14 @@ body {
 }
 
 .menu-image-right { /* chapelle image */
-/*   clip-path: polygon(10vw 0%, 100% 0, 100% 100%, 0% 100%);
- */  width:100%;
+  clip-path: polygon(10vw 0%, 100% 0, 100% 100%, 0% 100%);
+  width:100%;
   height:100%;
   background-image: url('../public/images/menu-img-left.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  
 }
 
 .menu-image-left { /* reliure image */
@@ -102,7 +103,7 @@ p {
   #gif_hand1 {
   height: 500px;
   width: 500px;
-  top: 700px;
+  top: 500px;
   left: 600px;
   position: fixed;
   rotate: 15deg;
@@ -114,11 +115,10 @@ p {
   height: 500px;
   width: 500px;
   top: 300px;
-  right: 850px;
+  right: 50px;
   position:fixed;
-  rotate: -15deg;
+  rotate: 15deg;
   z-index: 1;
-  transform: scaleX(-1);
   animation: main2 5s ease-in-out infinite;
 }
 
@@ -142,26 +142,29 @@ p {
   30%,
   100% {
     filter: blur(12px);
+    scale: 1;
     
   }
   50%,
   80% {
     filter: blur(0);
+    scale: 1.2;
     
   }
 }
 
-@keyframes hitoire {
+@keyframes histoire2 {
   0%,
   30%,
   100% {
     filter: blur(0px);
+    scale: 1.5;
     
   }
   50%,
   80% {
     filter: blur(12px);
-    
+    scale: 1.2;
   }
 }
 
