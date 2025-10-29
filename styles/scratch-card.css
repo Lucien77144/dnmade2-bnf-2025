@@ -10,12 +10,13 @@ body {
   width: 400px;
   position: absolute;
   cursor: pointer;
-  transform: rotate(90deg);
+  transform: rotate(45deg);
   position: absolute;
-  top: 600px;
-  left: 1320px;
+  top: 700px;
+  left: 1350px;
   transform-origin: 50% 0px;
   z-index: 100000;
+  user-select: none;
 }
 
 /* Container pour la carte à gratter */

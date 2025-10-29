@@ -4,7 +4,7 @@ const scalpel_lo = document.getElementById("scalpel");
 const ctx_am = canvas_gratte.getContext("2d", {willReadFrequently: true });
 const rect_am = canvas_gratte.getBoundingClientRect();
 
-let taille_trait_am = 30;
+let taille_trait_am = 70;
 
 canvas_gratte.width = rect_am.width;
 canvas_gratte.height = rect_am.height;
@@ -109,10 +109,10 @@ function move(e) {
 }
 
 function lache(e) {
-    scalpel_lo.style.transform = `rotate(90deg)`;
-    scalpel_lo.style.transition = `transform 0.3s ease-in-out`;
-    scalpel_lo.style.top = `600px`;
-    scalpel_lo.style.left = `1320px`;
+    // scalpel_lo.style.transform = `rotate(90deg)`;
+    // scalpel_lo.style.transition = `transform 0.3s ease-in-out`;
+    // scalpel_lo.style.top = `600px`;
+    // scalpel_lo.style.left = `1320px`;
 
 
     drawing_am = false;
@@ -153,6 +153,12 @@ function handlePercentage(filledInPixels) {
         livre_am.style.transform = "scale(1.3)";
         const finished_lo = document.querySelector(".finished_lo");
         finished_lo.style.display = "flex";
+
+
+        scalpel_lo.style.transform = `rotate(90deg)`;
+        scalpel_lo.style.transition = `transform 0.3s ease-in-out`;
+        scalpel_lo.style.top = `600px`;
+        scalpel_lo.style.left = `1320px`;
 
         pe_selection_modal()
         pe_apparraitre_modal("container_pe_button_modal");
