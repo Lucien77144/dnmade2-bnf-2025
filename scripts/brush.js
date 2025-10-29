@@ -2,6 +2,7 @@ const brush = document.getElementById('brush');
 const reveal = document.getElementById('revealImage');
 const circle = document.getElementById('circle');
 const popup = document.getElementById('popup');
+const main = document.getElementById('main'); // le GIF de la main
 let animating = false;
 
 brush.addEventListener('click', () => {
@@ -19,6 +20,12 @@ brush.addEventListener('click', () => {
   // cercle apparaît juste après
   setTimeout(() => {
     circle.classList.add('visible');
+
+    // main apparaît 1s après le cercle
+    setTimeout(() => {
+      main.classList.add('visible');
+    }, 1000);
+
   }, 4000);
 
   // réinitialisation animating
@@ -32,15 +39,13 @@ circle.addEventListener('click', () => {
   popup.classList.add('visible');
 });
 
-// popup 
+// popup toggle
 document.addEventListener("DOMContentLoaded", () => {
   const circle = document.getElementById("circle");
   const popup = document.getElementById("popup");
 
-  // visible
   let popupVisible = false;
 
-  // Clic sur le cercle → toggle popup
   circle.addEventListener("click", () => {
     popupVisible = !popupVisible;
 
@@ -51,4 +56,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
