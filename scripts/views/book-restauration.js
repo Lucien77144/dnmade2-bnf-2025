@@ -3,7 +3,6 @@ const viewEndingScreen = document.querySelector('section#view-ending-screen')
 const gemsList = document.querySelectorAll('.gems-list')
 const gameBook = document.querySelector('.game-book')
 
-let json;
 let popup, popupNode;
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -12,18 +11,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   gsap.registerPlugin(Draggable)
   createPopup('#popup')
 
-  const response = await fetch('../../public/data/book-restauration.json')
-  json = await response.json()
-  console.log(json)
-
   pageGameInit()
 })
 
 function openPopup(index) {
   popupNode.classList.add('active')
-  document.getElementById('popup-image').src = json.gemID[index].image;
-  document.getElementById('popup-name').textContent = json.gemID[index].name;
-  document.getElementById('popup-text').textContent = json.gemID[index].text;
+  document.getElementById('popup-image').src = popUpData.gemID[index].image;
+  document.getElementById('popup-name').textContent = popUpData.gemID[index].name;
+  document.getElementById('popup-text').textContent = popUpData.gemID[index].text;
 }
 
 function closePopup() {
@@ -93,7 +88,7 @@ function addGems() {
       const gemImageDraggable = document.createElement('img')
       const gemImageGhost = document.createElement('img')
 
-      const imageUrl = json.gemID[count].image;
+      const imageUrl = popUpData.gemID[count].image;
       gemImageDraggable.src = imageUrl;
       gemImageGhost.src = imageUrl;
       
@@ -114,7 +109,7 @@ function addGems() {
       const overlapThreshold = '70%'
       /* Init Draggable zone position */
 
-      const pos = json.gemID[count].dropbox
+      const pos = popUpData.gemID[count].dropbox
 
       const droppableZone = document.createElement('div')
       droppableZone.setAttribute('data-droppable-for-gemid', count)
