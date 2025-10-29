@@ -40,7 +40,7 @@ function grattoire() {
 
     const img_gratte = new Image();
     img_gratte.crossOrigin = "anonymous";
-    img_gratte.src = "/public/images/scratch-card/cailloux.png";
+    img_gratte.src = "../public/images/scratch-card/cailloux.png";
 
     img_gratte.onload = function () {
         ctx_am.drawImage(img_gratte, 0, 0, canvas_gratte.width, canvas_gratte.height);
