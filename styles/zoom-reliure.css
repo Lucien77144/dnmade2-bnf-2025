@@ -2,39 +2,40 @@ body {
   width: 1920px;
   height: 1080px;
   background-color: #252525;
+  margin: 0px;
 }
 
 @font-face {
   font-family: "Injurial-Regular";
-  src: url("public/fonts/Injurial/205TF-Injurial-Regular.otf") format("opentype");
+  src: url("../public/fonts/Injurial/205TF-Injurial-Regular.otf") format("opentype");
 }
 
 @font-face {
   font-family: "VelinoText-Thin";
-  src: url("public/fonts/VELINO Text/VelinoText-Thin.otf") format("opentype");
+  src: url("../public/fonts/VELINO Text/VelinoText-Thin.otf") format("opentype");
 }
 
 @font-face {
   font-family: "VelinoText-Light";
-  src: url("public/fonts/VELINO Text/VelinoText-Light.otf") format("opentype");
+  src: url("../public/fonts/VELINO Text/VelinoText-Light.otf") format("opentype");
 }
 
 @font-face {
   font-family: "VelinoText-Medium";
-  src: url("public/fonts/VELINO Text/VelinoText-Medium.otf") format("opentype");
+  src: url("../public/fonts/VELINO Text/VelinoText-Medium.otf") format("opentype");
 }
 
 @font-face {
   font-family: "VelinoText-Bold";
-  src: url("public/fonts/VELINO Text/VelinoText-Bold.otf") format("opentype");
+  src: url("../public/fonts/VELINO Text/VelinoText-Bold.otf") format("opentype");
 }
 
 @font-face {
   font-family: "VelinoText-Black";
-  src: url("public/fonts/VELINO Text/VelinoText-Black.otf") format("opentype");
+  src: url("../public/fonts/VELINO Text/VelinoText-Black.otf") format("opentype");
 }
 
-#flex-container {
+#container-zoom-reliure {
   width: 100vw;
   height: 100vh;
 }
@@ -49,7 +50,9 @@ body {
 }
 
 h1 {
-  font-family: "VelinoText-Thin";
+  font-family: "VelinoText-Medium";
+  line-height: 1.15;
+  letter-spacing: normal;
   font-size: 30px;
   color: #ffffff;
 
@@ -57,7 +60,7 @@ h1 {
   position: relative;
   justify-content: end;
   flex-direction: row;
-  top: -730px;
+  top: -735px;
   right: 105px;
 }
 
@@ -272,6 +275,12 @@ h1 {
   opacity: 0;
 }
 
+
+
 .active {
   opacity: 1;
+}
+
+.hidden {
+  display: none;
 }

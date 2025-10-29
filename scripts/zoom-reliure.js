@@ -3,14 +3,6 @@ const grands = document.getElementsByClassName("zoom-grand");
 const petits = document.getElementsByClassName("zoom-petit");
 const traits = document.getElementsByClassName("traits");
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   fetch('public/data/data.json')
-//   .then((response) => response.json())
-//   .then((data) => {
-//     document.querySelector('#texte-zoom-reliure').textContent = data.textezoomreliure
-//   })
-// })
-
 function afficherZoom(cible1, cible2, cible3, cible4) {
   for (let i = 0; i < cercles.length; i++) {
     cercles[i].classList.remove("active");
@@ -25,13 +17,16 @@ function afficherZoom(cible1, cible2, cible3, cible4) {
 }
 
 for (let i = 0; i < cercles.length; i++) {
-  let cercleCible = cercles[i];
-  let grandCible = grands[i];
-  let petitCible = petits[i];
-  let traitCible = traits[i];
   cercles[i].addEventListener("click", () => {
-    afficherZoom(cercleCible, grandCible, petitCible, traitCible);
+    afficherZoom(cercles[i], grands[i], petits[i], traits[i]);
   });
 }
 
-// const buttonTermine = document.getElementsByClassName("bouton-termine");
+let boutonTermine = document.getElementsByClassName("bouton-termine");
+
+const containerZoomReliure = document.getElementById('container-zoom-reliure');
+
+
+boutonTermine[0].addEventListener("click", () =>
+  containerZoomReliure.classList.add('hidden')
+)
