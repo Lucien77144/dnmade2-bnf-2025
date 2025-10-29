@@ -146,6 +146,14 @@ body {
   margin-bottom: 50px;
 }
 
+#sous-text {
+  color: #ffffff;
+  margin-bottom: 50px;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+}
+
 #charles {
   display: flex;
   height: 90%;
