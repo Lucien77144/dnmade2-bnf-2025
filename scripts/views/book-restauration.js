@@ -157,7 +157,7 @@ function addGems() {
               left: endBox.left - (endBox.width - startBox.width * 0.5) / 2,
               top: endBox.top - (endBox.height - startBox.height * 0.5) / 2,
               duration: 1,
-              scale: 0.5,
+              scale: 0.7,
               rotate: 0,
               ease: 'elastic.out(.45)',
             })
