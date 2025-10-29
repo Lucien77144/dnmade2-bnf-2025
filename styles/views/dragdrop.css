@@ -150,3 +150,10 @@ body {
   pointer-events: none;
   user-select: none;
 }
+
+.main {
+  position: absolute;
+  width: 250px; 
+  opacity: 0;
+  z-index: 10;
+}

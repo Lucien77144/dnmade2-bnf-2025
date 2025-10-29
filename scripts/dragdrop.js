@@ -78,3 +78,79 @@ function drop(e) {
     draggedGem.style.zIndex = 2;
     draggedGem = null;
 }
+
+window.addEventListener('load', () => {
+    const hand = document.querySelector('.main');
+    const firstGem = document.querySelector('.gem.bleue1');
+    const firstDropzone = document.querySelector('.dropzone');
+    const gems = document.querySelectorAll('.gem');
+
+    hand.style.position = 'absolute';
+    hand.style.opacity = 0; 
+
+    let handActive = true; 
+
+    function animateHand() {
+        if (!handActive) return; 
+
+        const gemRect = firstGem.getBoundingClientRect();
+        const dropRect = firstDropzone.getBoundingClientRect();
+        const parentRect = hand.parentElement.getBoundingClientRect();
+
+        const offsetYStart = 100;
+        const offsetXStart = 0;
+
+        hand.style.left = (gemRect.left - parentRect.left - hand.offsetWidth + offsetXStart) + 'px';
+        hand.style.top = (gemRect.top - parentRect.top - hand.offsetHeight + offsetYStart) + 'px';
+
+        setTimeout(() => {
+            if (!handActive) return;
+
+            hand.style.transition = 'opacity 1s ease';
+            hand.style.opacity = 1;
+
+            setTimeout(() => {
+                if (!handActive) return;
+
+                hand.style.transition = 'left 1.5s ease, top 1.5s ease';
+                
+                const offsetXEnd = 5;
+                const offsetYEnd = -60;
+
+                hand.style.left = dropRect.left - parentRect.left + dropRect.width / 2 - hand.offsetWidth / 2 + offsetXEnd + 'px';
+                hand.style.top = dropRect.top - parentRect.top + dropRect.height / 2 - hand.offsetHeight / 2 + offsetYEnd + 'px';
+
+                setTimeout(() => {
+                    hand.style.transition = 'opacity 1s ease';
+                    hand.style.opacity = 0;
+                }, 1500);
+            }, 500);
+        }, 3000);
+    }
+
+
+    animateHand();
+
+    const handInterval = setInterval(animateHand, 4000);
+
+    // Désactiver la main dès qu'on commence à prendre une pierre
+    gems.forEach(gem => {
+        gem.addEventListener('mousedown', () => {
+            if (handActive) {
+                handActive = false;
+                hand.style.transition = 'opacity 0.5s ease';
+                hand.style.opacity = 0;
+                clearInterval(handInterval); 
+            }
+        });
+        gem.addEventListener('touchstart', () => {
+            if (handActive) {
+                handActive = false;
+                hand.style.transition = 'opacity 0.5s ease';
+                hand.style.opacity = 0;
+                clearInterval(handInterval);
+            }
+        }, { passive: false });
+    });
+});
+
