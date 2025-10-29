@@ -1,25 +1,3 @@
 {
-    "title": "Hello World",
-    "annees": [
-        {
-            "date": "10e siècle",
-            "description": "UNE COMMANDE IMPÉRIALE"
-        },
-        {
-            "date": "13e siècle",
-            "description": "UN MANUSCRIT DE SAINT LOUIS"
-        },
-        {
-            "date": "14e siècle",
-            "description": "DON DE CHARLES V À LA SAINTE CHAPELLE"
-        },
-        {
-            "date": "En 1791",
-            "description": "DÉGRADÉE LORS DE LA RÉVOLUTION"
-        },
-        {
-            "date": "Aujourd'hui",
-            "description": "UNE RELIURE RESTAURÉE ET ANALYSÉE"
-        }
-    ]
+    "title": "Hello World"
 }
