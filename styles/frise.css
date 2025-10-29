@@ -9,29 +9,29 @@ body {
 
 @font-face {
   font-family: "Injurial-Regular";
-  src: url("public/fonts/205TF-Injurial-Regular.otf");
+  src: url("../public/fonts/205TF-Injurial-Regular.otf") format(opentype);
 }
 
 @font-face {
   font-family: "VelinoText-Medium";
-  src: url("public/fonts/VelinoText-Medium.otf");
+  src: url("../public/fonts/VelinoText-Medium.otf");
 }
 
 @font-face {
   font-family: "VelinoText-Bold";
-  src: url("public/fonts/VelinoText-Bold.otf");
+  src: url("../public/fonts/VelinoText-Bold.otf");
 }
 
 @font-face {
   font-family: "VelinoText-Black";
-  src: url("public/fonts/VelinoText-Black.otf");
+  src: url("../public/fonts/VelinoText-Black.otf");
 }
 
 
 
-@keyframes Test {
+@keyframes traitAppear {
   0% {
-    transform: scale(100%, 10%) translateY(-40px);
+    transform: scale(100%, 10%) translateY(-100px);
     opacity: 0;
   }
 
@@ -41,9 +41,21 @@ body {
   }
 }
 
-@keyframes Test2 {
+@keyframes rondAppear {
   0% {
-    transform: scale(100%, 100%) translateY(-68px);
+    transform: scale(100%, 100%) translateY(-88px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(100%, 100%) translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes descriptionAppear {
+  0% {
+    transform: scale(100%, 100%) translateY(-22px);
     opacity: 0;
   }
 
@@ -70,13 +82,8 @@ ol {
       rgba(119, 85, 0, 1) 13.5%,
       rgba(119, 85, 0, 1) 92%,
       rgba(37, 37, 37, 1) 100%);
-
   gap: 150px;
   transition: all 0.25s;
-}
-
-.categories.active {
-
 }
 
 ol.step-1 {
@@ -175,16 +182,6 @@ li .point.active {
   transition: all 0.30s;
 }
 
-/* li .point#point-1 {
-  top: -11px;
-  left: -27.45%;
-  width: 20px;
-  height: 20px;
-  border: 4px solid #eca900;
-  border-radius: 20px;
-  background: white;
-} */
-
 li .annee.active {
   color: #eca900;
 }
@@ -204,7 +201,7 @@ li .vl.active {
   opacity: 1;
   transition: all 0.35s;
 
-  animation: Test 500ms ease-in-out;
+  animation: traitAppear 500ms ease-in-out;
 }
 
 ul.descriptionContainer {
@@ -231,6 +228,7 @@ ul li p.description.active {
   position: absolute;
   opacity: 1;
   transition: all 0.35s;
+  animation: descriptionAppear 600ms ease-in-out;
 }
 
 li span.pointBas {
@@ -253,7 +251,7 @@ li span.pointBas.active {
   opacity: 1;
   transition: all 0.35s;
 
-  animation: Test2 500ms ease-in-out;
+  animation: rondAppear 500ms ease-in-out;
 }
 
 #bouton-retour:hover {
@@ -271,8 +269,6 @@ li span.pointBas.active {
   transition: all 0.15s;
   width: 60px;
   height: 60px;
-
-  animation: rotateTest 1s ease-in-out infinite;
 }
 
 #bouton-retour-hover {
@@ -284,6 +280,4 @@ li span.pointBas.active {
   transition: all 0.15s;
   width: 60px;
   height: 60px;
-
-  animation: rotateTest 1s ease-in-out infinite;
 }

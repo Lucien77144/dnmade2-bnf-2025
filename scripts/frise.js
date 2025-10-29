@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
   descriptions = document.getElementsByClassName('description')
   pointsBas = document.getElementsByClassName('pointBas')
 
-  console.log(points)
   for (let i = 0; i < points.length; i++) {
     let point = points[i];
     let annee = annees[i];
@@ -41,12 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let pointBas = pointsBas[i];
     point.addEventListener('click', function () {
 
-      changerEtat(point, annee, tiret, description, pointBas)
-      // gsap.to(
-      //   ".categories.active", {
-      //     scale: 2,
-      //   }
-      // )
+      changerEtat(point, annee, tiret, description, pointBas);
     })
   }
 })
