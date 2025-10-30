@@ -43,7 +43,7 @@ function pageGameInit() {
   const gameScene = document.getElementById('game-scene')
 
 
-  backButton.addEventListener('click', () => {
+  backButton.addEventListener('touchstart', () => {
     console.warn('Implement back navigation')
     removeGems();
     introWindow.style.display = 'block';
@@ -51,17 +51,19 @@ function pageGameInit() {
     //window.location.href = 'library.html';
   })
 
-  closeButton.addEventListener('click', () => {
+  closeButton.addEventListener('touchstart', () => {
     console.warn('Implement close navigation')
     //window.location.href = 'library.html';
   })
 
-  startButton.addEventListener('click', () => {
+  startButton.addEventListener('touchstart', () => {
     introWindow.style.display = 'none'
     gameScene.style.display = 'block'
 
     addGems()
   })
+
+
 }
 
 
@@ -81,7 +83,7 @@ function addGems() {
 
       const infoButton = document.createElement('img')
       infoButton.classList.add('infoButton')
-      infoButton.src = '/public/images/ui/info-button.svg'
+      infoButton.src = '../../public/images/ui/info-button.svg'
 
       infoButton.addEventListener('click', () => {
         const gemIndex = JSON.parse(gemContent.getAttribute('data-gemcontentid'));
