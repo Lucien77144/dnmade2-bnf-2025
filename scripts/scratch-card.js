@@ -214,15 +214,27 @@ function move(e) {
 
 
         pe_cercles.forEach((cercle, i) => {
-            cercle.addEventListener("touchstart", (event)=> {
-                const currentActive = cercle.classList.contains("active_zoom");
-                // debugger;
-                if (currentActive === event.target.closest(".pe_cercle_invisible")) {
-                    currentActive.classList.remove("active_zoom")
-                } else {
-                    event.target.closest(".pe_cercle_invisible").classList.add("active_zoom")
-                }
-                console.log ("cercle cliqué :", i);
+            cercle.addEventListener("touchstart", (event) => {
+                // const currentActive = cercle.classList.contains("active_zoom");
+                // // debugger;
+                // if (currentActive === event.target.closest(".pe_cercle_invisible")) {
+                //     currentActive.classList.remove("active_zoom")
+                // } else {
+                //     event.target.closest(".pe_cercle_invisible").classList.add("active_zoom")
+                // }
+                // console.log ("cercle cliqué :", i);
+
+                
+                const modals = document.querySelectorAll(".img_gratte_invisible");
+                Array.from(modals).forEach(modal => {
+                    modal.classList.remove('active_zoom');
+                })
+
+                const clickedCircle = event.target.closest(".pe_cercle_invisible");
+                const clickedCircleId = clickedCircle.id.split('pe_cercle_invisible_')[1];
+                const clickedCircleModal = document.getElementById(`pe_modal_grand_${clickedCircleId}`);
+                clickedCircleModal.classList.add('active_zoom');
+                
 
                 // const cercleAvecClass = document.querySelectorAll(".img_gratte_invisible.active_zoom");
                 // Array.from(cercleAvecClass).forEach((el) => {
