@@ -211,16 +211,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function pe_selection_modal() {
-    const pe_cercles = document.querySelectorAll('.pe_cercle_invisible')
-    const img_gratte_invisible = document.querySelectorAll(
-      '.img_gratte_invisible'
-    )
-    console.log('cercles trouvés :', pe_cercles.length)
-    console.log('images trouvées :', img_gratte_invisible.length)
-
-    pe_cercles.forEach((cercle, i) => {
-      cercle.addEventListener('touchstart', (event) => {
+const display_modale = (event) => {
         const modals = document.querySelectorAll('.img_gratte_invisible')
 
         // on recupere l'id d'une eventuelle modal active
@@ -250,7 +241,19 @@ window.addEventListener('DOMContentLoaded', () => {
           )
           clickedCircleModal.classList.add('active_zoom')
         }
-      })
+      }
+
+
+  function pe_selection_modal() {
+    const pe_cercles = document.querySelectorAll('.pe_cercle_invisible')
+    const img_gratte_invisible = document.querySelectorAll(
+      '.img_gratte_invisible'
+    )
+    console.log('cercles trouvés :', pe_cercles.length)
+    console.log('images trouvées :', img_gratte_invisible.length)
+
+    pe_cercles.forEach((cercle, i) => {
+      cercle.addEventListener('touchstart', display_modale)
     })
 
     const modal_backdrop_1 = document.getElementById(
