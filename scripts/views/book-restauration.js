@@ -2,6 +2,7 @@ const viewBookRestauration = document.querySelector('section#view-book-restaurat
 const viewEndingScreen = document.querySelector('section#view-ending-screen')
 const gemsList = document.querySelectorAll('.gems-list')
 const gameBook = document.querySelector('.game-book')
+const endingLinkButton = document.querySelector('.ending-link');
 
 let popup, popupNode;
 
@@ -11,6 +12,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   //viewEndingScreen.style.display = 'none';
   gsap.registerPlugin(Draggable)
   createPopup('#popup')
+
+  endingLinkButton.addEventListener('touchstart', () => {
+    console.warn('Implement ending link navigation')
+    window.location.href = '../9deplacementDansImage.html';
+  })
 
   pageGameInit()
 })
@@ -48,12 +54,13 @@ function pageGameInit() {
     removeGems();
     introWindow.style.display = 'block';
     viewEndingScreen.classList.remove('end-overlay-active')
+    //document.querySelector('.game-emplacement-gems').style.display = 'unset';
     //window.location.href = 'library.html';
   })
 
   closeButton.addEventListener('touchstart', () => {
     console.warn('Implement close navigation')
-    //window.location.href = 'library.html';
+    window.location.href = '../../index.html';
   })
 
   startButton.addEventListener('touchstart', () => {
@@ -227,4 +234,5 @@ function checkCompletion() {
 function endScene() {
   console.log('End scene triggered');
   viewEndingScreen.classList.add('end-overlay-active')
+  //document.querySelector('.game-emplacement-gems').style.display = 'none';
 }

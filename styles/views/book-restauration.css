@@ -83,6 +83,7 @@
     background-color: black;
     background-position: center center;
     background-size: cover;
+    z-index: 0;
 
     & header {
         display: flex;
@@ -198,6 +199,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    pointer-events: none;
 }
 
 .emplacement-gems{
@@ -475,6 +477,7 @@ section#view-ending-screen{
     &.end-overlay-active {
         opacity: 1;
         transition: opacity 3s ease;
+        pointer-events: auto;
     }
     
 }
@@ -580,9 +583,6 @@ section#view-ending-screen{
   to { opacity: 1; }
 } */
 
-body {
-  background-color: black;
-}
 .fade-overlay {
   position: fixed;
   top: 0;
