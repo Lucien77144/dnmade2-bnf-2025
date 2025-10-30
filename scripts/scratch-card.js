@@ -215,47 +215,29 @@ function move(e) {
 
         pe_cercles.forEach((cercle, i) => {
             cercle.addEventListener("touchstart", (event) => {
-                // const currentActive = cercle.classList.contains("active_zoom");
-                // // debugger;
-                // if (currentActive === event.target.closest(".pe_cercle_invisible")) {
-                //     currentActive.classList.remove("active_zoom")
-                // } else {
-                //     event.target.closest(".pe_cercle_invisible").classList.add("active_zoom")
-                // }
-                // console.log ("cercle cliqué :", i);
-
-                
                 const modals = document.querySelectorAll(".img_gratte_invisible");
-                Array.from(modals).forEach(modal => {
-                    modal.classList.remove('active_zoom');
-                })
-
-                const clickedCircle = event.target.closest(".pe_cercle_invisible");
-                const clickedCircleId = clickedCircle.id.split('pe_cercle_invisible_')[1];
-                const clickedCircleModal = document.getElementById(`pe_modal_grand_${clickedCircleId}`);
-                clickedCircleModal.classList.add('active_zoom');
                 
-
-                // const cercleAvecClass = document.querySelectorAll(".img_gratte_invisible.active_zoom");
-                // Array.from(cercleAvecClass).forEach((el) => {
-                //     el.classList.remove("active_zoom")
-                // });
-
-                // event.target.closest(".pe_cercle_invisible").classList.add("active_zoom")
-
-
-
-                // const cercles_sansClass = document.querySelector(".pe_cercle_invisible:not(.active_zoom)");
+                // on recupere l'id d'une eventuelle modal active
+                const currentModalActive = document.querySelector(".img_gratte_invisible.active_zoom");
+                const currentModalActiveId = currentModalActive?.id.split('pe_modal_grand_')[1];
                 
+                // on recupere l'id du circle qui vient d'entre clické
+                const clickedCirle = event.target.closest(".pe_cercle_invisible");
+                const clickedCircleId = clickedCirle?.id.split('pe_cercle_invisible_')[1];
 
-                // if (!img_gratte_invisible[i].classList.contains("active_zoom")) {
-                //     img_gratte_invisible.forEach((modal, j) => {
-                //         modal.classList.remove("active_zoom");
-                //     });
-                //     img_gratte_invisible[i].classList.add("active_zoom");
-                // } else {
-                //     img_gratte_invisible[i].classList.remove("active_zoom");
-                // }
+                
+                if (currentModalActiveId === clickedCircleId) {
+                    // si on clique sur un cercle deja active
+                    currentModalActive.classList.remove("active_zoom");
+                } else {
+                    Array.from(modals).forEach(modal => {
+                        modal.classList.remove('active_zoom');
+                    });
+
+                    // on ajoute la classe active sur la modal dont l'id est relié à celui du cercle cliqué
+                    const clickedCircleModal = document.getElementById(`pe_modal_grand_${clickedCircleId}`);
+                    clickedCircleModal.classList.add('active_zoom');
+                }
             });
         });
 
