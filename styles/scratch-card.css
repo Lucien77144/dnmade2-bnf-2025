@@ -19,13 +19,13 @@ body {
   user-select: none;
 }
 
-#main_gif{
+#main{
   position: absolute;
       top: 65%;
     left: 45%;
   width: 10%;
   z-index: 100;
-  animation: mouv_gif 4s ease-in-out forwards ;
+  animation: mouv_gif 4s ease-in-out infinite ;
 }
 
 @keyframes mouv_gif {
