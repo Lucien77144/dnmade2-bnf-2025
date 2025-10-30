@@ -1,9 +1,9 @@
-let json
+/* let json
 fetch('../public/data/step-1.json')
   .then((response) => response.json())
   .then((step1) => {
     json = step1
-  })
+  }) */
 
 document.addEventListener('DOMContentLoaded', start)
 
@@ -22,7 +22,7 @@ function start() {
   
   // Créer l'élément vidéo/GIF
   const videoGif = document.createElement('img')
-  videoGif.src = '../img/HandAnimationFinal-2.gif' // Remplacez par le chemin de votre GIF
+  videoGif.src = '../public/images/HandAnimationFinal-2.gif' // Remplacez par le chemin de votre GIF
   videoGif.alt = 'Animation'
   videoGif.style.display = 'none'
   videoGif.classList.add('video-gif')
