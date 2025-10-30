@@ -227,6 +227,12 @@
     z-index: 1;
     top: 5rem;
     right: 38rem;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.gem-hide{
+    opacity: 0;
 }
 
 
@@ -567,3 +573,4 @@ section#view-ending-screen{
 .ending-link-fingerprint{
     width: 5rem;
 }
+

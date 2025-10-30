@@ -63,6 +63,10 @@ function pageGameInit() {
 }
 
 
+
+
+
+
 function addGems() {
   let count = 0;
   gemsList.forEach((value, i) => {
@@ -106,6 +110,13 @@ function addGems() {
 
       value.appendChild(gemContent)
 
+
+      //const calque = document.createElement('img');
+      const calque = new Image();
+      calque.src = popUpData.gemID[count].emplacement;
+      calque.classList.add('emplacement-gems', 'gem-hide');
+      document.querySelector('.game-emplacement-gems').appendChild(calque)
+
       const overlapThreshold = '70%'
       /* Init Draggable zone position */
 
@@ -123,6 +134,7 @@ function addGems() {
 
       let startBox;
       let endBox;
+
 
       Draggable.create(gemImageDraggable, {
         inertia: true,
@@ -156,13 +168,13 @@ function addGems() {
               // top: endBox.top - endBox.height / 2,
               left: endBox.left - (endBox.width - startBox.width * 0.5) / 2,
               top: endBox.top - (endBox.height - startBox.height * 0.5) / 2,
-              duration: 1,
-              scale: 0.7,
+              duration: 0.1,
+              scale: 0,
               rotate: 0,
-              ease: 'elastic.out(.45)',
             })
             gemImageDraggable.setAttribute('data-in-box', 'true');
             droppableZone.classList.remove('droppable-zone');
+            calque.classList.remove('gem-hide');
             checkCompletion();
           } else {
             gsap.to(gemImageDraggable, {
