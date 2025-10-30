@@ -320,6 +320,11 @@ border: 2.5px solid #ffffff;
   }
 }
 
+.active_zoom {
+  display: flex;
+  gap: 30px;
+}
+
 .rattrapage_lo {
   display: flex;
   align-items: center;
