@@ -2,23 +2,23 @@
 
 @font-face {
     font-family: 'Injurial';
-    src: url('../../public/fonts/Injurial/205TF-Injurial-Regular.otf') format('opentype');
+    src: url('/public/fonts/Injurial/205TF-Injurial-Regular.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'Injurial-ttf';
-    src: url('../../public/fonts/Injurial/205TF-Injurial-Regular.ttf') format('opentype');
+    src: url('/public/fonts/Injurial/205TF-Injurial-Regular.ttf') format('opentype');
 }
 
 
 @font-face {
     font-family: 'VelinoText-Thin';
-    src: url('../../public/fonts/VELINO Text/VelinoText-Thin.otf') format('opentype');
+    src: url('/public/fonts/VELINO Text/VelinoText-Thin.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'VelinoText-ThinItalic';
-    src: url('../../public/fonts/VELINO Text/VelinoText-ThinItalic.otf') format('opentype');
+    src: url('/public/fonts/VELINO Text/VelinoText-ThinItalic.otf') format('opentype');
 }
 
 .intro-window {
@@ -100,7 +100,7 @@
     justify-content: center;
     align-items: center;
 
-    background-image: url('../../public/images/game/background-table-book.png');
+    background-image: url('/public/images/game/background-table-book.png');
     background-color: black;
     background-position: center center;
     background-size: cover;
@@ -146,7 +146,7 @@
     position: relative;
 
     /* background-color: gold; */
-    background-image: url('../../public/images/game/book-front-shadow.png');
+    background-image: url('/public/images/game/book-front-shadow.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;

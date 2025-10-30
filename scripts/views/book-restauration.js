@@ -81,7 +81,7 @@ function addGems() {
 
       const infoButton = document.createElement('img')
       infoButton.classList.add('infoButton')
-      infoButton.src = '../../public/images/ui/info-button.svg'
+      infoButton.src = '/public/images/ui/info-button.svg'
 
       infoButton.addEventListener('click', () => {
         const gemIndex = JSON.parse(gemContent.getAttribute('data-gemcontentid'));
