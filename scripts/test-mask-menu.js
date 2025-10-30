@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let SideChapelleHomepage = document.querySelector("#chapelle-div");
 SideChapelleHomepage.addEventListener('click', () => {
   let videoTuto = document.createElement('video');
-  videoTuto.src = '../public/videos/video_tuto.mp4';
+  videoTuto.src = './public/videos/video_tuto.mp4';
   videoTuto.autoplay = true;
   videoTuto.style.position = "fixed";
   videoTuto.style.top = 0;
@@ -17,7 +17,7 @@ SideChapelleHomepage.addEventListener('click', () => {
 
   videoTuto.addEventListener('ended', () => {
     document.body.removeChild(videoTuto);
-    window.location.href = 'html/brush.html';
+    window.location.href = 'view/html/brush.html';
 
 
   });
