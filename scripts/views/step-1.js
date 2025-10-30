@@ -1,4 +1,4 @@
-
+/* 
 let json
 fetch('../public/data/step-1.json')
 .then((Response) => Response.json())
@@ -7,14 +7,14 @@ json=step1
 })
 document.addEventListener('DOMContentLoaded', () => {
   start()
-})
+}) */
 
 function start() {
   const imgContainer = document.querySelector('.image')
   const mainImage = document.getElementById('mainImage')
 
   const sideImage = document.createElement('img')
-  sideImage.src = '../img/zoom.webp'
+  sideImage.src = '../public/images/zoom.webp'
   sideImage.alt = 'Deuxième manuscrit'
   sideImage.style.display = 'none'
   sideImage.classList.add('side-image')
