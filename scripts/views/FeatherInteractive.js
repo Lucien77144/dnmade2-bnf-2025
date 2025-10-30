@@ -83,12 +83,12 @@ function start() {
           })
           
           // Cacher le GIF après 3 secondes (optionnel)
-          setTimeout(() => {
+/*           setTimeout(() => {
             videoGif.style.opacity = 0
             setTimeout(() => {
               videoGif.style.display = 'none'
             }, 500)
-          }, 10000)
+          }, 5000) */
           
         }, 1500)
       }
@@ -105,6 +105,8 @@ function start() {
         sideImage.style.transform = 'scale(1) rotate(0deg)'
       })
       visible = true
+
+      videoGif.style.display = "none" ;
     }
   })
   
@@ -116,6 +118,8 @@ function start() {
         sideImage.style.display = 'none'
       }, 400)
       visible = false
+
+      videoGif.style.display = "flex" ;
     }
   })
 }
