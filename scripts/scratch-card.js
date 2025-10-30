@@ -92,6 +92,30 @@ window.addEventListener("DOMContentLoaded", () => {
         scalpel_lo.style.left = `${clientX - 50}px`;
         scalpel_lo.style.transform = `rotate(45deg)`;
 
+
+        drawing_am = true;
+        const { x, y } = getCoords(e);
+
+        lastX_am = x;
+        lastY_am = y;
+}
+
+function move(e) {
+
+    let clientX, clientY;
+    if (e.touches && e.touches.length > 0) { // SI on est en touch
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+    } else {
+        clientX = e.clientX;
+        clientY = e.clientY;
+    }
+
+    scalpel_lo.style.top = `${clientY + 140}px`;
+    scalpel_lo.style.left = `${clientX - 50}px`;
+    scalpel_lo.style.transform = `rotate(45deg)`;
+
+        if (!drawing_am) return;
         
             if (!drawing_am) return;
             
