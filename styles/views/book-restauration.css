@@ -489,6 +489,15 @@ section#view-ending-screen{
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    opacity: 0;
+    z-index: 5;
+    pointer-events: none;
+
+    &.end-overlay-active {
+        opacity: 1;
+        transition: opacity 3s ease;
+    }
+    
 }
 
 .ending-reliure{
@@ -572,5 +581,38 @@ section#view-ending-screen{
 
 .ending-link-fingerprint{
     width: 5rem;
+}
+
+.fade-overlay {
+  position: fixed;
+  inset: 0; /* équivaut à top:0; right:0; bottom:0; left:0; */
+  background-color: rgba(0, 0, 0, 0.85);
+  opacity: 0;
+  z-index: 30; /* au-dessus de tout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  /* animation: fadeInOverlay 1.5s ease forwards; */
+}
+
+/* @keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+} */
+
+body {
+  background-color: black;
+}
+.fade-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
 }
 

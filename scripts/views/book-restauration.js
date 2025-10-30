@@ -6,8 +6,9 @@ const gameBook = document.querySelector('.game-book')
 let popup, popupNode;
 
 document.addEventListener('DOMContentLoaded', async () => {
-  viewBookRestauration.style.display = 'flex';
-  viewEndingScreen.style.display = 'none';
+  //viewBookRestauration.style.display = 'flex';
+  //viewEndingScreen.style.display = 'none';
+  //viewEndingScreen.style.display = 'none';
   gsap.registerPlugin(Draggable)
   createPopup('#popup')
 
@@ -46,6 +47,7 @@ function pageGameInit() {
     console.warn('Implement back navigation')
     removeGems();
     introWindow.style.display = 'block';
+    viewEndingScreen.classList.remove('end-overlay-active')
     //window.location.href = 'library.html';
   })
 
@@ -222,6 +224,5 @@ function checkCompletion() {
 
 function endScene() {
   console.log('End scene triggered');
-  viewBookRestauration.style.display = 'none';
-  viewEndingScreen.style.display = 'flex';
+  viewEndingScreen.classList.add('end-overlay-active')
 }
