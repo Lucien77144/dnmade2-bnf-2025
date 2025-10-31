@@ -182,7 +182,7 @@ header{
    display: flex;
    position: absolute;
    top: 0px;
-   z-index: 0;
+   z-index: 1000;
 }
 
 @font-face {
