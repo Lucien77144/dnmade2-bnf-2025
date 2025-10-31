@@ -55,3 +55,12 @@ body {
     margin-top: 60px;
     overflow: hidden;
 }
+#logo_BnF {
+  width: 120px !important;
+} 
+
+#logo {
+  position: absolute;
+  bottom: 5% !important;
+  right: 5% !important;
+} 
