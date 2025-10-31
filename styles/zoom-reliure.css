@@ -63,13 +63,13 @@ body {
   /* 55px de base --- +40px right */
 }
 
-/* h1 {
-  font-family: "VelinoText-Medium";
+/*
+h1 {
+  /* font-family: "VelinoText-Medium";
   line-height: 1.15;
   letter-spacing: normal;
   font-size: 30px;
   color: #ffffff;
-
   display: flex;
   position: relative;
   justify-content: end;
