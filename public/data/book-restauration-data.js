@@ -29,7 +29,7 @@ const popUpData = {
             "image": "../../public/images/game/gems/spinelle.png",
             "text": "Même si elles sont assez proches en taille et en couleur, les pierres roses sont de plusieurs types : des rubis ou des saphirs (corindon ou oxyde d’aluminium coloré par le chrome) et des spinelles (oxyde de magnésium et d’aluminium). Elles symbolisent souvent l’amour divin, le martyre et la Passion du Christ.",
             "dropbox": [47, 9],
-            "emplacement": "../../public/images/game/gems/emplacement-rubis.png",
+            "emplacement": "../../public/images/game/gems/emplacement-spinelles.png",
         },
         {
             "name": "Perle",
