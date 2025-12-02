@@ -17,7 +17,8 @@ span.jaune {
       font-size:32px;
       position:absolute;
       top:60%;
-      right:1%;
+      right:4.8%;
+      text-align:center;
 }
 
 @font-face {

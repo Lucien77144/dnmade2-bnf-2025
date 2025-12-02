@@ -102,7 +102,7 @@ function drop(e) {
 
                    let textFinish = document.createElement("p");
         textFinish.className = "text_finish"
-        textFinish.innerHTML = `Bravo !<br />Vous pouvez passer à la suite.`
+        textFinish.innerHTML = `Bravo ! Vous pouvez<br />passer à la suite.`
         document.body.appendChild(textFinish);
 
         textFinish.style.display = "flex"
