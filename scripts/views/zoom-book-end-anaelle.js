@@ -283,6 +283,15 @@ window.addEventListener('DOMContentLoaded', () => {
           previewSpanEl.style.top = `${clamp(posY,5,85)}%`
           }
 
+          console.log(posX, posY);
+          if(/* posX > 50 &&  */posY < 20){
+            previewBookContainerEl.style.opacity = '0.4';
+          }
+          else{
+            previewBookContainerEl.style.opacity = '1';
+          }
+            
+
 
         }
       },

@@ -1,4 +1,4 @@
-body{
+  body{
   margin: 0;
 }
 
@@ -133,7 +133,8 @@ animation: spinInfinite 3s infinite ease-in-out;
     top:5%;
     right:2%;
     border:5% solid black;
-    background-color: rgba(0, 0, 0, 0.497)
+    background-color: rgba(0, 0, 0, 0.497);
+    transition: opacity 0.3s ease-in-out;
 }
 
 #zoom-book-end-preview img{
