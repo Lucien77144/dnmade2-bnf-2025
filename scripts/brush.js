@@ -2,10 +2,11 @@ const brush = document.getElementById('brush');
 const reveal = document.getElementById('revealImage');
 const circle = document.getElementById('circle');
 const popup = document.getElementById('popup');
-const main = document.getElementById('main'); // le GIF de la main
+const main_brush = document.getElementById('main'); // le GIF de la main
 let animating = false;
 
 brush.addEventListener('click', () => {
+  
   if (animating) return;
   animating = true;
 
@@ -34,8 +35,14 @@ brush.addEventListener('click', () => {
   }, 4500);
 });
 
+
+
 // clic sur le cercle => popup visible
 circle.addEventListener('click', () => {
+  setTimeout(() => {
+    main_brush.style.transition = 'opacity 1s';
+    main_brush.style.opacity = '0';
+  }, 5000);
   popup.classList.add('visible');
 });
 
