@@ -31,8 +31,8 @@ function start() {
   let visible = false
   let overlayAnimating = false
   let featherUsed = false
-  
-  feather.addEventListener('click', () => {
+
+  feather.addEventListener('touchstart', () => {
     if (overlayAnimating) return
     overlayAnimating = true
     feather.style.cursor = 'default'

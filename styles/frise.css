@@ -181,7 +181,7 @@ li .point {
       width: 100px;
       height: 100px;
       border-radius: 100px;
-      background: radial-gradient(circle at center, rgba(222, 180, 75, 0.6), transparent 60%);
+      background: radial-gradient(circle at center, rgba(222, 180, 75, 0.8), transparent 60%);
       animation: timeline-pulse 3s infinite;
     }
 }
