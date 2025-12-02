@@ -97,8 +97,8 @@ h1 {
 .text_yellow{
   position:absolute;
   display:flex;
-  left:42%;
-  top:65%;
+  left:40.7%;
+  top:45%;
   font-family: 'VelinoText-Light';
   font-size: 32px;
   color: #eca900;
@@ -114,14 +114,10 @@ h1 {
   right: 5% !important;
 } 
 
-
-
-
-
 .bouton-termine {
   display: block;
   position: absolute;
-  bottom: 460px;
+  bottom: 180px;
   left: 1520px;
   width: 300px;
   height: 100px;
@@ -232,7 +228,7 @@ h1 {
 }
 
 .bleu2 {
-  top: 654px;
+  top: 532px;
   left: 1525px;
   width: 15%;
   z-index: 5;
@@ -248,7 +244,7 @@ h1 {
 }
 
 .femme2 {
-  top: 654px;
+  top: 532px;
   left: 1525px;
   width: 15%;
   z-index: 5;
@@ -264,7 +260,7 @@ h1 {
 }
 
 .jesus2 {
-  top: 654px;
+  top: 532px;
   left: 1525px;
   width: 15%;
   z-index: 5;
@@ -280,7 +276,7 @@ h1 {
 }
 
 .bas2 {
-  top: 654px;
+  top: 532px;
   left: 1525px;
   width: 15%;
   z-index: 5;
