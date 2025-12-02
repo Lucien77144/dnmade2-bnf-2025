@@ -4,6 +4,7 @@ const dropzones = document.querySelectorAll('.dropzone');
 let draggedGem = null;
 let offsetX = 0;
 let offsetY = 0;
+let allDropZonesOccupied = true;
 
 gems.forEach(gem => {
     const computedStyle = getComputedStyle(gem);
@@ -88,7 +89,6 @@ function drop(e) {
         }
     });
 
-    let allDropZonesOccupied = true;
     dropzones.forEach(zone => {
         if (!zone.classList.contains('occupied')) {
             allDropZonesOccupied = false;
@@ -189,3 +189,16 @@ window.addEventListener('load', () => {
         }, { passive: false });
     });
 });
+
+           let textFinish = document.createElement("p");
+        textFinish.className = "text_finish"
+        textFinish.innerHTML = `Bravo !<br />Vous pouvez passer à la suite.`
+        document.body.appendChild(textFinish);
+
+        textFinish.style.display = "none"
+
+               if(allDropZonesOccupied == false){
+            textFinish.style.display = "flex"
+        }
+
+        console.log(allDropZonesOccupied);

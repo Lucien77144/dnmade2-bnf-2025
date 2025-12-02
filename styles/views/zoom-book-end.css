@@ -27,7 +27,7 @@ animation: spinInfinite 3s infinite ease-in-out;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-    background-image: url(../../public/images/fond.png);
+    background-image: url(../../public/images/game/fond_jeu.png);
 }
 
 #zoom-book-end-container {

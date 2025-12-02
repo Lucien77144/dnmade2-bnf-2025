@@ -11,6 +11,15 @@ span.jaune {
    display: block;
    margin-top: 10px;
 }
+
+.text_finish{
+      color: #ECA900;
+      font-size:32px;
+      position:absolute;
+      top:60%;
+      right:1%;
+}
+
 @font-face {
    font-family: 'VelinoText-Medium';
    src: url(/public/fonts/VelinoText-Medium.otf) format('opentype');
