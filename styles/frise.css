@@ -182,11 +182,11 @@ li .point {
       height: 100px;
       border-radius: 100px;
       background: radial-gradient(circle at center, rgba(222, 180, 75, 0.6), transparent 60%);
-      animation: pulse 3s infinite;
+      animation: timeline-pulse 3s infinite;
     }
 }
 
-@keyframes pulse {
+@keyframes timeline-pulse {
   0% {
     transform: scale(0.4);
     opacity: 0;
