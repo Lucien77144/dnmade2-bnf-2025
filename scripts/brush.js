@@ -27,6 +27,8 @@ brush.addEventListener('click', () => {
       main.classList.add('visible');
     }, 1000);
 
+    document.querySelector('#point-3').classList.add('next');
+
   }, 4000);
 
   // réinitialisation animating
