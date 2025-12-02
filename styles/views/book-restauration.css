@@ -37,7 +37,7 @@
 }
 
 .start-btn img{
-    width: 180px;
+    width: 240px;
     height: auto;
 }
 
@@ -520,8 +520,6 @@ section#view-ending-screen{
 .ending-congrats{    
     display: flex;
     flex-direction: column;
-    text-align: center;
-    justify-content: center;
     position: absolute;
     margin-left: -48rem;
     width: 30%;
@@ -536,10 +534,12 @@ section#view-ending-screen{
     font-family:"Injurial";
     color:rgb(255, 179, 0);
     padding-bottom: 1rem;
+    margin: 40px 40px 15px 40px;
 }
 
 .ending-text{
-    font-size: 21px;
+    font-size: 32px;
+    margin-left:40px;
     font-family: 'VelinoText-ThinItalic';
     color:white;
 }
@@ -550,17 +550,17 @@ section#view-ending-screen{
     align-items: center;
     position: absolute;
     top: 88%;
-    left: 81%;
+    left: 72%;
     z-index: 5;
-
 }
 
 .ending-link-text{
-    margin-right: 19px;
+    margin-right: 22px;
+    font-size:32px;
 }
 
 .ending-link-fingerprint{
-    width: 5rem;
+    width: 5.5rem;
 }
 
 .fade-overlay {
