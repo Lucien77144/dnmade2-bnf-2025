@@ -5,8 +5,8 @@ const popup = document.getElementById('popup');
 const main_brush = document.getElementById('main'); // le GIF de la main
 let animating = false;
 
-brush.addEventListener('click', () => {
-  
+brush.addEventListener('touchstart', () => {
+
   if (animating) return;
   animating = true;
 

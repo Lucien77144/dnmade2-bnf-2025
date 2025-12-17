@@ -5,6 +5,7 @@ const gameBook = document.querySelector('.game-book')
 const endingLinkButton = document.querySelector('.ending-link');
 
 let popup, popupNode;
+let isInGame = false;
 
 document.addEventListener('DOMContentLoaded', async () => {
   //viewBookRestauration.style.display = 'flex';
@@ -49,7 +50,13 @@ function pageGameInit() {
   const gameScene = document.getElementById('game-scene')
 
 
-  backButton.addEventListener('touchstart', () => {
+  backButton.addEventListener('click', () => {
+    if(!isInGame) {
+      console.warn('Implement close navigation')
+      window.location.href = '../../index.html';
+    }
+
+
     console.warn('Implement back navigation')
     removeGems();
     introWindow.style.display = 'block';
@@ -58,7 +65,7 @@ function pageGameInit() {
     //window.location.href = 'library.html';
   })
 
-  closeButton.addEventListener('touchstart', () => {
+  closeButton.addEventListener('click', () => {
     console.warn('Implement close navigation')
     window.location.href = '../../index.html';
   })
@@ -68,6 +75,7 @@ function pageGameInit() {
     gameScene.style.display = 'block'
 
     addGems()
+    isInGame = true;
   })
 
 
@@ -79,152 +87,155 @@ function pageGameInit() {
 
 
 function addGems() {
+  document.querySelector('.game-emplacement-gems').innerHTML = '';
+
   let count = 0;
-  gemsList.forEach((value, i) => {
-    for (let j = 0; j < 3; j++) {
-      //const element = array[i];
-      const gemContent = document.createElement('div')
-      gemContent.classList.add('gemContent')
-      gemContent.setAttribute('data-gemcontentid', count)
-      gemContent.setAttribute('data-gemColumn', i)
+  for (let i = 0; i < 5; i++) {
+    //const element = array[i];
+    const gemContent = document.createElement('div')
+    gemContent.classList.add('gemContent')
+    gemContent.setAttribute('data-gemcontentid', i)
+    gemContent.setAttribute('data-gemColumn', i)
 
-      const infoButton = document.createElement('img')
-      infoButton.classList.add('infoButton')
-      infoButton.src = '../../public/images/ui/info-button.svg'
+    const infoButton = document.createElement('img')
+    infoButton.classList.add('infoButton')
+    infoButton.src = '../../public/images/ui/info-button.svg'
 
-      infoButton.addEventListener('click', () => {
-        const gemIndex = JSON.parse(gemContent.getAttribute('data-gemcontentid'));
-        openPopup(gemIndex);
-      })
+    infoButton.addEventListener('click', () => {
+      const gemIndex = JSON.parse(gemContent.getAttribute('data-gemcontentid'));
+      openPopup(gemIndex);
+    })
 
-      gemContent.appendChild(infoButton)
+    gemContent.appendChild(infoButton)
 
-      //const gemImages = document.createElement('div')
-      const gemImageDraggable = document.createElement('img')
-      const gemImageGhost = document.createElement('img')
+    //const gemImages = document.createElement('div')
+    const gemImageDraggable = document.createElement('img')
+    const gemImageGhost = document.createElement('img')
 
-      const imageUrl = popUpData.gemID[count].image;
-      gemImageDraggable.src = imageUrl;
-      gemImageGhost.src = imageUrl;
-      
-      /* const position = gemImageDraggable.getBoundingClientRect()
-      gemImageDraggable.style.top = position.top + 'px'
-      gemImageDraggable.style.left = position.left + 'px' */
+    const imageUrl = popUpData.gemID[i].image;
+    gemImageDraggable.src = imageUrl;
+    gemImageGhost.src = imageUrl;
+    
+    /* const position = gemImageDraggable.getBoundingClientRect()
+    gemImageDraggable.style.top = position.top + 'px'
+    gemImageDraggable.style.left = position.left + 'px' */
 
-      gemImageDraggable.setAttribute('data-gemid', count)
-      gemImageDraggable.setAttribute('data-in-box', 'false')
-      gemImageDraggable.classList.add('gem-draggable', 'gem')
-      gemImageGhost.classList.add('gem-ghost', 'gem')
+    gemImageDraggable.setAttribute('data-gemid', i)
+    gemImageDraggable.setAttribute('data-in-box', 'false')
+    gemImageDraggable.classList.add('gem-draggable', 'gem')
+    gemImageGhost.classList.add('gem-ghost', 'gem')
 
-      if (count==0){
-        gemImageDraggable.style.height = "12vmin"
-        gemImageGhost.style.height = "12vmin"
-      }
-
-      if (count==1){
-        gemImageDraggable.style.height = "13vmin"
-        gemImageGhost.style.height = "13vmin"
-      }
-
-      if (count==3){
-        gemImageDraggable.style.height = "9vmin"
-        gemImageGhost.style.height = "9vmin"
-      }
-
-      if (count==4){
-        gemImageDraggable.style.height = "9vmin"
-        gemImageGhost.style.height = "9vmin"
-      }
-      
-
-      gemContent.appendChild(gemImageGhost)
-      gemContent.appendChild(gemImageDraggable)
-
-      value.appendChild(gemContent)
-
-
-      //const calque = document.createElement('img');
-      const calque = new Image();
-      calque.src = popUpData.gemID[count].emplacement;
-      calque.classList.add('emplacement-gems', 'gem-hide');
-      document.querySelector('.game-emplacement-gems').appendChild(calque)
-
-      const overlapThreshold = '70%'
-      /* Init Draggable zone position */
-
-      const pos = popUpData.gemID[count].dropbox
-
-      const droppableZone = document.createElement('div')
-      droppableZone.setAttribute('data-droppable-for-gemid', count)
-      droppableZone.classList.add('droppable-zone')
-      droppableZone.style.position = 'fixed'
-      droppableZone.style.left = pos[0] + '%'
-      droppableZone.style.top = pos[1] + '%'
-      gameBook.appendChild(droppableZone)
-
-      /* Init draggable item */
-
-      let startBox;
-      let endBox;
-
-
-      Draggable.create(gemImageDraggable, {
-        inertia: true,
-        type: 'left,top',
-        onPress: function (e) {
-          if (gemImageDraggable.getAttribute('data-in-box') === 'true')
-            this.endDrag(e)
-        },
-
-        onDragStart: (e) => {
-          droppableZone.classList.add('halo-active')
-          gsap.to(gemImageDraggable, {
-            /* top: e.clientY - gemImageDraggable.height / 2,
-            left: e.clientX - gemImageDraggable.width / 2, */
-            duration: 0.1,
-            scale: 1.2,
-            rotate: 'random(-9,9)',
-            zIndex: 1,
-            /* position: 'fixed', */
-          })
-
-          startBox ??= gemImageDraggable.getBoundingClientRect();
-          endBox ??= droppableZone.getBoundingClientRect();
-        },
-
-        onDragEnd: function (e) {
-          droppableZone.classList.remove('halo-active')
-          if (this.hitTest(droppableZone, overlapThreshold)) {
-            gsap.to(gemImageDraggable, {
-              /* left: endBox.left - endBox.width / 2, */
-              // top: endBox.top - endBox.height / 2,
-              left: endBox.left - (endBox.width - startBox.width * 0.5) / 2,
-              top: endBox.top - (endBox.height - startBox.height * 0.5) / 2,
-              duration: 0.1,
-              scale: 0,
-              rotate: 0,
-            })
-            gemImageDraggable.setAttribute('data-in-box', 'true');
-            droppableZone.classList.remove('droppable-zone');
-            calque.classList.remove('gem-hide');
-            checkCompletion();
-          } else {
-            gsap.to(gemImageDraggable, {
-              left: startBox.left,
-              top: startBox.top,
-              duration: 0.7,
-              scale: 1,
-              rotate: 0,
-              ease: 'elastic.out(.45)',
-              /* position: 'unset', */
-            })
-          }
-        }, 
-      })
-
-      count++
+    if (i==0){
+      gemImageDraggable.style.height = "12vmin"
+      gemImageGhost.style.height = "12vmin"
     }
-  })
+
+    if (i==1){
+      gemImageDraggable.style.height = "13vmin"
+      gemImageGhost.style.height = "13vmin"
+    }
+
+    if (i==3){
+      gemImageDraggable.style.height = "9vmin"
+      gemImageGhost.style.height = "9vmin"
+    }
+
+    if (i==4){
+      gemImageDraggable.style.height = "9vmin"
+      gemImageGhost.style.height = "9vmin"
+    }
+    
+
+    gemContent.appendChild(gemImageGhost)
+    gemContent.appendChild(gemImageDraggable)
+
+
+    console.log(gemsList[popUpData.gemID[i].column], );
+
+    gemsList[popUpData.gemID[i].column].appendChild(gemContent)
+
+
+    //const calque = document.createElement('img');
+    const calque = new Image();
+    calque.src = popUpData.gemID[i].emplacement;
+    calque.classList.add('emplacement-gems', 'gem-hide');
+    document.querySelector('.game-emplacement-gems').appendChild(calque)
+
+    const overlapThreshold = '70%'
+    /* Init Draggable zone position */
+
+    const pos = popUpData.gemID[i].dropbox
+
+    const droppableZone = document.createElement('div')
+    droppableZone.setAttribute('data-droppable-for-gemid', i)
+    droppableZone.classList.add('droppable-zone')
+    droppableZone.style.position = 'fixed'
+    droppableZone.style.left = pos[0] + '%'
+    droppableZone.style.top = pos[1] + '%'
+    gameBook.appendChild(droppableZone)
+
+    /* Init draggable item */
+
+    let startBox;
+    let endBox;
+
+
+    Draggable.create(gemImageDraggable, {
+      inertia: true,
+      type: 'left,top',
+      onPress: function (e) {
+        if (gemImageDraggable.getAttribute('data-in-box') === 'true')
+          this.endDrag(e)
+      },
+
+      onDragStart: (e) => {
+        droppableZone.classList.add('halo-active')
+        gsap.to(gemImageDraggable, {
+          /* top: e.clientY - gemImageDraggable.height / 2,
+          left: e.clientX - gemImageDraggable.width / 2, */
+          duration: 0.1,
+          scale: 1.2,
+          rotate: 'random(-9,9)',
+          zIndex: 1,
+          /* position: 'fixed', */
+        })
+
+        startBox ??= gemImageDraggable.getBoundingClientRect();
+        endBox ??= droppableZone.getBoundingClientRect();
+      },
+
+      onDragEnd: function (e) {
+        droppableZone.classList.remove('halo-active')
+        if (this.hitTest(droppableZone, overlapThreshold)) {
+          gsap.to(gemImageDraggable, {
+            /* left: endBox.left - endBox.width / 2, */
+            // top: endBox.top - endBox.height / 2,
+            left: endBox.left - (endBox.width - startBox.width * 0.5) / 2,
+            top: endBox.top - (endBox.height - startBox.height * 0.5) / 2,
+            duration: 0.1,
+            scale: 0,
+            rotate: 0,
+          })
+          gemImageDraggable.setAttribute('data-in-box', 'true');
+          droppableZone.classList.remove('droppable-zone');
+          calque.classList.remove('gem-hide');
+          checkCompletion();
+        } else {
+          gsap.to(gemImageDraggable, {
+            left: startBox.left,
+            top: startBox.top,
+            duration: 0.7,
+            scale: 1,
+            rotate: 0,
+            ease: 'elastic.out(.45)',
+            /* position: 'unset', */
+          })
+        }
+      }, 
+    })
+
+    count++
+  }
 }
 
 function removeGems() {
@@ -237,6 +248,9 @@ function removeGems() {
   allGems.forEach((value, i) => {
     value.remove();
   });
+  
+  document.querySelector('.game-emplacement-gems').innerHTML = '';
+  isInGame = false;
 }
 
 
