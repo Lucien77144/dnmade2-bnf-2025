@@ -85,12 +85,12 @@ h1 {
   width: 90%;
   color: white;
   /* position: absolute; */
-
+  line-height: 38px;
   display: flex;
   position: relative;
   justify-content: end;
   flex-direction: row;
-  top: -745px;
+  top: -805px;
   right: -225px;
 }
 
@@ -98,7 +98,7 @@ h1 {
   position:absolute;
   display:flex;
   left:40.7%;
-  top:45%;
+  top:50%;
   font-family: 'VelinoText-Light';
   font-size: 32px;
   color: #eca900;

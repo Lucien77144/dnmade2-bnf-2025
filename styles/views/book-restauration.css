@@ -27,7 +27,7 @@
   font-family: 'VelinoText-Thin';
   font-size: 32px;
   color: white;
-  margin: 35px 55px;
+  margin: 60px 0px;
 }
 
 .start-btn {
@@ -522,8 +522,8 @@ section#view-ending-screen{
     flex-direction: column;
     position: absolute;
     margin-left: -48rem;
-    width: 30%;
-    height: 25%;
+    width: 31%;
+    height: 28%;
     background-color: rgb(0,0,0,0.8);
     border-radius: 20px;
     z-index: 2;
